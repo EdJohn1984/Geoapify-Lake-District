@@ -1,7 +1,4 @@
-osmnx==1.8.0
 networkx==3.2.1
-pandas==2.2.0
+matplotlib==3.8.2
 numpy==1.26.3
-geopy==2.4.1
-python-dotenv==1.0.0
-scikit-learn==1.4.1 
+pandas==2.1.4 
