@@ -12,8 +12,15 @@ def generate_route():
         num_days = data.get('num_days', 3)
         num_tries = data.get('num_tries', 200)
         
-        result = generate_hiking_route(num_days=num_days, num_tries=num_tries)
-        return jsonify(result)
+        # Get route data without map generation
+        result = generate_hiking_route(num_days=num_days, num_tries=num_tries, generate_map=False)
+        
+        # Format the response
+        response = {
+            'days': result['days'],
+            'coordinates': result['coordinates']  # This will be used by the client to generate the map
+        }
+        return jsonify(response)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

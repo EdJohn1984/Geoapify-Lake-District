@@ -1,16 +1,9 @@
 import requests
 import random
-import matplotlib.pyplot as plt
-import contextily as ctx
-from pyproj import Transformer
 import json
 from geopy.distance import geodesic
-import numpy as np
-from functools import lru_cache
 import os
 from datetime import datetime, timedelta
-import base64
-from io import BytesIO
 
 API_KEY = "01c9293b314a49979b45d9e0a5570a3f"
 # Lake District bounding box: west,south,east,north
@@ -21,7 +14,6 @@ CACHE_DIR = "cache"
 if not os.path.exists(CACHE_DIR):
     os.makedirs(CACHE_DIR)
 
-@lru_cache(maxsize=100)
 def get_scenic_points():
     """Fetch and cache scenic points."""
     cache_file = os.path.join(CACHE_DIR, "scenic_points.json")
@@ -58,95 +50,13 @@ def get_scenic_points():
     
     return scenic_info
 
-@lru_cache(maxsize=1000)
 def get_route(waypoints_str):
-    """Get route between waypoints with caching."""
+    """Get route between waypoints."""
     url = f"https://api.geoapify.com/v1/routing?waypoints={waypoints_str}&mode=hike&apiKey={API_KEY}"
     resp = requests.get(url)
     return resp.json()
 
-def generate_route_map(route_data, waypoints, scenic_points):
-    """Generate route map and return as base64 encoded image."""
-    # Transform coordinates
-    transformer = Transformer.from_crs("epsg:4326", "epsg:3857", always_xy=True)
-    
-    # Transform route coordinates
-    all_coords = [pt for leg in route_data['legs'] for pt in leg['coords']]
-    lats, lons = zip(*all_coords)
-    x, y = transformer.transform(lons, lats)
-    
-    # Transform waypoint coordinates
-    waypoint_x, waypoint_y = transformer.transform(
-        [p['geometry']['coordinates'][0] for p in waypoints],
-        [p['geometry']['coordinates'][1] for p in waypoints]
-    )
-    
-    # Transform scenic point coordinates
-    scenic_x = []
-    scenic_y = []
-    scenic_names = []
-    for scenic_point in scenic_points:
-        if scenic_point:
-            sx, sy = transformer.transform(
-                [scenic_point['coords'][1]],
-                [scenic_point['coords'][0]]
-            )
-            scenic_x.extend(sx)
-            scenic_y.extend(sy)
-            scenic_names.append(scenic_point['name'])
-    
-    # Create plot
-    plt.figure(figsize=(12, 10))
-    plt.plot(x, y, 'r-', label='Route')
-    
-    # Add direction arrows
-    for i in range(0, len(x)-1, max(1, len(x)//20)):
-        plt.arrow(x[i], y[i], x[i+1]-x[i], y[i+1]-y[i], 
-                 shape='full', lw=0, length_includes_head=True, 
-                 head_width=100, color='orange', alpha=0.5)
-    
-    # Plot waypoints
-    colors = ['blue', 'green', 'purple', 'orange']
-    for i, (wx, wy) in enumerate(zip(waypoint_x, waypoint_y)):
-        if i == 0:
-            label = f'Day 1 Start'
-        elif i == len(waypoint_x)-1:
-            label = f'Day {len(waypoint_x)-1} End'
-        else:
-            label = f'Day {i} End / Day {i+1} Start'
-        plt.scatter(wx, wy, c=colors[i%len(colors)], s=120, marker='o', 
-                   label=label, edgecolor='black', zorder=5)
-        plt.text(wx, wy, waypoints[i]['properties']['name'], 
-                fontsize=10, weight='bold', verticalalignment='bottom')
-    
-    # Plot scenic points
-    if scenic_x:
-        plt.scatter(scenic_x, scenic_y, c='red', s=100, marker='^', 
-                   label='Scenic Points', edgecolor='black', zorder=5)
-        for sx, sy, name in zip(scenic_x, scenic_y, scenic_names):
-            plt.text(sx, sy, name, fontsize=8, color='red', 
-                    verticalalignment='bottom')
-    
-    plt.title('Hiking Route (Geoapify)')
-    plt.xlabel('Longitude')
-    plt.ylabel('Latitude')
-    plt.legend()
-    
-    # Add basemap
-    ax = plt.gca()
-    ctx.add_basemap(ax, crs="epsg:3857", source=ctx.providers.OpenStreetMap.Mapnik)
-    ax.set_aspect('equal')
-    
-    # Save to buffer and convert to base64
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png', dpi=200, bbox_inches='tight')
-    buffer.seek(0)
-    image_base64 = base64.b64encode(buffer.getvalue()).decode()
-    plt.close()
-    
-    return image_base64
-
-def generate_hiking_route(num_days=3, num_tries=200):
+def generate_hiking_route(num_days=3, num_tries=200, generate_map=False):
     """Generate a hiking route and return the results as a dictionary."""
     try:
         # Load waypoints
@@ -160,6 +70,7 @@ def generate_hiking_route(num_days=3, num_tries=200):
         best_score = float('inf')
         best_result = None
         best_scenic_points = None
+        best_coordinates = None
         
         for _ in range(num_tries):
             candidate = random.sample(places, num_days+1)
@@ -174,7 +85,7 @@ def generate_hiking_route(num_days=3, num_tries=200):
                 wp = [waypoints[i], waypoints[i+1]]
                 wp_str = '|'.join([f"{lat},{lon}" for lat, lon in wp])
                 
-                # Get route with caching
+                # Get route
                 data = get_route(wp_str)
                 if not data['features']:
                     valid = False
@@ -243,26 +154,17 @@ def generate_hiking_route(num_days=3, num_tries=200):
                     best_itinerary = candidate
                     best_result = legs
                     best_scenic_points = scenic_points_used
+                    best_coordinates = full_route_coords
         
         if not best_itinerary:
             return {
                 'error': 'No valid itinerary found. Try increasing num_tries or relaxing constraints.'
             }
         
-        # Prepare route data
-        route_data = {
-            'legs': best_result,
-            'waypoints': best_itinerary,
-            'scenic_points': best_scenic_points
-        }
-        
-        # Generate map
-        map_image = generate_route_map(route_data, best_itinerary, best_scenic_points)
-        
         # Prepare response
         response = {
             'days': [],
-            'map_image': map_image
+            'coordinates': best_coordinates
         }
         
         for i in range(num_days):
@@ -307,4 +209,4 @@ if __name__ == "__main__":
             if 'scenic_detour' in day:
                 print(f"Scenic Detour: {day['scenic_detour']['name']} ({day['scenic_detour']['type']})")
         print("\n" + "=" * 50)
-        print("\nRoute map saved as geoapify_route.png") 
+        print("\nRoute coordinates saved as geoapify_route.json") 
