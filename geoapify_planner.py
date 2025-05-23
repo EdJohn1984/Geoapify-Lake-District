@@ -39,10 +39,10 @@ def get_waypoints():
     for place in places:
         lat, lon = place['geometry']['coordinates'][1], place['geometry']['coordinates'][0]
         
-        # Check for nearby amenities
-        has_pub = any(geodesic((lat, lon), (p_lat, p_lon)).km <= 1 
+        # Check for nearby amenities - relaxed distance to 2km
+        has_pub = any(geodesic((lat, lon), (p_lat, p_lon)).km <= 2 
                      for p_lat, p_lon in pub_coords.keys())
-        has_hostel = any(geodesic((lat, lon), (h_lat, h_lon)).km <= 1 
+        has_hostel = any(geodesic((lat, lon), (h_lat, h_lon)).km <= 2 
                         for h_lat, h_lon in hostel_coords.keys())
         
         if has_pub and has_hostel:
@@ -56,7 +56,7 @@ def get_route(waypoints_str):
     resp = requests.get(url)
     return resp.json()
 
-def generate_hiking_route(num_days=3, num_tries=20):  # Further reduced num_tries
+def generate_hiking_route(num_days=3, num_tries=20):
     """Generate a hiking route and return the results as a dictionary."""
     try:
         # Get waypoints from API
@@ -97,13 +97,15 @@ def generate_hiking_route(num_days=3, num_tries=20):  # Further reduced num_trie
                     for seg in coords:
                         leg_coords.extend([(lat, lon) for lon, lat in seg])
                 
-                if not (10 <= dist_km <= 15):
+                # Relaxed distance constraints: 8-18km instead of 10-15km
+                if not (8 <= dist_km <= 18):
                     valid = False
                     break
                 
                 if i > 0:
+                    # Relaxed overlap constraint: 30% instead of 20%
                     overlap = len(set(leg_coords) & set(full_route_coords)) / max(1, len(leg_coords))
-                    if overlap > 0.2:
+                    if overlap > 0.3:
                         valid = False
                         break
                 
@@ -114,7 +116,7 @@ def generate_hiking_route(num_days=3, num_tries=20):  # Further reduced num_trie
                 })
             
             if valid:
-                score = sum((leg['distance']-12.5)**2 for leg in legs)
+                score = sum((leg['distance']-13)**2 for leg in legs)  # Adjusted target distance
                 if score < best_score:
                     best_score = score
                     best_itinerary = candidate
