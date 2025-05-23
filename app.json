@@ -1,0 +1,33 @@
+{
+  "name": "Hiking Trip Organizer",
+  "description": "A web application for organizing and managing hiking trips",
+  "repository": "https://github.com/EdJohn1984/Geoapify-Lake-District.git",
+  "keywords": ["python", "flask", "hiking", "routes"],
+  "addons": [
+    "heroku-redis:mini"
+  ],
+  "env": {
+    "FLASK_APP": {
+      "description": "The Flask application to run",
+      "value": "app.py"
+    },
+    "FLASK_ENV": {
+      "description": "The Flask environment",
+      "value": "production"
+    },
+    "SECRET_KEY": {
+      "description": "A secret key for the application",
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+} 
