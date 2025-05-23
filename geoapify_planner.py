@@ -5,7 +5,8 @@ from geopy.distance import geodesic
 import os
 from datetime import datetime, timedelta
 
-API_KEY = "01c9293b314a49979b45d9e0a5570a3f"
+# Get API key from environment variable or use default
+API_KEY = os.getenv('GEOAPIFY_API_KEY', "01c9293b314a49979b45d9e0a5570a3f")
 # Lake District bounding box: west,south,east,north
 BBOX = "-3.3,54.2,-2.7,54.6"
 
@@ -15,16 +16,7 @@ if not os.path.exists(CACHE_DIR):
     os.makedirs(CACHE_DIR)
 
 def get_scenic_points():
-    """Fetch and cache scenic points."""
-    cache_file = os.path.join(CACHE_DIR, "scenic_points.json")
-    
-    # Check if cache is valid (less than 24 hours old)
-    if os.path.exists(cache_file):
-        file_age = datetime.now() - datetime.fromtimestamp(os.path.getmtime(cache_file))
-        if file_age < timedelta(hours=24):
-            with open(cache_file, 'r') as f:
-                return json.load(f)
-    
+    """Fetch scenic points."""
     # Fetch new data
     scenic_url = f"https://api.geoapify.com/v2/places?categories=natural.mountain.peak,tourism.attraction.viewpoint&filter=rect:{BBOX}&limit=100&apiKey={API_KEY}"
     scenic_resp = requests.get(scenic_url)
@@ -33,7 +25,7 @@ def get_scenic_points():
     if 'features' not in scenic_data:
         raise Exception("Error in Scenic API response")
     
-    # Process and cache the data
+    # Process the data
     scenic_info = []
     for s in scenic_data['features']:
         name = s['properties'].get('name', 'Unnamed Point')
@@ -45,9 +37,6 @@ def get_scenic_points():
             'coords': (s['geometry']['coordinates'][1], s['geometry']['coordinates'][0])
         })
     
-    with open(cache_file, 'w') as f:
-        json.dump(scenic_info, f)
-    
     return scenic_info
 
 def get_route(waypoints_str):
@@ -56,12 +45,36 @@ def get_route(waypoints_str):
     resp = requests.get(url)
     return resp.json()
 
+def get_waypoints():
+    """Get waypoints from API instead of file."""
+    url = f"https://api.geoapify.com/v2/places?categories=populated_place.town,populated_place.village,populated_place.city&filter=rect:{BBOX}&limit=100&apiKey={API_KEY}"
+    places = requests.get(url).json()['features']
+    
+    # Filter places that have pubs and hostels nearby
+    filtered = []
+    for place in places:
+        lat, lon = place['geometry']['coordinates'][1], place['geometry']['coordinates'][0]
+        
+        # Check for pub within 1km
+        pubs_url = f"https://api.geoapify.com/v2/places?categories=catering.pub&filter=circle:{lon},{lat},1000&apiKey={API_KEY}"
+        pubs = requests.get(pubs_url).json()['features']
+        
+        # Check for hostel/campsite within 1km
+        hostels_url = f"https://api.geoapify.com/v2/places?categories=accommodation.hostel,camping.camp_site&filter=circle:{lon},{lat},1000&apiKey={API_KEY}"
+        hostels = requests.get(hostels_url).json()['features']
+        
+        if pubs and hostels:
+            filtered.append(place)
+    
+    return filtered
+
 def generate_hiking_route(num_days=3, num_tries=200, generate_map=False):
     """Generate a hiking route and return the results as a dictionary."""
     try:
-        # Load waypoints
-        with open('filtered_waypoints.json', 'r') as f:
-            places = json.load(f)
+        # Get waypoints from API
+        places = get_waypoints()
+        if not places:
+            return {'error': 'No suitable waypoints found'}
         
         # Get scenic points
         scenic_info = get_scenic_points()
