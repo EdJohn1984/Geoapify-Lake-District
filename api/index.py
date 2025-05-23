@@ -12,7 +12,7 @@ def generate_route():
         num_days = data.get('num_days', 3)
         num_tries = data.get('num_tries', 20)  # Updated default to match our optimization
         
-        # Get route data
+        # Get route data - optimized for faster execution
         result = generate_hiking_route(num_days=num_days, num_tries=num_tries)
         
         if 'error' in result:
