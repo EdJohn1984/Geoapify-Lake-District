@@ -15,9 +15,13 @@ CORS(app)
 
 # Route generation task
 def generate_route(start_point, end_point, waypoints):
-    # Your existing route generation logic here
-    # This will run in the background worker
-    pass
+    # Dummy implementation for testing
+    return {
+        'route': [start_point] + waypoints + [end_point],
+        'distance_km': 42,
+        'status': 'success',
+        'message': 'This is a dummy route for testing.'
+    }
 
 @app.route('/api/generate-route', methods=['POST'])
 def create_route():
