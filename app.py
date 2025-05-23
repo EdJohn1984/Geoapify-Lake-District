@@ -6,6 +6,7 @@ from rq import Queue
 from redis import Redis
 from worker import route_queue
 import json
+from geoapify_planner import generate_hiking_route
 
 # Load environment variables
 load_dotenv()
@@ -15,13 +16,28 @@ CORS(app)
 
 # Route generation task
 def generate_route(start_point, end_point, waypoints):
-    # Dummy implementation for testing
-    return {
-        'route': [start_point] + waypoints + [end_point],
-        'distance_km': 42,
-        'status': 'success',
-        'message': 'This is a dummy route for testing.'
-    }
+    try:
+        # Generate the hiking route using the actual implementation
+        result = generate_hiking_route(num_days=len(waypoints) + 1)
+        
+        if 'error' in result:
+            return {
+                'status': 'error',
+                'message': result['error']
+            }
+        
+        # Format the response
+        return {
+            'status': 'success',
+            'route': result['days'],
+            'map_image': result['map_image'],
+            'message': 'Route generated successfully'
+        }
+    except Exception as e:
+        return {
+            'status': 'error',
+            'message': str(e)
+        }
 
 @app.route('/api/generate-route', methods=['POST'])
 def create_route():
