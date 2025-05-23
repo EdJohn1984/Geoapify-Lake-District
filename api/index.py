@@ -17,7 +17,6 @@ def generate_route():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Add a health check endpoint
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return jsonify({'status': 'healthy'}), 200
