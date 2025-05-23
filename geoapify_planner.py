@@ -10,11 +10,6 @@ API_KEY = os.getenv('GEOAPIFY_API_KEY', "01c9293b314a49979b45d9e0a5570a3f")
 # Lake District bounding box: west,south,east,north
 BBOX = "-3.3,54.2,-2.7,54.6"
 
-# Cache directory setup
-CACHE_DIR = "cache"
-if not os.path.exists(CACHE_DIR):
-    os.makedirs(CACHE_DIR)
-
 def get_scenic_points():
     """Fetch scenic points."""
     # Fetch new data
