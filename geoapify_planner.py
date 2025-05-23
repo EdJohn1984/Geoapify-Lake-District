@@ -7,15 +7,15 @@ from datetime import datetime, timedelta
 
 # Get API key from environment variable or use default
 API_KEY = os.getenv('GEOAPIFY_API_KEY', "01c9293b314a49979b45d9e0a5570a3f")
-# Lake District bounding box: west,south,east,north
-BBOX = "-3.3,54.2,-2.7,54.6"
+# Lake District bounding box: west,south,east,north - reduced area for faster results
+BBOX = "-3.1,54.3,-2.8,54.5"
 
 def get_places(categories, filter_type="rect", filter_value=BBOX, radius=None):
     """Generic function to get places from Geoapify API."""
     if filter_type == "circle":
-        url = f"https://api.geoapify.com/v2/places?categories={categories}&filter=circle:{filter_value}&radius={radius}&limit=100&apiKey={API_KEY}"
+        url = f"https://api.geoapify.com/v2/places?categories={categories}&filter=circle:{filter_value}&radius={radius}&limit=50&apiKey={API_KEY}"
     else:
-        url = f"https://api.geoapify.com/v2/places?categories={categories}&filter=rect:{filter_value}&limit=100&apiKey={API_KEY}"
+        url = f"https://api.geoapify.com/v2/places?categories={categories}&filter=rect:{filter_value}&limit=50&apiKey={API_KEY}"
     
     response = requests.get(url)
     data = response.json()
@@ -56,7 +56,7 @@ def get_route(waypoints_str):
     resp = requests.get(url)
     return resp.json()
 
-def generate_hiking_route(num_days=3, num_tries=50):  # Reduced num_tries for faster execution
+def generate_hiking_route(num_days=3, num_tries=20):  # Further reduced num_tries
     """Generate a hiking route and return the results as a dictionary."""
     try:
         # Get waypoints from API
