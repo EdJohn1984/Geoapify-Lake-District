@@ -21,6 +21,46 @@ CACHE_DIR = "cache"
 if not os.path.exists(CACHE_DIR):
     os.makedirs(CACHE_DIR)
 
+def get_feasible_pairs():
+    """Get or compute feasible pairs between waypoints."""
+    cache_file = os.path.join(CACHE_DIR, "feasible_pairs.json")
+    
+    # Check if cache is valid (less than 24 hours old)
+    if os.path.exists(cache_file):
+        file_age = datetime.now() - datetime.fromtimestamp(os.path.getmtime(cache_file))
+        if file_age < timedelta(hours=24):
+            with open(cache_file, 'r') as f:
+                return json.load(f)
+    
+    # Load waypoints
+    with open('filtered_waypoints.json', 'r') as f:
+        waypoints = json.load(f)
+    
+    # Create a dictionary of coordinates
+    coords = {}
+    for wp in waypoints:
+        name = wp['properties']['name']
+        coords[name] = (wp['geometry']['coordinates'][1], wp['geometry']['coordinates'][0])
+    
+    # Calculate distances between all pairs
+    feasible_pairs = []
+    for wp1 in coords:
+        for wp2 in coords:
+            if wp1 != wp2:
+                dist = geodesic(coords[wp1], coords[wp2]).kilometers
+                if 10 <= dist <= 15:
+                    feasible_pairs.append({
+                        'from': wp1,
+                        'to': wp2,
+                        'distance': dist
+                    })
+    
+    # Cache the results
+    with open(cache_file, 'w') as f:
+        json.dump(feasible_pairs, f)
+    
+    return feasible_pairs
+
 @lru_cache(maxsize=100)
 def get_scenic_points():
     """Fetch and cache scenic points."""
@@ -155,6 +195,18 @@ def generate_hiking_route(num_days=3, num_tries=200):
             places = json.load(f)
         print(f"[LOG] Loaded {len(places)} waypoints")
         
+        # Get feasible pairs
+        print("[LOG] Getting feasible pairs")
+        feasible_pairs = get_feasible_pairs()
+        print(f"[LOG] Found {len(feasible_pairs)} feasible pairs")
+        
+        # Create a lookup dictionary for faster access
+        feasible_lookup = {}
+        for pair in feasible_pairs:
+            if pair['from'] not in feasible_lookup:
+                feasible_lookup[pair['from']] = []
+            feasible_lookup[pair['from']].append(pair['to'])
+        
         # Get scenic points
         print("[LOG] Fetching scenic points")
         scenic_info = get_scenic_points()
@@ -167,12 +219,41 @@ def generate_hiking_route(num_days=3, num_tries=200):
         
         for try_num in range(num_tries):
             print(f"[LOG] Try {try_num+1}/{num_tries}")
-            try:
-                candidate = random.sample(places, num_days+1)
-            except Exception as e:
-                print(f"[LOG] Error sampling candidate: {e}")
+            
+            # Generate a valid route using feasible pairs
+            route = []
+            used_places = set()
+            
+            # Start with a random place
+            start = random.choice(list(feasible_lookup.keys()))
+            route.append(start)
+            used_places.add(start)
+            
+            # Build the route using feasible pairs
+            valid_route = True
+            for day in range(num_days):
+                current = route[-1]
+                if current not in feasible_lookup:
+                    valid_route = False
+                    break
+                
+                # Get possible next places that haven't been used
+                possible_next = [p for p in feasible_lookup[current] if p not in used_places]
+                if not possible_next:
+                    valid_route = False
+                    break
+                
+                next_place = random.choice(possible_next)
+                route.append(next_place)
+                used_places.add(next_place)
+            
+            if not valid_route:
                 continue
-            waypoints = [(p['geometry']['coordinates'][1], p['geometry']['coordinates'][0]) for p in candidate]
+            
+            # Convert route to waypoints
+            candidate = [next(p for p in places if p['properties']['name'] == name) for name in route]
+            
+            # Generate legs and check distances
             legs = []
             full_route_coords = []
             valid = True
@@ -181,7 +262,8 @@ def generate_hiking_route(num_days=3, num_tries=200):
             
             for i in range(num_days):
                 print(f"[LOG]  Day {i+1}: Generating leg from {candidate[i]['properties']['name']} to {candidate[i+1]['properties']['name']}")
-                wp = [waypoints[i], waypoints[i+1]]
+                wp = [(candidate[i]['geometry']['coordinates'][1], candidate[i]['geometry']['coordinates'][0]),
+                      (candidate[i+1]['geometry']['coordinates'][1], candidate[i+1]['geometry']['coordinates'][0])]
                 wp_str = '|'.join([f"{lat},{lon}" for lat, lon in wp])
                 
                 # Get route with caching
