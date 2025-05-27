@@ -229,8 +229,15 @@ def generate_route_map(route_data, waypoints, scenic_points):
     
     return image_base64
 
-def generate_hiking_route(waypoints, num_days=3, max_tries=200):
-    """Generate a hiking route through the Lake District."""
+def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_threshold=0.1):
+    """Generate a hiking route through the Lake District.
+    
+    Args:
+        waypoints: Dictionary of waypoint data
+        num_days: Number of days for the route
+        max_tries: Maximum number of attempts to find a route
+        good_enough_threshold: If a route has a score below this threshold, return it immediately
+    """
     print("[LOG] Starting route generation")
     
     # Get feasible pairs for route generation
@@ -308,6 +315,7 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
             
             # Calculate score (lower is better)
             score = overlap / (num_days - 1)  # Average overlap per leg
+            print(f"[LOG] Route score: {score:.3f}")
             
             if score < best_score:
                 best_score = score
@@ -315,10 +323,15 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
                     'waypoints': route,
                     'legs': route_legs
                 }
-                print(f"[LOG] New best itinerary found with score {score}")
+                print(f"[LOG] New best itinerary found with score {score:.3f}")
+                
+                # If we found a route that's good enough, return it immediately
+                if score <= good_enough_threshold:
+                    print(f"[LOG] Found route with score {score:.3f} below threshold {good_enough_threshold}")
+                    return best_route
     
     if best_route:
-        print(f"[LOG] Found valid route with score {best_score}")
+        print(f"[LOG] Found valid route with score {best_score:.3f}")
         return best_route
     else:
         print("[LOG] No valid route found")
