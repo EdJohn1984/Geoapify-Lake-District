@@ -257,8 +257,13 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
     for attempt in range(max_tries):
         print(f"[LOG] Try {attempt + 1}/{max_tries}")
         
-        # Start with a random waypoint
-        current = random.choice(list(waypoints.keys()))
+        # Start with a random waypoint that has feasible next steps
+        valid_starts = [wp for wp in waypoints.keys() if wp in feasible_next_steps]
+        if not valid_starts:
+            print("[LOG] No valid starting points found")
+            break
+            
+        current = random.choice(valid_starts)
         route = [current]
         used_waypoints = {current}
         route_legs = []
@@ -272,35 +277,20 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
                 print(f"[LOG]  No feasible next steps from {current}")
                 break
                 
-            next_steps = feasible_next_steps[current]
+            next_steps = [next_point for next_point in feasible_next_steps[current] 
+                         if next_point not in used_waypoints]
+            
             if not next_steps:
-                print(f"[LOG]  No feasible next steps from {current}")
-                break
-                
-            # Try to find a valid next step
-            next_point = None
-            for potential_next in next_steps:
-                if potential_next not in used_waypoints:
-                    next_point = potential_next
-                    break
-                    
-            if not next_point:
                 print(f"[LOG]  No unused feasible next steps from {current}")
                 break
                 
+            # Choose a random next step from feasible options
+            next_point = random.choice(next_steps)
+            
             # Get route between current and next point
             route_data = get_route(current, next_point)
             if not route_data:
                 print(f"[LOG]  No route found between {current} and {next_point}")
-                break
-                
-            # Calculate distance
-            distance = route_data['properties']['distance'] / 1000  # Convert to km
-            print(f"[LOG]   Leg {day + 1} distance {distance:.3f} km")
-            
-            # Check if distance is within bounds
-            if not (10 <= distance <= 15):
-                print(f"[LOG]   Leg {day + 1} distance {distance:.3f} km out of bounds (10-15 km)")
                 break
                 
             # Add to route
