@@ -15,25 +15,35 @@ app = Flask(__name__)
 CORS(app)
 
 # Route generation task
-def generate_route(start_point, end_point, waypoints):
+def generate_route():
+    print("[LOG] Starting generate_route")
     try:
-        # Generate the hiking route using the actual implementation
-        result = generate_hiking_route(num_days=len(waypoints) + 1)
+        # Load waypoints from file
+        with open('filtered_waypoints.json', 'r') as f:
+            waypoints = json.load(f)
+            
+        # Create a dictionary of waypoint names
+        waypoint_dict = {wp['properties']['name']: wp for wp in waypoints}
         
-        if 'error' in result:
+        # Always generate a 3-day hiking route dynamically
+        result = generate_hiking_route(waypoint_dict, num_days=3)
+        print("[LOG] generate_hiking_route finished")
+        if not result:
+            print("[LOG] No valid route found")
             return {
                 'status': 'error',
-                'message': result['error']
+                'message': 'No valid route found'
             }
-        
+            
         # Format the response
+        print("[LOG] Route generated successfully")
         return {
             'status': 'success',
-            'route': result['days'],
-            'map_image': result['map_image'],
+            'route': result,
             'message': 'Route generated successfully'
         }
     except Exception as e:
+        print(f"[LOG] Exception in generate_route: {e}")
         return {
             'status': 'error',
             'message': str(e)
@@ -41,15 +51,9 @@ def generate_route(start_point, end_point, waypoints):
 
 @app.route('/api/generate-route', methods=['POST'])
 def create_route():
-    data = request.json
-    start_point = data.get('start_point')
-    end_point = data.get('end_point')
-    waypoints = data.get('waypoints', [])
-
-    # Queue the route generation task
+    # No need to parse or use request data
     job = route_queue.enqueue(
         generate_route,
-        args=(start_point, end_point, waypoints),
         job_timeout='1h'  # Adjust timeout as needed
     )
 
