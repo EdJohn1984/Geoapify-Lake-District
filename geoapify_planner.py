@@ -147,22 +147,31 @@ def generate_route_map(route_data, waypoints, scenic_points):
     return image_base64
 
 def generate_hiking_route(num_days=3, num_tries=200):
-    """Generate a hiking route and return the results as a dictionary."""
+    print(f"[LOG] Starting generate_hiking_route with num_days={num_days}, num_tries={num_tries}")
     try:
         # Load waypoints
+        print("[LOG] Loading waypoints from filtered_waypoints.json")
         with open('filtered_waypoints.json', 'r') as f:
             places = json.load(f)
+        print(f"[LOG] Loaded {len(places)} waypoints")
         
         # Get scenic points
+        print("[LOG] Fetching scenic points")
         scenic_info = get_scenic_points()
+        print(f"[LOG] Got {len(scenic_info)} scenic points")
         
         best_itinerary = None
         best_score = float('inf')
         best_result = None
         best_scenic_points = None
         
-        for _ in range(num_tries):
-            candidate = random.sample(places, num_days+1)
+        for try_num in range(num_tries):
+            print(f"[LOG] Try {try_num+1}/{num_tries}")
+            try:
+                candidate = random.sample(places, num_days+1)
+            except Exception as e:
+                print(f"[LOG] Error sampling candidate: {e}")
+                continue
             waypoints = [(p['geometry']['coordinates'][1], p['geometry']['coordinates'][0]) for p in candidate]
             legs = []
             full_route_coords = []
@@ -171,12 +180,14 @@ def generate_hiking_route(num_days=3, num_tries=200):
             scenic_points_used = [None]*num_days
             
             for i in range(num_days):
+                print(f"[LOG]  Day {i+1}: Generating leg from {candidate[i]['properties']['name']} to {candidate[i+1]['properties']['name']}")
                 wp = [waypoints[i], waypoints[i+1]]
                 wp_str = '|'.join([f"{lat},{lon}" for lat, lon in wp])
                 
                 # Get route with caching
                 data = get_route(wp_str)
                 if not data['features']:
+                    print(f"[LOG]   No features returned for leg {i+1}")
                     valid = False
                     break
                 
@@ -220,12 +231,14 @@ def generate_hiking_route(num_days=3, num_tries=200):
                                 scenic_points_used[i] = scenic_nearby[0]
                 
                 if not (10 <= dist_km <= 15):
+                    print(f"[LOG]   Leg {i+1} distance {dist_km} km out of bounds (10-15 km)")
                     valid = False
                     break
                 
                 if i > 0:
                     overlap = len(set(leg_coords) & set(full_route_coords)) / max(1, len(leg_coords))
                     if overlap > 0.2:
+                        print(f"[LOG]   Leg {i+1} has too much overlap with previous legs: {overlap*100:.1f}%")
                         valid = False
                         break
                 
@@ -239,17 +252,20 @@ def generate_hiking_route(num_days=3, num_tries=200):
             if valid:
                 score = sum((leg['distance']-12.5)**2 for leg in legs)
                 if score < best_score:
+                    print(f"[LOG]  New best itinerary found with score {score}")
                     best_score = score
                     best_itinerary = candidate
                     best_result = legs
                     best_scenic_points = scenic_points_used
         
         if not best_itinerary:
+            print("[LOG] No valid itinerary found. Try increasing num_tries or relaxing constraints.")
             return {
                 'error': 'No valid itinerary found. Try increasing num_tries or relaxing constraints.'
             }
         
         # Prepare route data
+        print("[LOG] Preparing route data and generating map image")
         route_data = {
             'legs': best_result,
             'waypoints': best_itinerary,
@@ -258,6 +274,7 @@ def generate_hiking_route(num_days=3, num_tries=200):
         
         # Generate map
         map_image = generate_route_map(route_data, best_itinerary, best_scenic_points)
+        print("[LOG] Map image generated")
         
         # Prepare response
         response = {
@@ -285,10 +302,11 @@ def generate_hiking_route(num_days=3, num_tries=200):
                 }
             
             response['days'].append(day_info)
-        
+        print(f"[LOG] Returning response with {len(response['days'])} days")
         return response
         
     except Exception as e:
+        print(f"[LOG] Exception in generate_hiking_route: {e}")
         return {
             'error': str(e)
         }
