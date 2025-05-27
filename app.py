@@ -39,7 +39,19 @@ def generate_route():
         print("[LOG] Route generated successfully")
         return {
             'status': 'success',
-            'route': result,
+            'route': {
+                'waypoints': result['waypoints'],
+                'legs': [
+                    {
+                        'from': result['waypoints'][i],
+                        'to': result['waypoints'][i+1],
+                        'distance': leg['properties']['distance'] / 1000,  # Convert to km
+                        'duration': leg['properties']['time'] / 60,  # Convert to minutes
+                        'geometry': leg['geometry']
+                    }
+                    for i, leg in enumerate(result['legs'])
+                ]
+            },
             'message': 'Route generated successfully'
         }
     except Exception as e:

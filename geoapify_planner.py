@@ -125,7 +125,11 @@ def get_route(start, end):
     if not data['features']:
         return None
         
-    return data['features'][0]['properties']
+    # Return both properties and geometry
+    return {
+        'properties': data['features'][0]['properties'],
+        'geometry': data['features'][0]['geometry']
+    }
 
 def calculate_route_overlap(leg1, leg2):
     """Calculate overlap between two route legs."""
@@ -250,6 +254,7 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
         current = random.choice(list(waypoints.keys()))
         route = [current]
         used_waypoints = {current}
+        route_legs = []
         
         # Build route day by day
         for day in range(num_days):
@@ -283,7 +288,7 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
                 break
                 
             # Calculate distance
-            distance = route_data['distance'] / 1000  # Convert to km
+            distance = route_data['properties']['distance'] / 1000  # Convert to km
             print(f"[LOG]   Leg {day + 1} distance {distance:.3f} km")
             
             # Check if distance is within bounds
@@ -294,24 +299,25 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
             # Add to route
             route.append(next_point)
             used_waypoints.add(next_point)
+            route_legs.append(route_data)
             current = next_point
             
         # If we have a complete route, calculate its score
         if len(route) == num_days + 1:
             # Calculate overlap between legs
             overlap = 0
-            for i in range(len(route) - 2):
-                leg1 = get_route(route[i], route[i+1])
-                leg2 = get_route(route[i+1], route[i+2])
-                if leg1 and leg2:
-                    overlap += calculate_route_overlap(leg1, leg2)
+            for i in range(len(route_legs) - 1):
+                overlap += calculate_route_overlap(route_legs[i], route_legs[i+1])
             
             # Calculate score (lower is better)
             score = overlap / (num_days - 1)  # Average overlap per leg
             
             if score < best_score:
                 best_score = score
-                best_route = route
+                best_route = {
+                    'waypoints': route,
+                    'legs': route_legs
+                }
                 print(f"[LOG] New best itinerary found with score {score}")
     
     if best_route:
