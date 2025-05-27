@@ -134,8 +134,8 @@ def get_route(start, end):
 def calculate_route_overlap(leg1, leg2):
     """Calculate overlap between two route legs."""
     # Get coordinates for both legs
-    coords1 = set(tuple(coord) for coord in leg1['geometry']['coordinates'])
-    coords2 = set(tuple(coord) for coord in leg2['geometry']['coordinates'])
+    coords1 = set(tuple(map(float, coord)) for coord in leg1['geometry']['coordinates'])
+    coords2 = set(tuple(map(float, coord)) for coord in leg2['geometry']['coordinates'])
     
     # Calculate overlap
     overlap = len(coords1 & coords2) / max(1, min(len(coords1), len(coords2)))
