@@ -232,7 +232,9 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200):
     
     # Create lookup dictionary for faster access
     feasible_next_steps = {}
-    for start, end, _ in feasible_pairs:
+    for pair in feasible_pairs:
+        start = pair['from']
+        end = pair['to']
         if start not in feasible_next_steps:
             feasible_next_steps[start] = []
         feasible_next_steps[start].append(end)
