@@ -98,12 +98,44 @@ def get_scenic_points():
     
     return scenic_info
 
-@lru_cache(maxsize=1000)
-def get_route(waypoints_str):
-    """Get route between waypoints with caching."""
-    url = f"https://api.geoapify.com/v1/routing?waypoints={waypoints_str}&mode=hike&apiKey={API_KEY}"
-    resp = requests.get(url)
-    return resp.json()
+def get_route(start, end):
+    """Get route between two waypoints."""
+    # Get coordinates for waypoints
+    with open('filtered_waypoints.json', 'r') as f:
+        waypoints = json.load(f)
+        
+    start_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == start), None)
+    end_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == end), None)
+    
+    if not start_coords or not end_coords:
+        return None
+        
+    # Format waypoints string
+    wp_str = f"{start_coords[1]},{start_coords[0]}|{end_coords[1]},{end_coords[0]}"
+    
+    # Construct URL
+    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&apiKey={API_KEY}"
+    
+    # Make request
+    response = requests.get(url)
+    if response.status_code != 200:
+        return None
+        
+    data = response.json()
+    if not data['features']:
+        return None
+        
+    return data['features'][0]['properties']
+
+def calculate_route_overlap(leg1, leg2):
+    """Calculate overlap between two route legs."""
+    # Get coordinates for both legs
+    coords1 = set((lat, lon) for lon, lat in leg1['geometry']['coordinates'])
+    coords2 = set((lat, lon) for lon, lat in leg2['geometry']['coordinates'])
+    
+    # Calculate overlap
+    overlap = len(coords1 & coords2) / max(1, min(len(coords1), len(coords2)))
+    return overlap
 
 def generate_route_map(route_data, waypoints, scenic_points):
     """Generate route map and return as base64 encoded image."""
@@ -186,212 +218,106 @@ def generate_route_map(route_data, waypoints, scenic_points):
     
     return image_base64
 
-def generate_hiking_route(num_days=3, num_tries=200):
-    print(f"[LOG] Starting generate_hiking_route with num_days={num_days}, num_tries={num_tries}")
-    try:
-        # Load waypoints
-        print("[LOG] Loading waypoints from filtered_waypoints.json")
-        with open('filtered_waypoints.json', 'r') as f:
-            places = json.load(f)
-        print(f"[LOG] Loaded {len(places)} waypoints")
+def generate_hiking_route(waypoints, num_days=3, max_tries=200):
+    """Generate a hiking route through the Lake District."""
+    print("[LOG] Starting route generation")
+    
+    # Get feasible pairs for route generation
+    feasible_pairs = get_feasible_pairs()
+    if not feasible_pairs:
+        print("[LOG] No feasible pairs found")
+        return None
         
-        # Get feasible pairs
-        print("[LOG] Getting feasible pairs")
-        feasible_pairs = get_feasible_pairs()
-        print(f"[LOG] Found {len(feasible_pairs)} feasible pairs")
+    print(f"[LOG] Found {len(feasible_pairs)} feasible pairs")
+    
+    # Create lookup dictionary for faster access
+    feasible_next_steps = {}
+    for start, end, _ in feasible_pairs:
+        if start not in feasible_next_steps:
+            feasible_next_steps[start] = []
+        feasible_next_steps[start].append(end)
+    
+    best_route = None
+    best_score = float('inf')
+    
+    # Try to generate a valid route
+    for attempt in range(max_tries):
+        print(f"[LOG] Try {attempt + 1}/{max_tries}")
         
-        # Create a lookup dictionary for faster access
-        feasible_lookup = {}
-        for pair in feasible_pairs:
-            if pair['from'] not in feasible_lookup:
-                feasible_lookup[pair['from']] = []
-            feasible_lookup[pair['from']].append(pair['to'])
+        # Start with a random waypoint
+        current = random.choice(list(waypoints.keys()))
+        route = [current]
+        used_waypoints = {current}
         
-        # Get scenic points
-        print("[LOG] Fetching scenic points")
-        scenic_info = get_scenic_points()
-        print(f"[LOG] Got {len(scenic_info)} scenic points")
-        
-        best_itinerary = None
-        best_score = float('inf')
-        best_result = None
-        best_scenic_points = None
-        
-        for try_num in range(num_tries):
-            print(f"[LOG] Try {try_num+1}/{num_tries}")
+        # Build route day by day
+        for day in range(num_days):
+            print(f"[LOG]  Day {day + 1}: Generating leg from {current}")
             
-            # Generate a valid route using feasible pairs
-            route = []
-            used_places = set()
-            
-            # Start with a random place
-            start = random.choice(list(feasible_lookup.keys()))
-            route.append(start)
-            used_places.add(start)
-            
-            # Build the route using feasible pairs
-            valid_route = True
-            for day in range(num_days):
-                current = route[-1]
-                if current not in feasible_lookup:
-                    valid_route = False
+            # Get possible next steps from feasible pairs
+            if current not in feasible_next_steps:
+                print(f"[LOG]  No feasible next steps from {current}")
+                break
+                
+            next_steps = feasible_next_steps[current]
+            if not next_steps:
+                print(f"[LOG]  No feasible next steps from {current}")
+                break
+                
+            # Try to find a valid next step
+            next_point = None
+            for potential_next in next_steps:
+                if potential_next not in used_waypoints:
+                    next_point = potential_next
                     break
-                
-                # Get possible next places that haven't been used
-                possible_next = [p for p in feasible_lookup[current] if p not in used_places]
-                if not possible_next:
-                    valid_route = False
-                    break
-                
-                next_place = random.choice(possible_next)
-                route.append(next_place)
-                used_places.add(next_place)
-            
-            if not valid_route:
-                continue
-            
-            # Convert route to waypoints
-            candidate = [next(p for p in places if p['properties']['name'] == name) for name in route]
-            
-            # Generate legs and check distances
-            legs = []
-            full_route_coords = []
-            valid = True
-            scenic_used = [False]*num_days
-            scenic_points_used = [None]*num_days
-            
-            for i in range(num_days):
-                print(f"[LOG]  Day {i+1}: Generating leg from {candidate[i]['properties']['name']} to {candidate[i+1]['properties']['name']}")
-                wp = [(candidate[i]['geometry']['coordinates'][1], candidate[i]['geometry']['coordinates'][0]),
-                      (candidate[i+1]['geometry']['coordinates'][1], candidate[i+1]['geometry']['coordinates'][0])]
-                wp_str = '|'.join([f"{lat},{lon}" for lat, lon in wp])
-                
-                # Get route with caching
-                data = get_route(wp_str)
-                if not data['features']:
-                    print(f"[LOG]   No features returned for leg {i+1}")
-                    valid = False
-                    break
-                
-                leg = data['features'][0]['properties']
-                dist_km = leg['distance']/1000
-                coords = data['features'][0]['geometry']['coordinates']
-                
-                if data['features'][0]['geometry']['type'] == 'LineString':
-                    leg_coords = [(lat, lon) for lon, lat in coords]
-                else:
-                    leg_coords = []
-                    for seg in coords:
-                        leg_coords.extend([(lat, lon) for lon, lat in seg])
-                
-                # Add scenic detour if needed
-                if dist_km < 10:
-                    mid = ((wp[0][0]+wp[1][0])/2, (wp[0][1]+wp[1][1])/2)
-                    scenic_nearby = [s for s in scenic_info if geodesic(mid, s['coords']).km < 5]
                     
-                    if scenic_nearby:
-                        via = scenic_nearby[0]['coords']
-                        wp_via = [wp[0], via, wp[1]]
-                        wp_via_str = '|'.join([f"{lat},{lon}" for lat, lon in wp_via])
-                        
-                        data_via = get_route(wp_via_str)
-                        if data_via['features']:
-                            leg_via = data_via['features'][0]['properties']
-                            dist_km_via = leg_via['distance']/1000
-                            
-                            if 10 <= dist_km_via <= 15:
-                                dist_km = dist_km_via
-                                leg = leg_via
-                                coords = data_via['features'][0]['geometry']['coordinates']
-                                if data_via['features'][0]['geometry']['type'] == 'LineString':
-                                    leg_coords = [(lat, lon) for lon, lat in coords]
-                                else:
-                                    leg_coords = []
-                                    for seg in coords:
-                                        leg_coords.extend([(lat, lon) for lon, lat in seg])
-                                scenic_used[i] = True
-                                scenic_points_used[i] = scenic_nearby[0]
+            if not next_point:
+                print(f"[LOG]  No unused feasible next steps from {current}")
+                break
                 
-                if not (10 <= dist_km <= 15):
-                    print(f"[LOG]   Leg {i+1} distance {dist_km} km out of bounds (10-15 km)")
-                    valid = False
-                    break
+            # Get route between current and next point
+            route_data = get_route(current, next_point)
+            if not route_data:
+                print(f"[LOG]  No route found between {current} and {next_point}")
+                break
                 
-                if i > 0:
-                    overlap = len(set(leg_coords) & set(full_route_coords)) / max(1, len(leg_coords))
-                    if overlap > 0.2:
-                        print(f"[LOG]   Leg {i+1} has too much overlap with previous legs: {overlap*100:.1f}%")
-                        valid = False
-                        break
+            # Calculate distance
+            distance = route_data['distance'] / 1000  # Convert to km
+            print(f"[LOG]   Leg {day + 1} distance {distance:.3f} km")
+            
+            # Check if distance is within bounds
+            if not (10 <= distance <= 15):
+                print(f"[LOG]   Leg {day + 1} distance {distance:.3f} km out of bounds (10-15 km)")
+                break
                 
-                full_route_coords.extend(leg_coords)
-                legs.append({
-                    'distance': dist_km,
-                    'coords': leg_coords,
-                    'scenic': scenic_used[i]
-                })
+            # Add to route
+            route.append(next_point)
+            used_waypoints.add(next_point)
+            current = next_point
             
-            if valid:
-                score = sum((leg['distance']-12.5)**2 for leg in legs)
-                if score < best_score:
-                    print(f"[LOG]  New best itinerary found with score {score}")
-                    best_score = score
-                    best_itinerary = candidate
-                    best_result = legs
-                    best_scenic_points = scenic_points_used
-        
-        if not best_itinerary:
-            print("[LOG] No valid itinerary found. Try increasing num_tries or relaxing constraints.")
-            return {
-                'error': 'No valid itinerary found. Try increasing num_tries or relaxing constraints.'
-            }
-        
-        # Prepare route data
-        print("[LOG] Preparing route data and generating map image")
-        route_data = {
-            'legs': best_result,
-            'waypoints': best_itinerary,
-            'scenic_points': best_scenic_points
-        }
-        
-        # Generate map
-        map_image = generate_route_map(route_data, best_itinerary, best_scenic_points)
-        print("[LOG] Map image generated")
-        
-        # Prepare response
-        response = {
-            'days': [],
-            'map_image': map_image
-        }
-        
-        for i in range(num_days):
-            start = best_itinerary[i]['properties']['name']
-            end = best_itinerary[i+1]['properties']['name']
-            dist_km = best_result[i]['distance']
-            scenic = best_result[i]['scenic']
+        # If we have a complete route, calculate its score
+        if len(route) == num_days + 1:
+            # Calculate overlap between legs
+            overlap = 0
+            for i in range(len(route) - 2):
+                leg1 = get_route(route[i], route[i+1])
+                leg2 = get_route(route[i+1], route[i+2])
+                if leg1 and leg2:
+                    overlap += calculate_route_overlap(leg1, leg2)
             
-            day_info = {
-                'day': i + 1,
-                'start': start,
-                'end': end,
-                'distance': round(dist_km, 1)
-            }
+            # Calculate score (lower is better)
+            score = overlap / (num_days - 1)  # Average overlap per leg
             
-            if scenic and best_scenic_points[i]:
-                day_info['scenic_detour'] = {
-                    'name': best_scenic_points[i]['name'],
-                    'type': best_scenic_points[i]['type']
-                }
-            
-            response['days'].append(day_info)
-        print(f"[LOG] Returning response with {len(response['days'])} days")
-        return response
-        
-    except Exception as e:
-        print(f"[LOG] Exception in generate_hiking_route: {e}")
-        return {
-            'error': str(e)
-        }
+            if score < best_score:
+                best_score = score
+                best_route = route
+                print(f"[LOG] New best itinerary found with score {score}")
+    
+    if best_route:
+        print(f"[LOG] Found valid route with score {best_score}")
+        return best_route
+    else:
+        print("[LOG] No valid route found")
+        return None
 
 if __name__ == "__main__":
     # Example usage
