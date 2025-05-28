@@ -114,8 +114,8 @@ def get_route(start, end):
     # Format waypoints string
     wp_str = f"{start_coords[1]},{start_coords[0]}|{end_coords[1]},{end_coords[0]}"
     
-    # Construct URL
-    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&apiKey={API_KEY}"
+    # Construct URL with surface details
+    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=surface&apiKey={API_KEY}"
     
     # Make request
     response = requests.get(url)
@@ -126,10 +126,22 @@ def get_route(start, end):
     if not data['features']:
         return None
         
-    # Return both properties and geometry
+    # Process surface information
+    surface_info = {}
+    if 'surface' in data['features'][0]['properties']:
+        surface_details = data['features'][0]['properties']['surface']
+        total_distance = data['features'][0]['properties']['distance']
+        
+        # Calculate percentages for each surface type
+        for surface_type, distance in surface_details.items():
+            percentage = (distance / total_distance) * 100
+            surface_info[surface_type] = round(percentage, 1)
+    
+    # Return properties, geometry, and surface information
     return {
         'properties': data['features'][0]['properties'],
-        'geometry': data['features'][0]['geometry']
+        'geometry': data['features'][0]['geometry'],
+        'surface_info': surface_info
     }
 
 def calculate_route_overlap(leg1, leg2):
