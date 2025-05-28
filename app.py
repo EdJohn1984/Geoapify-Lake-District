@@ -48,7 +48,7 @@ def generate_route():
                         'distance': leg['properties']['distance'] / 1000,  # Convert to km
                         'duration': leg['properties']['time'] / 60,  # Convert to minutes
                         'geometry': leg['geometry'],
-                        'surface_info': leg.get('surface_info', {})  # Include surface information
+                        'surface_percentages': leg.get('surface_percentages', {})
                     }
                     for i, leg in enumerate(result['legs'])
                 ]

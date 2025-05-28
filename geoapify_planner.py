@@ -100,7 +100,7 @@ def get_scenic_points():
     return scenic_info
 
 def get_route(start, end):
-    """Get route between two waypoints."""
+    """Get route between two waypoints, including surface type breakdown."""
     # Get coordinates for waypoints
     with open('filtered_waypoints.json', 'r') as f:
         waypoints = json.load(f)
@@ -114,8 +114,8 @@ def get_route(start, end):
     # Format waypoints string
     wp_str = f"{start_coords[1]},{start_coords[0]}|{end_coords[1]},{end_coords[0]}"
     
-    # Construct URL with surface details
-    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=surface&apiKey={API_KEY}"
+    # Construct URL with route_details
+    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=route_details&apiKey={API_KEY}"
     
     # Make request
     response = requests.get(url)
@@ -125,23 +125,33 @@ def get_route(start, end):
     data = response.json()
     if not data['features']:
         return None
-        
-    # Process surface information
-    surface_info = {}
-    if 'surface' in data['features'][0]['properties']:
-        surface_details = data['features'][0]['properties']['surface']
-        total_distance = data['features'][0]['properties']['distance']
-        
-        # Calculate percentages for each surface type
-        for surface_type, distance in surface_details.items():
-            percentage = (distance / total_distance) * 100
-            surface_info[surface_type] = round(percentage, 1)
     
-    # Return properties, geometry, and surface information
+    # Calculate surface type percentages
+    surface_distances = {}
+    total_distance = 0
+    try:
+        legs = data['features'][0]['properties'].get('legs', [])
+        for leg in legs:
+            for step in leg.get('steps', []):
+                surface = step.get('surface', 'unknown')
+                dist = step.get('distance', 0)
+                surface_distances[surface] = surface_distances.get(surface, 0) + dist
+                total_distance += dist
+    except Exception as e:
+        # If the structure is not as expected, skip surface calculation
+        surface_distances = {}
+        total_distance = 0
+    
+    surface_percentages = {}
+    if total_distance > 0:
+        for surface, dist in surface_distances.items():
+            surface_percentages[surface] = round(100 * dist / total_distance, 2)
+    
+    # Return both properties, geometry, and surface breakdown
     return {
         'properties': data['features'][0]['properties'],
         'geometry': data['features'][0]['geometry'],
-        'surface_info': surface_info
+        'surface_percentages': surface_percentages
     }
 
 def calculate_route_overlap(leg1, leg2):
