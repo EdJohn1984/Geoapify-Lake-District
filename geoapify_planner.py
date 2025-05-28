@@ -102,59 +102,60 @@ def get_scenic_points():
     return scenic_info
 
 def get_route(start, end):
-    """Get route between two waypoints, including surface type breakdown."""
-    # Get coordinates for waypoints
-    with open('filtered_waypoints.json', 'r') as f:
-        waypoints = json.load(f)
+    """
+    Get route between two points using Geoapify API.
+    
+    Args:
+        start (dict): Start coordinates with 'lat' and 'lon' keys
+        end (dict): End coordinates with 'lat' and 'lon' keys
         
-    start_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == start), None)
-    end_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == end), None)
-    
-    if not start_coords or not end_coords:
-        return None
-        
-    # Format waypoints string
-    wp_str = f"{start_coords[1]},{start_coords[0]}|{end_coords[1]},{end_coords[0]}"
-    
-    # Construct URL with stronger preferences for hiking trails and natural surfaces
-    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=route_details&prefer_surface=path,dirt,gravel,compacted&avoid_surface=paved_smooth&prefer_highways=path,footway,track&avoid_highways=primary,secondary,tertiary,residential&apiKey={API_KEY}"
-    
-    # Make request
-    response = requests.get(url)
-    if response.status_code != 200:
-        return None
-        
-    data = response.json()
-    if not data['features']:
-        return None
-    
-    # Calculate surface type percentages
-    surface_distances = {}
-    total_distance = 0
+    Returns:
+        dict: Route information including distance, duration, and surface breakdown
+    """
     try:
-        legs = data['features'][0]['properties'].get('legs', [])
-        for leg in legs:
-            for step in leg.get('steps', []):
-                surface = step.get('surface', 'unknown')
-                dist = step.get('distance', 0)
-                surface_distances[surface] = surface_distances.get(surface, 0) + dist
-                total_distance += dist
+        # Format coordinates for Geoapify API
+        start_str = f"{start['lon']},{start['lat']}"
+        end_str = f"{end['lon']},{end['lat']}"
+        
+        url = f"https://api.geoapify.com/v1/routing?waypoints={start_str}|{end_str}&mode=hike&apiKey={API_KEY}"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            logging.error(f"Error getting route: {response.status_code}")
+            return None
+            
+        data = response.json()
+        
+        if not data.get('features'):
+            logging.error("No route found")
+            return None
+            
+        route = data['features'][0]
+        properties = route['properties']
+        
+        # Calculate surface type percentages
+        surface_percentages = {}
+        total_distance = properties['distance']
+        
+        for segment in properties.get('segments', []):
+            surface_type = segment.get('surface', 'unknown')
+            segment_distance = segment.get('distance', 0)
+            percentage = (segment_distance / total_distance) * 100 if total_distance > 0 else 0
+            
+            if surface_type not in surface_percentages:
+                surface_percentages[surface_type] = 0
+            surface_percentages[surface_type] += percentage
+        
+        return {
+            'distance': properties['distance'],
+            'duration': properties['time'],
+            'surface_breakdown': surface_percentages,
+            'geometry': route['geometry']
+        }
+        
     except Exception as e:
-        # If the structure is not as expected, skip surface calculation
-        surface_distances = {}
-        total_distance = 0
-    
-    surface_percentages = {}
-    if total_distance > 0:
-        for surface, dist in surface_distances.items():
-            surface_percentages[surface] = round(100 * dist / total_distance, 2)
-    
-    # Return both properties, geometry, and surface breakdown
-    return {
-        'properties': data['features'][0]['properties'],
-        'geometry': data['features'][0]['geometry'],
-        'surface_percentages': surface_percentages
-    }
+        logging.error(f"Error in get_route: {str(e)}")
+        return None
 
 def calculate_route_overlap(leg1, leg2):
     """Calculate overlap between two route legs."""
@@ -384,16 +385,16 @@ def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0
                         {
                             'start': start,
                             'end': closest_scenic['name'],
-                            'distance': start_to_mid['properties']['distance'],
-                            'duration': start_to_mid['properties']['duration'],
-                            'surface_breakdown': start_to_mid['surface_percentages']
+                            'distance': start_to_mid['distance'],
+                            'duration': start_to_mid['duration'],
+                            'surface_breakdown': start_to_mid['surface_breakdown']
                         },
                         {
                             'start': closest_scenic['name'],
                             'end': end,
-                            'distance': mid_to_end['properties']['distance'],
-                            'duration': mid_to_end['properties']['duration'],
-                            'surface_breakdown': mid_to_end['surface_percentages']
+                            'distance': mid_to_end['distance'],
+                            'duration': mid_to_end['duration'],
+                            'surface_breakdown': mid_to_end['surface_breakdown']
                         }
                     ]
                 }
