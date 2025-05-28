@@ -114,8 +114,8 @@ def get_route(start, end):
     # Format waypoints string
     wp_str = f"{start_coords[1]},{start_coords[0]}|{end_coords[1]},{end_coords[0]}"
     
-    # Construct URL with route_details
-    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=route_details&apiKey={API_KEY}"
+    # Construct URL with route_details and preferences for hiking trails
+    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=route_details&prefer_surface=path,dirt,gravel,compacted&avoid_surface=paved_smooth&apiKey={API_KEY}"
     
     # Make request
     response = requests.get(url)
@@ -334,14 +334,22 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
             # Calculate total paved road percentage across all legs
             total_paved_percentage = 0
             total_distance = 0
+            natural_surface_score = 0
+            
             for leg in route_legs:
                 surface_percentages = leg.get('surface_percentages', {})
                 paved_percentage = surface_percentages.get('paved_smooth', 0)
                 distance = leg['properties']['distance']
+                
+                # Calculate natural surface score (higher is better)
+                natural_surfaces = sum(surface_percentages.get(surface, 0) for surface in ['path', 'dirt', 'gravel', 'compacted'])
+                natural_surface_score += natural_surfaces * distance
+                
                 total_paved_percentage += paved_percentage * distance
                 total_distance += distance
             
             average_paved_percentage = total_paved_percentage / total_distance if total_distance > 0 else 0
+            average_natural_score = natural_surface_score / total_distance if total_distance > 0 else 0
             
             # Skip routes with too much paved road
             if average_paved_percentage > 35:
@@ -354,8 +362,9 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
                 overlap += calculate_route_overlap(route_legs[i], route_legs[i+1])
             
             # Calculate score (lower is better)
-            score = overlap / (num_days - 1)  # Average overlap per leg
-            print(f"[LOG] Route score: {score:.3f}, Paved roads: {average_paved_percentage:.1f}%")
+            # Weight the natural surface score more heavily
+            score = (overlap / (num_days - 1)) * 0.3 + (1 - average_natural_score/100) * 0.7
+            print(f"[LOG] Route score: {score:.3f}, Paved roads: {average_paved_percentage:.1f}%, Natural surfaces: {average_natural_score:.1f}%")
             
             if score < best_score:
                 best_score = score
