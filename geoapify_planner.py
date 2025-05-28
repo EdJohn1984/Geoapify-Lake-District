@@ -276,6 +276,17 @@ def generate_route_map(route_data, waypoints, scenic_points):
     
     return image_base64
 
+def get_waypoint_coords(waypoints, name):
+    print(f"[DEBUG] waypoints type: {type(waypoints)}")
+    if isinstance(waypoints, dict):
+        items = waypoints.values()
+    else:
+        items = waypoints
+    for p in items:
+        if isinstance(p, dict) and 'properties' in p and p['properties'].get('name') == name:
+            return p['geometry']['coordinates']
+    return None
+
 def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0.3):
     """
     Generate a hiking route through the Lake District.
@@ -286,19 +297,13 @@ def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0
         if not feasible_pairs:
             print("[LOG] No feasible pairs found")
             return None
-
         scenic_points = get_scenic_points()
         if not scenic_points:
             print("[LOG] No scenic points found")
             return None
-
-        # No elevation property in scenic_points, so skip sort by elevation
-        # scenic_points.sort(key=lambda x: x.get('properties', {}).get('ele', 0), reverse=True)
-
         best_route = None
         best_score = float('inf')
         attempts = 0
-
         while attempts < max_attempts:
             attempts += 1
             route = []
@@ -306,7 +311,6 @@ def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0
             total_distance = 0
             total_overlap = 0
             route_legs = []
-
             for day in range(num_days):
                 if not feasible_pairs:
                     break
@@ -319,8 +323,8 @@ def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0
                 end = pair['to']
                 used_waypoints.add(start)
                 used_waypoints.add(end)
-                start_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == start), None)
-                end_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == end), None)
+                start_coords = get_waypoint_coords(waypoints, start)
+                end_coords = get_waypoint_coords(waypoints, end)
                 if not start_coords or not end_coords:
                     print(f"[LOG] Could not find coordinates for {start} or {end}")
                     continue
@@ -349,7 +353,6 @@ def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0
                 if not mid_to_end:
                     print(f"[LOG] No route from scenic midpoint {best_midpoint['name']} to {end}")
                     continue
-                # Calculate paved road percentage for both legs
                 def get_paved_percent(leg):
                     sp = leg.get('surface_percentages', {})
                     return sp.get('paved_smooth', 0)
