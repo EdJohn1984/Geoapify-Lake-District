@@ -275,142 +275,174 @@ def generate_route_map(route_data, waypoints, scenic_points):
     
     return image_base64
 
-def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_threshold=0.1):
-    """Generate a hiking route through the Lake District."""
-    print("[LOG] Starting route generation")
-    
-    # Get feasible pairs for route generation
+def generate_hiking_route(waypoints, num_days=3, max_attempts=200, max_overlap=0.3):
+    """
+    Generate a hiking route through the Lake District.
+    Dynamically creates a 3-day itinerary based on feasible pairs of waypoints.
+    """
+    # Get all feasible pairs of waypoints
     feasible_pairs = get_feasible_pairs()
     if not feasible_pairs:
-        print("[LOG] No feasible pairs found")
         return None
-        
-    print(f"[LOG] Found {len(feasible_pairs)} feasible pairs")
-    
-    # Create lookup dictionary for faster access
-    feasible_next_steps = {}
-    for pair in feasible_pairs:
-        start = pair['from']
-        end = pair['to']
-        if start not in feasible_next_steps:
-            feasible_next_steps[start] = []
-        feasible_next_steps[start].append(end)
-    
+
+    # Get scenic points for the Lake District
+    scenic_points = get_scenic_points()
+    if not scenic_points:
+        return None
+
+    # Sort scenic points by elevation (higher points are more scenic)
+    scenic_points.sort(key=lambda x: x.get('properties', {}).get('ele', 0), reverse=True)
+
     best_route = None
     best_score = float('inf')
-    
-    # Try to generate a valid route
-    for attempt in range(max_tries):
-        print(f"[LOG] Try {attempt + 1}/{max_tries}")
-        
-        # Start with a waypoint that has good hiking trails
-        valid_starts = [wp for wp in waypoints.keys() if wp in feasible_next_steps]
-        if not valid_starts:
-            print("[LOG] No valid starting points found")
-            break
-            
-        # Weight the starting points by their hiking trail score
-        start_weights = [get_waypoint_score(wp) for wp in valid_starts]
-        current = random.choices(valid_starts, weights=start_weights, k=1)[0]
-        
-        route = [current]
-        used_waypoints = {current}
+    attempts = 0
+
+    while attempts < max_attempts:
+        attempts += 1
+        route = []
+        used_waypoints = set()
+        total_distance = 0
+        total_overlap = 0
         route_legs = []
-        
-        # Build route day by day
+
+        # Generate route for each day
         for day in range(num_days):
-            print(f"[LOG]  Day {day + 1}: Generating leg from {current}")
-            
-            # Get possible next steps from feasible pairs
-            if current not in feasible_next_steps:
-                print(f"[LOG]  No feasible next steps from {current}")
+            if not feasible_pairs:
                 break
-                
-            next_steps = [next_point for next_point in feasible_next_steps[current] 
-                         if next_point not in used_waypoints]
+
+            # Find a pair that hasn't been used
+            valid_pairs = [pair for pair in feasible_pairs 
+                         if pair[0] not in used_waypoints and pair[1] not in used_waypoints]
             
-            if not next_steps:
-                print(f"[LOG]  No unused feasible next steps from {current}")
+            if not valid_pairs:
                 break
-                
-            # Weight next steps by their hiking trail score
-            next_weights = [get_waypoint_score(wp) for wp in next_steps]
-            next_point = random.choices(next_steps, weights=next_weights, k=1)[0]
+
+            # Choose a random pair
+            start, end = random.choice(valid_pairs)
+            used_waypoints.add(start)
+            used_waypoints.add(end)
+
+            # Find a scenic midpoint between start and end
+            start_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == start), None)
+            end_coords = next((p['geometry']['coordinates'] for p in waypoints if p['properties']['name'] == end), None)
             
-            # Get route between current and next point
-            route_data = get_route(current, next_point)
-            if not route_data:
-                print(f"[LOG]  No route found between {current} and {next_point}")
-                break
-                
-            # Add to route
-            route.append(next_point)
-            used_waypoints.add(next_point)
-            route_legs.append(route_data)
-            current = next_point
-            
-        # If we have a complete route, calculate its score and check paved road percentage
-        if len(route) == num_days + 1:
-            # Calculate total paved road percentage across all legs
-            total_paved_percentage = 0
-            total_distance = 0
-            natural_surface_score = 0
-            waypoint_score = 0
-            
-            for leg in route_legs:
-                surface_percentages = leg.get('surface_percentages', {})
-                paved_percentage = surface_percentages.get('paved_smooth', 0)
-                distance = leg['properties']['distance']
-                
-                # Calculate natural surface score (higher is better)
-                natural_surfaces = sum(surface_percentages.get(surface, 0) for surface in ['path', 'dirt', 'gravel', 'compacted'])
-                natural_surface_score += natural_surfaces * distance
-                
-                total_paved_percentage += paved_percentage * distance
-                total_distance += distance
-            
-            # Calculate average waypoint score
-            for wp in route:
-                waypoint_score += get_waypoint_score(wp)
-            waypoint_score /= len(route)
-            
-            average_paved_percentage = total_paved_percentage / total_distance if total_distance > 0 else 0
-            average_natural_score = natural_surface_score / total_distance if total_distance > 0 else 0
-            
-            # Skip routes with too much paved road
-            if average_paved_percentage > 35:
-                print(f"[LOG] Route rejected: {average_paved_percentage:.1f}% paved roads exceeds 35% limit")
+            if not start_coords or not end_coords:
                 continue
             
-            # Calculate overlap between legs
-            overlap = 0
-            for i in range(len(route_legs) - 1):
-                overlap += calculate_route_overlap(route_legs[i], route_legs[i+1])
+            # Find the closest scenic point that's roughly between start and end
+            best_midpoint = None
+            min_deviation = float('inf')
             
-            # Calculate score (lower is better)
-            # Weight the natural surface score and waypoint score more heavily
-            score = (overlap / (num_days - 1)) * 0.2 + (1 - average_natural_score/100) * 0.4 + (1 - waypoint_score) * 0.4
-            print(f"[LOG] Route score: {score:.3f}, Paved roads: {average_paved_percentage:.1f}%, Natural surfaces: {average_natural_score:.1f}%, Waypoint score: {waypoint_score:.2f}")
+            for point in scenic_points:
+                mid_coords = point['geometry']['coordinates']
+                # Calculate if point is roughly between start and end
+                start_to_mid = geodesic(start_coords, mid_coords).kilometers
+                mid_to_end = geodesic(mid_coords, end_coords).kilometers
+                total_dist = geodesic(start_coords, end_coords).kilometers
+                
+                # Point should be roughly between start and end (not too far off the direct path)
+                if start_to_mid + mid_to_end <= total_dist * 1.5:  # Allow 50% deviation
+                    deviation = abs(start_to_mid - mid_to_end)  # How balanced the point is
+                    if deviation < min_deviation:
+                        min_deviation = deviation
+                        best_midpoint = point
+
+            if not best_midpoint:
+                continue
+
+            # Get route from start to midpoint
+            start_to_mid = get_route(start, best_midpoint['name'])
+            if not start_to_mid:
+                continue
+
+            # Get route from midpoint to end
+            mid_to_end = get_route(best_midpoint['name'], end)
+            if not mid_to_end:
+                continue
+
+            # Calculate paved road percentage for both legs
+            paved_percentage = (
+                (start_to_mid['properties']['paved_smooth'] * start_to_mid['properties']['distance'] +
+                 mid_to_end['properties']['paved_smooth'] * mid_to_end['properties']['distance']) /
+                (start_to_mid['properties']['distance'] + mid_to_end['properties']['distance'])
+            )
+
+            # Reject if paved roads exceed 35%
+            if paved_percentage > 35:
+                print(f"[LOG] Route rejected: {paved_percentage:.2f}% paved roads")
+                continue
+
+            # Combine the legs
+            day_legs = []
             
+            # Add start to midpoint leg
+            day_legs.append({
+                'start': start,
+                'end': best_midpoint['name'],
+                'distance': start_to_mid['properties']['distance'],
+                'duration': start_to_mid['properties']['duration'],
+                'geometry': start_to_mid['geometry'],
+                'surface_breakdown': start_to_mid['properties']['surface_percentages']
+            })
+            
+            # Add midpoint to end leg
+            day_legs.append({
+                'start': best_midpoint['name'],
+                'end': end,
+                'distance': mid_to_end['properties']['distance'],
+                'duration': mid_to_end['properties']['duration'],
+                'geometry': mid_to_end['geometry'],
+                'surface_breakdown': mid_to_end['properties']['surface_percentages']
+            })
+
+            # Calculate overlap with previous routes
+            for prev_leg in route_legs:
+                overlap = calculate_route_overlap(day_legs, prev_leg)
+                total_overlap += overlap
+
+            route_legs.extend(day_legs)
+            total_distance += start_to_mid['properties']['distance'] + mid_to_end['properties']['distance']
+
+            route.append({
+                'day': day + 1,
+                'start': start,
+                'end': end,
+                'midpoint': best_midpoint['name'],
+                'distance': start_to_mid['properties']['distance'] + mid_to_end['properties']['distance'],
+                'duration': start_to_mid['properties']['duration'] + mid_to_end['properties']['duration'],
+                'legs': day_legs
+            })
+
+        if len(route) == num_days:
+            # Calculate route score (lower is better)
+            score = total_overlap / len(route_legs) if route_legs else float('inf')
+            
+            # Log the attempt with paved road percentage
+            print(f"[LOG] Route attempt {attempts}: {len(route)} days, "
+                  f"total distance: {total_distance:.2f}km, "
+                  f"overlap: {total_overlap:.2f}, "
+                  f"score: {score:.2f}, "
+                  f"paved roads: {paved_percentage:.2f}%")
+
             if score < best_score:
                 best_score = score
-                best_route = {
-                    'waypoints': route,
-                    'legs': route_legs
-                }
-                print(f"[LOG] New best itinerary found with score {score:.3f}")
-                
-                # If we found a route that's good enough, return it immediately
-                if score <= good_enough_threshold:
-                    print(f"[LOG] Found route with score {score:.3f} below threshold {good_enough_threshold}")
-                    return best_route
-    
+                best_route = route
+
+            if score < 0.1:  # If we find a route with very little overlap, we can stop
+                break
+
     if best_route:
-        print(f"[LOG] Found valid route with score {best_score:.3f}")
-        return best_route
-    else:
-        print("[LOG] No valid route found")
-        return None
+        # Generate the route map
+        route_map = generate_route_map(best_route, waypoints, scenic_points)
+        
+        return {
+            'route': best_route,
+            'map': route_map,
+            'total_distance': sum(day['distance'] for day in best_route),
+            'total_duration': sum(day['duration'] for day in best_route)
+        }
+
+    return None
 
 if __name__ == "__main__":
     # Example usage
@@ -420,7 +452,7 @@ if __name__ == "__main__":
     else:
         print("\nHiking Itinerary (Lake District, Geoapify-only)")
         print("=" * 50)
-        for day in result['days']:
+        for day in result['route']:
             print(f"\nDay {day['day']}: {day['start']} → {day['end']}")
             print(f"Distance: {day['distance']} km")
             if 'scenic_detour' in day:
