@@ -48,7 +48,8 @@ def get_feasible_pairs():
         for wp2 in coords:
             if wp1 != wp2:
                 dist = geodesic(coords[wp1], coords[wp2]).kilometers
-                if 10 <= dist <= 15:
+                # Include pairs that are between 5km and 15km apart (inclusive)
+                if 5 <= dist <= 15:
                     feasible_pairs.append({
                         'from': wp1,
                         'to': wp2,
