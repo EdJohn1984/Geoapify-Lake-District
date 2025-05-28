@@ -114,8 +114,8 @@ def get_route(start, end):
     # Format waypoints string
     wp_str = f"{start_coords[1]},{start_coords[0]}|{end_coords[1]},{end_coords[0]}"
     
-    # Construct URL with route_details and preferences for hiking trails
-    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=route_details&prefer_surface=path,dirt,gravel,compacted&avoid_surface=paved_smooth&apiKey={API_KEY}"
+    # Construct URL with stronger preferences for hiking trails and natural surfaces
+    url = f"https://api.geoapify.com/v1/routing?waypoints={wp_str}&mode=hike&details=route_details&prefer_surface=path,dirt,gravel,compacted&avoid_surface=paved_smooth&prefer_highways=path,footway,track&avoid_highways=primary,secondary,tertiary,residential&apiKey={API_KEY}"
     
     # Make request
     response = requests.get(url)
@@ -170,6 +170,29 @@ def calculate_route_overlap(leg1, leg2):
     # Calculate overlap
     overlap = len(coords1 & coords2) / max(1, min(len(coords1), len(coords2)))
     return overlap
+
+def get_waypoint_score(waypoint_name):
+    """Calculate a score for a waypoint based on its location and surrounding terrain."""
+    # Areas known to have good hiking trails
+    hiking_hotspots = {
+        'Grasmere': 0.9,
+        'Patterdale': 0.9,
+        'Borrowdale': 0.9,
+        'Seathwaite': 0.9,
+        'Boot': 0.9,
+        'Chapel Stile': 0.8,
+        'Glenridding': 0.8,
+        'Elterwater': 0.8,
+        'Coniston': 0.7,
+        'Hawkshead': 0.7,
+        'Skelwith Bridge': 0.6,
+        'Ambleside': 0.5,
+        'Windermere': 0.4,
+        'Ings': 0.4,
+        'Bowland Bridge': 0.4,
+        'Satterthwaite': 0.4
+    }
+    return hiking_hotspots.get(waypoint_name, 0.3)
 
 def generate_route_map(route_data, waypoints, scenic_points):
     """Generate route map and return as base64 encoded image."""
@@ -253,14 +276,7 @@ def generate_route_map(route_data, waypoints, scenic_points):
     return image_base64
 
 def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_threshold=0.1):
-    """Generate a hiking route through the Lake District.
-    
-    Args:
-        waypoints: Dictionary of waypoint data
-        num_days: Number of days for the route
-        max_tries: Maximum number of attempts to find a route
-        good_enough_threshold: If a route has a score below this threshold, return it immediately
-    """
+    """Generate a hiking route through the Lake District."""
     print("[LOG] Starting route generation")
     
     # Get feasible pairs for route generation
@@ -287,13 +303,16 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
     for attempt in range(max_tries):
         print(f"[LOG] Try {attempt + 1}/{max_tries}")
         
-        # Start with a random waypoint that has feasible next steps
+        # Start with a waypoint that has good hiking trails
         valid_starts = [wp for wp in waypoints.keys() if wp in feasible_next_steps]
         if not valid_starts:
             print("[LOG] No valid starting points found")
             break
             
-        current = random.choice(valid_starts)
+        # Weight the starting points by their hiking trail score
+        start_weights = [get_waypoint_score(wp) for wp in valid_starts]
+        current = random.choices(valid_starts, weights=start_weights, k=1)[0]
+        
         route = [current]
         used_waypoints = {current}
         route_legs = []
@@ -314,8 +333,9 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
                 print(f"[LOG]  No unused feasible next steps from {current}")
                 break
                 
-            # Choose a random next step from feasible options
-            next_point = random.choice(next_steps)
+            # Weight next steps by their hiking trail score
+            next_weights = [get_waypoint_score(wp) for wp in next_steps]
+            next_point = random.choices(next_steps, weights=next_weights, k=1)[0]
             
             # Get route between current and next point
             route_data = get_route(current, next_point)
@@ -335,6 +355,7 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
             total_paved_percentage = 0
             total_distance = 0
             natural_surface_score = 0
+            waypoint_score = 0
             
             for leg in route_legs:
                 surface_percentages = leg.get('surface_percentages', {})
@@ -347,6 +368,11 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
                 
                 total_paved_percentage += paved_percentage * distance
                 total_distance += distance
+            
+            # Calculate average waypoint score
+            for wp in route:
+                waypoint_score += get_waypoint_score(wp)
+            waypoint_score /= len(route)
             
             average_paved_percentage = total_paved_percentage / total_distance if total_distance > 0 else 0
             average_natural_score = natural_surface_score / total_distance if total_distance > 0 else 0
@@ -362,9 +388,9 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
                 overlap += calculate_route_overlap(route_legs[i], route_legs[i+1])
             
             # Calculate score (lower is better)
-            # Weight the natural surface score more heavily
-            score = (overlap / (num_days - 1)) * 0.3 + (1 - average_natural_score/100) * 0.7
-            print(f"[LOG] Route score: {score:.3f}, Paved roads: {average_paved_percentage:.1f}%, Natural surfaces: {average_natural_score:.1f}%")
+            # Weight the natural surface score and waypoint score more heavily
+            score = (overlap / (num_days - 1)) * 0.2 + (1 - average_natural_score/100) * 0.4 + (1 - waypoint_score) * 0.4
+            print(f"[LOG] Route score: {score:.3f}, Paved roads: {average_paved_percentage:.1f}%, Natural surfaces: {average_natural_score:.1f}%, Waypoint score: {waypoint_score:.2f}")
             
             if score < best_score:
                 best_score = score
