@@ -329,8 +329,25 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
             route_legs.append(route_data)
             current = next_point
             
-        # If we have a complete route, calculate its score
+        # If we have a complete route, calculate its score and check paved road percentage
         if len(route) == num_days + 1:
+            # Calculate total paved road percentage across all legs
+            total_paved_percentage = 0
+            total_distance = 0
+            for leg in route_legs:
+                surface_percentages = leg.get('surface_percentages', {})
+                paved_percentage = surface_percentages.get('paved_smooth', 0)
+                distance = leg['properties']['distance']
+                total_paved_percentage += paved_percentage * distance
+                total_distance += distance
+            
+            average_paved_percentage = total_paved_percentage / total_distance if total_distance > 0 else 0
+            
+            # Skip routes with too much paved road
+            if average_paved_percentage > 35:
+                print(f"[LOG] Route rejected: {average_paved_percentage:.1f}% paved roads exceeds 35% limit")
+                continue
+            
             # Calculate overlap between legs
             overlap = 0
             for i in range(len(route_legs) - 1):
@@ -338,7 +355,7 @@ def generate_hiking_route(waypoints, num_days=3, max_tries=200, good_enough_thre
             
             # Calculate score (lower is better)
             score = overlap / (num_days - 1)  # Average overlap per leg
-            print(f"[LOG] Route score: {score:.3f}")
+            print(f"[LOG] Route score: {score:.3f}, Paved roads: {average_paved_percentage:.1f}%")
             
             if score < best_score:
                 best_score = score
