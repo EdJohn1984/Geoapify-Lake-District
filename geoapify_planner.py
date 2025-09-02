@@ -432,11 +432,19 @@ def analyze_surface_types(surface_data):
     
     trail_characteristics = ', '.join(characteristics) if characteristics else 'mixed terrain'
     
+    # Convert surface counts to percentages that add up to 100%
+    total_count = sum(surface_counts.values())
+    surface_percentages = {}
+    if total_count > 0:
+        for surface, count in surface_counts.items():
+            percentage = round((count / total_count) * 100, 1)
+            surface_percentages[surface] = percentage
+    
     return {
         'primary_surface': primary_surface,
         'surface_types': list(surface_counts.keys()),
         'trail_characteristics': trail_characteristics,
-        'surface_distribution': surface_counts
+        'surface_distribution': surface_percentages
     }
 
 def export_route_to_geojson(route_data, waypoints, scenic_midpoints):
