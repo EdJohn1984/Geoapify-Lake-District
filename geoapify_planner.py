@@ -244,21 +244,8 @@ def generate_route_map(route_data, waypoints, scenic_points):
     if scenic_x:
         plt.scatter(scenic_x, scenic_y, c='red', s=60, marker='^', label='All Scenic Points', edgecolor='black', zorder=3)
     
-    # Plot route path with enhanced visibility
-    plt.plot(x, y, 'b-', label='Hiking Route', linewidth=4, alpha=0.8, zorder=4)
-    print(f"[LOG] Plotting route path with {len(x)} coordinate points")
-    
-    # Plot individual day segments with different colors for better visibility
-    day_colors = ['red', 'green', 'purple', 'orange', 'brown']
-    coord_start = 0
-    for i, leg in enumerate(route_data['legs']):
-        leg_coords = leg['coords']
-        leg_x, leg_y = zip(*leg_coords)
-        leg_x_transformed, leg_y_transformed = transformer.transform(leg_x, leg_y)
-        color = day_colors[i % len(day_colors)]
-        plt.plot(leg_x_transformed, leg_y_transformed, color=color, linewidth=2, alpha=0.6, 
-                label=f'Day {i+1} Path' if i < 3 else None, zorder=3)
-        print(f"[LOG] Day {i+1} segment: {len(leg_coords)} points, color: {color}")
+    # Plot route
+    plt.plot(x, y, 'b-', label='Route', linewidth=3, zorder=4)
     
     # Plot route waypoints (start, mid, end)
     colors = ['blue', 'green', 'purple', 'orange']
@@ -292,28 +279,19 @@ def generate_route_map(route_data, waypoints, scenic_points):
             plt.text(mx, my, name, fontsize=9, color='darkgoldenrod', 
                     verticalalignment='bottom', weight='bold', zorder=8)
     
-    # Set axis limits first
-    ax.set_xlim(min_x, max_x)
-    ax.set_ylim(min_y, max_y)
-    ax.set_aspect('equal')
-    
-    # Add basemap
-    try:
-        ctx.add_basemap(ax, crs="epsg:3857", source=ctx.providers.OpenStreetMap.Mapnik, alpha=0.8)
-        print("[LOG] OpenStreetMap basemap added successfully")
-    except Exception as e:
-        print(f"[LOG] Basemap error: {e}")
-        # Fallback: try with different provider
-        try:
-            ctx.add_basemap(ax, crs="epsg:3857", source=ctx.providers.CartoDB.Positron, alpha=0.8)
-            print("[LOG] CartoDB Positron basemap added as fallback")
-        except Exception as e2:
-            print(f"[LOG] Fallback basemap also failed: {e2}")
-    
     plt.title('Hiking Route (Geoapify)')
     plt.xlabel('Longitude')
     plt.ylabel('Latitude')
     plt.legend(loc='upper left', fontsize=9)
+    
+    # Add basemap
+    try:
+        ctx.add_basemap(ax, crs="epsg:3857", source=ctx.providers.OpenStreetMap.Mapnik)
+    except Exception as e:
+        print(f"[LOG] Basemap error: {e}")
+    ax.set_aspect('equal')
+    ax.set_xlim(min_x, max_x)
+    ax.set_ylim(min_y, max_y)
     
     # Save to buffer and convert to base64
     buffer = BytesIO()
@@ -323,6 +301,143 @@ def generate_route_map(route_data, waypoints, scenic_points):
     plt.close()
     
     return image_base64
+
+def get_osm_surface_data(coordinates):
+    """Query OpenStreetMap for surface type data along route coordinates."""
+    # Sample a subset of coordinates to avoid too many API calls
+    sample_coords = coordinates[::max(1, len(coordinates)//10)]  # Sample ~10 points
+    
+    surface_data = []
+    
+    for coord in sample_coords:
+        lon, lat = coord
+        
+        # Overpass API query for ways near this coordinate with surface tags
+        overpass_query = f"""
+        [out:json][timeout:25];
+        (
+          way(around:50,{lat},{lon})["surface"];
+          way(around:50,{lat},{lon})["highway"];
+          way(around:50,{lat},{lon})["tracktype"];
+        );
+        out tags;
+        """
+        
+        try:
+            response = requests.post(
+                "https://overpass-api.de/api/interpreter",
+                data=overpass_query,
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                for element in data.get('elements', []):
+                    tags = element.get('tags', {})
+                    
+                    # Extract surface information
+                    surface = tags.get('surface', 'unknown')
+                    highway = tags.get('highway', '')
+                    tracktype = tags.get('tracktype', '')
+                    
+                    surface_data.append({
+                        'surface': surface,
+                        'highway': highway,
+                        'tracktype': tracktype,
+                        'lat': lat,
+                        'lon': lon
+                    })
+                        
+        except Exception as e:
+            print(f"[LOG] OSM query error for {lat},{lon}: {e}")
+            continue
+    
+    return surface_data
+
+def analyze_surface_types(surface_data):
+    """Analyze surface data to determine predominant surface type and characteristics."""
+    if not surface_data:
+        return {
+            'primary_surface': 'unknown',
+            'surface_types': [],
+            'trail_characteristics': 'mixed terrain'
+        }
+    
+    # Count surface types
+    surface_counts = {}
+    highway_types = []
+    tracktypes = []
+    
+    for data in surface_data:
+        surface = data['surface']
+        if surface != 'unknown':
+            surface_counts[surface] = surface_counts.get(surface, 0) + 1
+        
+        if data['highway']:
+            highway_types.append(data['highway'])
+        
+        if data['tracktype']:
+            tracktypes.append(data['tracktype'])
+    
+    # Determine primary surface
+    if surface_counts:
+        primary_surface = max(surface_counts, key=surface_counts.get)
+    else:
+        primary_surface = 'unpaved'  # Default for hiking trails
+    
+    # Create trail characteristics description
+    characteristics = []
+    
+    # Surface-based characteristics
+    surface_descriptions = {
+        'paved': 'well-maintained path',
+        'asphalt': 'paved surface',
+        'concrete': 'paved surface',
+        'unpaved': 'natural trail',
+        'gravel': 'gravel path',
+        'dirt': 'dirt track',
+        'grass': 'grassy path',
+        'mud': 'muddy conditions possible',
+        'rock': 'rocky terrain',
+        'stone': 'stone path',
+        'sand': 'sandy surface'
+    }
+    
+    if primary_surface in surface_descriptions:
+        characteristics.append(surface_descriptions[primary_surface])
+    
+    # Highway type characteristics
+    if 'footway' in highway_types or 'path' in highway_types:
+        characteristics.append('designated footpath')
+    elif 'track' in highway_types:
+        characteristics.append('track/bridleway')
+    elif 'bridleway' in highway_types:
+        characteristics.append('bridleway')
+    
+    # Track type characteristics (for tracks)
+    if tracktypes:
+        track_descriptions = {
+            'grade1': 'solid surface',
+            'grade2': 'mostly solid surface',
+            'grade3': 'mixed surface',
+            'grade4': 'rough surface',
+            'grade5': 'very rough surface'
+        }
+        
+        for tracktype in tracktypes:
+            if tracktype in track_descriptions:
+                characteristics.append(track_descriptions[tracktype])
+                break
+    
+    trail_characteristics = ', '.join(characteristics) if characteristics else 'mixed terrain'
+    
+    return {
+        'primary_surface': primary_surface,
+        'surface_types': list(surface_counts.keys()),
+        'trail_characteristics': trail_characteristics,
+        'surface_distribution': surface_counts
+    }
 
 def export_route_to_geojson(route_data, waypoints, scenic_midpoints):
     """Export route data as GeoJSON for interactive web maps."""
@@ -352,8 +467,13 @@ def export_route_to_geojson(route_data, waypoints, scenic_midpoints):
             }
             geojson["features"].append(feature)
     
-    # Add route legs as LineString features
+    # Add route legs as LineString features with surface data
     for i, leg in enumerate(route_data['legs']):
+        # Get surface data for this route leg
+        print(f"[LOG] Getting surface data for day {i + 1}...")
+        surface_data = get_osm_surface_data(leg['coords'])
+        surface_analysis = analyze_surface_types(surface_data)
+        
         feature = {
             "type": "Feature",
             "properties": {
@@ -362,7 +482,10 @@ def export_route_to_geojson(route_data, waypoints, scenic_midpoints):
                 "duration_min": round(leg['properties']['time'] / 60, 0),
                 "type": "route_leg",
                 "color": ["red", "green", "purple", "orange", "brown"][i % 5],
-                "description": f"Day {i + 1}: {leg['properties']['distance']/1000:.1f}km, {leg['properties']['time']/60:.0f}min"
+                "description": f"Day {i + 1}: {leg['properties']['distance']/1000:.1f}km, {leg['properties']['time']/60:.0f}min",
+                
+                # NEW: Surface type information from OSM
+                "surface_data": surface_analysis
             },
             "geometry": {
                 "type": "LineString",

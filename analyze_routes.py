@@ -19,8 +19,8 @@ for wp1 in coords:
         if wp1 != wp2:
             dist = geodesic(coords[wp1], coords[wp2]).kilometers
             distances[(wp1, wp2)] = dist
-            # Check if distance is within feasible range (5-15km)
-            if 5 <= dist <= 15:
+            # Check if distance is within feasible range (10-15km)
+            if 10 <= dist <= 15:
                 feasible_pairs.append((wp1, wp2))
 
 # Count potential 3-day routes
@@ -35,11 +35,11 @@ for start in coords:
                             feasible_routes.append((start, day1, day2, end))
 
 print(f"Total number of waypoints: {len(coords)}")
-print(f"Number of feasible pairs (5-15km): {len(feasible_pairs)}")
+print(f"Number of feasible pairs (10-15km): {len(feasible_pairs)}")
 print(f"Number of potential 3-day routes: {len(feasible_routes)}")
 
 # Print some example feasible pairs
-print("\nExample feasible pairs (5-15km):")
+print("\nExample feasible pairs (10-15km):")
 for wp1, wp2 in feasible_pairs[:10]:
     print(f"{wp1} to {wp2}: {distances[(wp1, wp2)]:.1f}km")
 
