@@ -6,7 +6,7 @@ from rq import Queue
 from redis import Redis
 from worker import route_queue
 import json
-from geoapify_planner import generate_hiking_route
+from geoapify_planner import generate_hiking_route, export_route_to_geojson
 
 # Load environment variables
 load_dotenv()
@@ -47,8 +47,7 @@ def generate_route():
                         'to': result['waypoints'][i+1],
                         'distance': leg['properties']['distance'] / 1000,  # Convert to km
                         'duration': leg['properties']['time'] / 60,  # Convert to minutes
-                        'geometry': leg['geometry'],
-                        'surface_percentages': leg.get('surface_percentages', {})
+                        'geometry': leg['geometry']
                     }
                     for i, leg in enumerate(result['legs'])
                 ]
@@ -57,6 +56,50 @@ def generate_route():
         }
     except Exception as e:
         print(f"[LOG] Exception in generate_route: {e}")
+        return {
+            'status': 'error',
+            'message': str(e)
+        }
+
+def generate_interactive_route():
+    """Generate route data for interactive web maps (GeoJSON format)."""
+    print("[LOG] Starting generate_interactive_route")
+    try:
+        # Load waypoints from file
+        with open('filtered_waypoints.json', 'r') as f:
+            waypoints = json.load(f)
+            
+        # Create a dictionary of waypoint names
+        waypoint_dict = {wp['properties']['name']: wp for wp in waypoints}
+        
+        # Always generate a 3-day hiking route dynamically
+        result = generate_hiking_route(waypoint_dict, num_days=3)
+        print("[LOG] generate_hiking_route finished")
+        if not result:
+            print("[LOG] No valid route found")
+            return {
+                'status': 'error',
+                'message': 'No valid route found'
+            }
+            
+        # Export to GeoJSON for interactive maps
+        geojson_data = export_route_to_geojson(result, waypoints, result['scenic_midpoints'])
+        
+        # Format the response for interactive maps
+        print("[LOG] Interactive route generated successfully")
+        return {
+            'status': 'success',
+            'geojson': geojson_data,
+            'route_summary': {
+                'waypoints': result['waypoints'],
+                'total_distance_km': sum(leg['properties']['distance'] for leg in result['legs']) / 1000,
+                'total_duration_min': sum(leg['properties']['time'] for leg in result['legs']) / 60,
+                'scenic_points': [mid['name'] for mid in result['scenic_midpoints'] if mid]
+            },
+            'message': 'Interactive route generated successfully'
+        }
+    except Exception as e:
+        print(f"[LOG] Exception in generate_interactive_route: {e}")
         return {
             'status': 'error',
             'message': str(e)
@@ -73,6 +116,20 @@ def create_route():
     return jsonify({
         'job_id': job.id,
         'status': 'queued'
+    })
+
+@app.route('/api/generate-interactive-route', methods=['POST'])
+def create_interactive_route():
+    """Generate route data for interactive web maps (GeoJSON format)."""
+    job = route_queue.enqueue(
+        generate_interactive_route,
+        job_timeout='1h'
+    )
+    
+    return jsonify({
+        'job_id': job.id,
+        'status': 'queued',
+        'format': 'geojson'
     })
 
 @app.route('/api/route-status/<job_id>', methods=['GET'])
