@@ -1,0 +1,1812 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Polruan",
+      "postcode": "PL23 1PJ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -4.6345762,
+      "lat": 50.3286019,
+      "state_code": "ENG",
+      "formatted": "Polruan, PL23 1PJ, United Kingdom",
+      "address_line1": "Polruan",
+      "address_line2": "PL23 1PJ, United Kingdom",
+      "name": "Polruan",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Polruan",
+          "is_in": "Lanteglos-by-Fowey, Cornwall, England, UK, Europe",
+          "place": "village",
+          "osm_id": 322059867,
+          "name:kw": "Porthruwon",
+          "website": "https://www.polruan.org.uk/",
+          "osm_type": "n",
+          "wikidata": "Q752484",
+          "wikipedia": "en:Polruan",
+          "population": 614,
+          "is_in:county": "Cornwall",
+          "is_in:region": "South West England",
+          "is_in:country": "United Kingdom",
+          "is_in:country_code": "GB"
+        }
+      },
+      "website": "https://www.polruan.org.uk/",
+      "name_international": {
+        "kw": "Porthruwon"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q752484",
+        "wikipedia": "en:Polruan"
+      },
+      "place_id": "51a147e757ce8912c059bf9e85a00f2a4940f00103f9015b3e321300000000920307506f6c7275616e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.634576199999999,
+        50.32860189937991
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "city": "Plymouth",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-PLY",
+      "lon": -4.1424451,
+      "lat": 50.3714122,
+      "state_code": "ENG",
+      "formatted": "Plymouth, England, United Kingdom",
+      "address_line1": "Plymouth",
+      "address_line2": "England, United Kingdom",
+      "name": "Plymouth",
+      "categories": [
+        "populated_place",
+        "populated_place.city"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Plymouth",
+          "is_in": "Devon, England, UK",
+          "place": "city",
+          "osm_id": 17986274,
+          "name:ar": "\u0628\u0644\u064a\u0645\u0648\u062b",
+          "name:be": "\u041f\u043b\u0456\u043c\u0443\u0442",
+          "name:bn": "\u09aa\u09cd\u09b2\u09be\u0987\u09ae\u09be\u0989\u09a5",
+          "name:br": "Aberplymm",
+          "name:cy": "Plymouth",
+          "name:el": "\u03a0\u03bb\u03cd\u03bc\u03bf\u03c5\u03b8",
+          "name:en": "Plymouth",
+          "name:hu": "Plymouth",
+          "name:ja": "\u30d7\u30ea\u30de\u30b9",
+          "name:ko": "\ud50c\ub9ac\uba38\uc2a4",
+          "name:kw": "Aberplymm",
+          "name:lt": "Plimutas",
+          "name:mk": "\u041f\u043b\u0438\u043c\u0443\u0442",
+          "name:ml": "\u0d2a\u0d4d\u0d32\u0d3f\u0d2e\u0d24\u0d4d\u0d24\u0d4d",
+          "name:ru": "\u041f\u043b\u0438\u043c\u0443\u0442",
+          "name:sr": "\u041f\u043b\u0438\u043c\u0443\u0442",
+          "name:uk": "\u041f\u043b\u0456\u043c\u0443\u0442",
+          "name:ur": "\u067e\u0644\u06cc \u0645\u062a\u06be",
+          "osm_type": "n",
+          "wikidata": "Q43382",
+          "wikipedia": "en:Plymouth",
+          "population": 264695,
+          "alt_name:cy": "Aberplym",
+          "is_in:county": "Devon",
+          "is_in:country": "United Kingdom",
+          "population:date": 2021,
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "ar": "\u0628\u0644\u064a\u0645\u0648\u062b",
+        "be": "\u041f\u043b\u0456\u043c\u0443\u0442",
+        "bn": "\u09aa\u09cd\u09b2\u09be\u0987\u09ae\u09be\u0989\u09a5",
+        "br": "Aberplymm",
+        "cy": "Plymouth",
+        "el": "\u03a0\u03bb\u03cd\u03bc\u03bf\u03c5\u03b8",
+        "en": "Plymouth",
+        "hu": "Plymouth",
+        "ja": "\u30d7\u30ea\u30de\u30b9",
+        "ko": "\ud50c\ub9ac\uba38\uc2a4",
+        "kw": "Aberplymm",
+        "lt": "Plimutas",
+        "mk": "\u041f\u043b\u0438\u043c\u0443\u0442",
+        "ml": "\u0d2a\u0d4d\u0d32\u0d3f\u0d2e\u0d24\u0d4d\u0d24\u0d4d",
+        "ru": "\u041f\u043b\u0438\u043c\u0443\u0442",
+        "sr": "\u041f\u043b\u0438\u043c\u0443\u0442",
+        "uk": "\u041f\u043b\u0456\u043c\u0443\u0442",
+        "ur": "\u067e\u0644\u06cc \u0645\u062a\u06be"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q43382",
+        "wikipedia": "en:Plymouth"
+      },
+      "place_id": "51dce6d720dd9110c0590cd1586f8a2f4940f00103f901e272120100000000920308506c796d6f757468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.1424451,
+        50.37141219937084
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "St. Ives",
+      "postcode": "TR26",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.4795083,
+      "lat": 50.2149064,
+      "state_code": "ENG",
+      "formatted": "St Ives, St. Ives, TR26, United Kingdom",
+      "address_line1": "St Ives",
+      "address_line2": "St. Ives, TR26, United Kingdom",
+      "name": "St Ives",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "St Ives",
+          "place": "town",
+          "osm_id": 18336960,
+          "name:br": "Porth Ia",
+          "name:cy": "Porth Ia",
+          "name:en": "St. Ives",
+          "name:kw": "Porthia",
+          "name:ru": "\u0421\u0435\u043d\u0442-\u0410\u0439\u0432\u0441",
+          "osm_type": "n",
+          "wikidata": "Q724182",
+          "wikipedia": "en:St Ives, Cornwall",
+          "postal_code": "TR26"
+        }
+      },
+      "name_international": {
+        "br": "Porth Ia",
+        "cy": "Porth Ia",
+        "en": "St. Ives",
+        "kw": "Porthia",
+        "ru": "\u0421\u0435\u043d\u0442-\u0410\u0439\u0432\u0441"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q724182",
+        "wikipedia": "en:St Ives, Cornwall"
+      },
+      "place_id": "5169a44a3904eb15c05950928a0d821b4940f00103f901c0cc17010000000092030753742049766573"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.4795083,
+        50.21490639940441
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Newquay",
+      "postcode": "TR7",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0848836,
+      "lat": 50.4134414,
+      "state_code": "ENG",
+      "formatted": "Newquay, TR7, United Kingdom",
+      "address_line1": "Newquay",
+      "address_line2": "TR7, United Kingdom",
+      "name": "Newquay",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Newquay",
+          "place": "town",
+          "osm_id": 18485879,
+          "name:br": "Tewynblustri",
+          "name:en": "Newquay",
+          "name:kw": "Tewynblustri",
+          "osm_type": "n",
+          "wikidata": "Q943517",
+          "wikipedia": "en:Newquay",
+          "postal_code": "TR7",
+          "is_in:county": "Cornwall",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "br": "Tewynblustri",
+        "en": "Newquay",
+        "kw": "Tewynblustri"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q943517",
+        "wikipedia": "en:Newquay"
+      },
+      "place_id": "51f3ddf7b9eb5614c0594189d4a5eb344940f00103f90177121a01000000009203074e657771756179"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.0848836,
+        50.41344139936201
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Rosudgeon",
+      "postcode": "TR20 9AJ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.4193145,
+      "lat": 50.1158224,
+      "state_code": "ENG",
+      "formatted": "Rosudgeon, TR20 9AJ, United Kingdom",
+      "address_line1": "Rosudgeon",
+      "address_line2": "TR20 9AJ, United Kingdom",
+      "name": "Rosudgeon",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Rosudgeon",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29164645,
+          "name:kw": "Krowsfordh Rosojyon",
+          "osm_type": "n",
+          "wikidata": "Q7370085",
+          "postal_code": "TR20 9"
+        }
+      },
+      "name_international": {
+        "kw": "Krowsfordh Rosojyon"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7370085"
+      },
+      "place_id": "5150f4c0c760ad15c0590cd7b444d30e4940f00103f9016504bd0100000000920309526f73756467656f6e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.419314499999999,
+        50.115822399426264
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Penzance",
+      "village": "Gulval",
+      "postcode": "TR18 3BB",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.5212394,
+      "lat": 50.1326635,
+      "state_code": "ENG",
+      "formatted": "Gulval, Penzance, TR18 3BB, United Kingdom",
+      "address_line1": "Gulval",
+      "address_line2": "Penzance, TR18 3BB, United Kingdom",
+      "name": "Gulval",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Gulval",
+          "place": "village",
+          "osm_id": 29164652,
+          "name:kw": "Lannystli",
+          "osm_type": "n",
+          "wikidata": "Q5617932"
+        }
+      },
+      "name_international": {
+        "kw": "Lannystli"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5617932"
+      },
+      "place_id": "51f18b01c8bf1516c05941b2171efb104940f00103f9016c04bd010000000092030647756c76616c"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.5212394,
+        50.13266349942251
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Ashton",
+      "postcode": "TR13 9SB",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.3539663,
+      "lat": 50.1092187,
+      "state_code": "ENG",
+      "formatted": "Ashton, TR13 9SB, United Kingdom",
+      "address_line1": "Ashton",
+      "address_line2": "TR13 9SB, United Kingdom",
+      "name": "Ashton",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Ashton",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29169813,
+          "name:en": "Ashton",
+          "name:kw": "Trevonnen",
+          "osm_type": "n",
+          "wikidata": "Q19460299"
+        }
+      },
+      "name_international": {
+        "en": "Ashton",
+        "kw": "Trevonnen"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q19460299"
+      },
+      "place_id": "51648b4924766a15c059ad13dbe0fa0d4940f00103f9019518bd0100000000920306417368746f6e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.3539663,
+        50.10921869942772
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Penzance",
+      "village": "Paul",
+      "postcode": "TR19 6UA",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.5464449,
+      "lat": 50.0896383,
+      "state_code": "ENG",
+      "formatted": "Paul, Penzance, TR19 6UA, United Kingdom",
+      "address_line1": "Paul",
+      "address_line2": "Penzance, TR19 6UA, United Kingdom",
+      "name": "Paul",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Paul",
+          "place": "village",
+          "osm_id": 29170205,
+          "name:kw": "Breweni",
+          "osm_type": "n",
+          "wikidata": "Q1002828",
+          "postal_code": "TR19 6"
+        }
+      },
+      "name_international": {
+        "kw": "Breweni"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1002828"
+      },
+      "place_id": "5193437a408f2f16c059d5438e44790b4940f00103f9011d1abd01000000009203045061756c"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.5464449,
+        50.0896382994321
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "St Just",
+      "village": "Trewellard",
+      "postcode": "TR19 7ST",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.6720192,
+      "lat": 50.1461172,
+      "state_code": "ENG",
+      "formatted": "Trewellard, St Just, TR19 7ST, United Kingdom",
+      "address_line1": "Trewellard",
+      "address_line2": "St Just, TR19 7ST, United Kingdom",
+      "name": "Trewellard",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Trewellard",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29170534,
+          "name:kw": "Trewyllard",
+          "osm_type": "n",
+          "wikidata": "Q7839535",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Trewyllard"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7839535"
+      },
+      "place_id": "51e72219cd25b016c059ea71e8f7b3124940f00103f901661bbd010000000092030a54726577656c6c617264"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.6720192,
+        50.14611719941952
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "St Just",
+      "village": "Pendeen",
+      "postcode": "TR19 7DN",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.6652773,
+      "lat": 50.1513312,
+      "state_code": "ENG",
+      "formatted": "Pendeen, St Just, TR19 7DN, United Kingdom",
+      "address_line1": "Pendeen",
+      "address_line2": "St Just, TR19 7DN, United Kingdom",
+      "name": "Pendeen",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Pendeen",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29170535,
+          "name:kw": "Boskaswal Wartha",
+          "osm_type": "n",
+          "wikidata": "Q3374651",
+          "postal_code": "TR19 7",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Boskaswal Wartha"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3374651"
+      },
+      "place_id": "51b015d9733ea916c059e62e1cd25e134940f00103f901671bbd010000000092030750656e6465656e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.6652773,
+        50.15133119941838
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "St Just",
+      "village": "Boscaswell",
+      "postcode": "TR19 7EL",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.6720103,
+      "lat": 50.1546425,
+      "state_code": "ENG",
+      "formatted": "Boscaswell, St Just, TR19 7EL, United Kingdom",
+      "address_line1": "Boscaswell",
+      "address_line2": "St Just, TR19 7EL, United Kingdom",
+      "name": "Boscaswell",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Boscaswell",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29170536,
+          "name:kw": "Boskaswal",
+          "osm_type": "n",
+          "wikidata": "Q4947136",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Boskaswal"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q4947136"
+      },
+      "place_id": "51f34cd47723b016c05908c94e53cb134940f00103f901681bbd010000000092030a426f7363617377656c6c"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.672010299999999,
+        50.15464249941766
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "St. Ives",
+      "village": "Halsetown",
+      "postcode": "TR26 3LZ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.4940932,
+      "lat": 50.1949726,
+      "state_code": "ENG",
+      "formatted": "Halsetown, St. Ives, TR26 3LZ, United Kingdom",
+      "address_line1": "Halsetown",
+      "address_line2": "St. Ives, TR26 3LZ, United Kingdom",
+      "name": "Halsetown",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Halsetown",
+          "place": "village",
+          "osm_id": 29171930,
+          "name:kw": "Trehals",
+          "osm_type": "n",
+          "wikidata": "Q5643522"
+        }
+      },
+      "name_international": {
+        "kw": "Trehals"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5643522"
+      },
+      "place_id": "5136b45c91f3f915c059d409b5dcf4184940f00103f901da20bd010000000092030948616c7365746f776e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.4940932,
+        50.19497259940877
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Hayle",
+      "postcode": "TR27",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.4178169,
+      "lat": 50.1871402,
+      "state_code": "ENG",
+      "formatted": "Hayle, TR27, United Kingdom",
+      "address_line1": "Hayle",
+      "address_line2": "TR27, United Kingdom",
+      "name": "Hayle",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Hayle",
+          "is_in": "Cornwall, England, UK",
+          "place": "town",
+          "osm_id": 29172762,
+          "name:br": "Heyl",
+          "name:en": "Hayle",
+          "name:kw": "Heyl",
+          "osm_type": "n",
+          "wikidata": "Q1010221",
+          "wikipedia": "en:Hayle",
+          "postal_code": "TR27",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "br": "Heyl",
+        "en": "Hayle",
+        "kw": "Heyl"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1010221",
+        "wikipedia": "en:Hayle"
+      },
+      "place_id": "514add8431d8ab15c059161ec635f4174940f00103f9011a24bd01000000009203054861796c65"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.4178169,
+        50.18714019941051
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Carnhell Green",
+      "postcode": "TR14 0LZ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.3412409,
+      "lat": 50.1883682,
+      "state_code": "ENG",
+      "formatted": "Carnhell Green, TR14 0LZ, United Kingdom",
+      "address_line1": "Carnhell Green",
+      "address_line2": "TR14 0LZ, United Kingdom",
+      "name": "Carnhell Green",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Carnhell Green",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29227258,
+          "name:kw": "Glesin Karnhel",
+          "osm_type": "n",
+          "wikidata": "Q5044047",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Glesin Karnhel"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5044047"
+      },
+      "place_id": "51fc3a26416e5d15c0596309fc721c184940f00103f901faf8bd010000000092030e4361726e68656c6c20477265656e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.341240899999999,
+        50.18836819941023
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Lizard",
+      "postcode": "TR12 7NH",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.2039246,
+      "lat": 49.9687683,
+      "state_code": "ENG",
+      "formatted": "Lizard, TR12 7NH, United Kingdom",
+      "address_line1": "Lizard",
+      "address_line2": "TR12 7NH, United Kingdom",
+      "name": "Lizard",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Lizard",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29269852,
+          "name:br": "Lisard",
+          "name:kw": "Lysardh",
+          "osm_type": "n",
+          "wikidata": "Q6660495",
+          "wikipedia": "en:Lizard (village)"
+        }
+      },
+      "name_international": {
+        "br": "Lisard",
+        "kw": "Lysardh"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q6660495",
+        "wikipedia": "en:Lizard (village)"
+      },
+      "place_id": "5146663f9cd1d014c05931ca819900fc4840f00103f9015c9fbe01000000009203064c697a617264"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.203924599999999,
+        49.96876829945939
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Cadgwith",
+      "postcode": "TR12 7JX",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.1803766,
+      "lat": 49.9879391,
+      "state_code": "ENG",
+      "formatted": "Cadgwith, TR12 7JX, United Kingdom",
+      "address_line1": "Cadgwith",
+      "address_line2": "TR12 7JX, United Kingdom",
+      "name": "Cadgwith",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Cadgwith",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29282484,
+          "name:br": "Porthkajwydh",
+          "name:kw": "Porthkajwydh",
+          "osm_type": "n",
+          "wikidata": "Q950388",
+          "wikipedia": "en:Cadgwith"
+        }
+      },
+      "name_international": {
+        "br": "Porthkajwydh",
+        "kw": "Porthkajwydh"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q950388",
+        "wikipedia": "en:Cadgwith"
+      },
+      "place_id": "51cedab7a4b4b814c059af4cd5c974fe4840f00103f901b4d0be01000000009203084361646777697468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.180376600000001,
+        49.98793909945504
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Coverack",
+      "postcode": "TR12 6TA",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0971985,
+      "lat": 50.0224895,
+      "state_code": "ENG",
+      "formatted": "Coverack, TR12 6TA, United Kingdom",
+      "address_line1": "Coverack",
+      "address_line2": "TR12 6TA, United Kingdom",
+      "name": "Coverack",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Coverack",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29285196,
+          "name:br": "Porthkovrek",
+          "name:kw": "Porthkovrek",
+          "osm_type": "n",
+          "wikidata": "Q3373087",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "br": "Porthkovrek",
+        "kw": "Porthkovrek"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3373087"
+      },
+      "place_id": "518ae1ea00886314c059895098efe0024940f00103f9014cdbbe0100000000920308436f76657261636b"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.097198499999999,
+        50.02248949944721
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Falmouth",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0688262,
+      "lat": 50.1552197,
+      "state_code": "ENG",
+      "formatted": "Falmouth, Cornwall, England, United Kingdom",
+      "address_line1": "Falmouth",
+      "address_line2": "Cornwall, England, United Kingdom",
+      "name": "Falmouth",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Falmouth",
+          "is_in": "Cornwall, England, UK",
+          "place": "town",
+          "osm_id": 29285363,
+          "name:br": "Aberfala",
+          "name:cy": "Aberfal",
+          "name:en": "Falmouth",
+          "name:kw": "Aberfala",
+          "name:ru": "\u0424\u0430\u043b\u043c\u0443\u0442",
+          "osm_type": "n",
+          "wikidata": "Q478029",
+          "wikipedia": "en:Falmouth, Cornwall",
+          "population": 25223,
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "br": "Aberfala",
+        "cy": "Aberfal",
+        "en": "Falmouth",
+        "kw": "Aberfala",
+        "ru": "\u0424\u0430\u043b\u043c\u0443\u0442"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q478029",
+        "wikipedia": "en:Falmouth, Cornwall"
+      },
+      "place_id": "518c6e18607a4614c059bc58363dde134940f00103f901f3dbbe010000000092030846616c6d6f757468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.0688262,
+        50.15521969941753
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Gerrans",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -4.9813535,
+      "lat": 50.178432,
+      "state_code": "ENG",
+      "formatted": "Gerrans, Cornwall, England, United Kingdom",
+      "address_line1": "Gerrans",
+      "address_line2": "Cornwall, England, United Kingdom",
+      "name": "Gerrans",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Gerrans",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29285391,
+          "name:kw": "Gerens",
+          "osm_type": "n",
+          "wikidata": "Q5552490",
+          "wikipedia": "en:Gerrans",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Gerens"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5552490",
+        "wikipedia": "en:Gerrans"
+      },
+      "place_id": "51b24291eee7ec13c059a10419dcd6164940f00103f9010fdcbe010000000092030747657272616e73"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.981353499999999,
+        50.1784319994124
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Portscatho",
+      "postcode": "TR2 5HJ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -4.9756476,
+      "lat": 50.1797427,
+      "state_code": "ENG",
+      "formatted": "Portscatho, TR2 5HJ, United Kingdom",
+      "address_line1": "Portscatho",
+      "address_line2": "TR2 5HJ, United Kingdom",
+      "name": "Portscatho",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Portscatho",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29285392,
+          "name:kw": "Porthskathow",
+          "osm_type": "n",
+          "wikidata": "Q7232404",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Porthskathow"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7232404"
+      },
+      "place_id": "51ffae192a10e713c059bdd50bcf01174940f00103f90110dcbe010000000092030a506f727473636174686f"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.975647600000001,
+        50.179742699412124
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Penzance",
+      "village": "Heamoor",
+      "postcode": "TR18 3DZ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.5511541,
+      "lat": 50.126422,
+      "state_code": "ENG",
+      "formatted": "Heamoor, Penzance, TR18 3DZ, United Kingdom",
+      "address_line1": "Heamoor",
+      "address_line2": "Penzance, TR18 3DZ, United Kingdom",
+      "name": "Heamoor",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Heamoor",
+          "place": "village",
+          "osm_id": 29286672,
+          "name:kw": "An Hay",
+          "osm_type": "n",
+          "wikidata": "Q5691488"
+        }
+      },
+      "name_international": {
+        "kw": "An Hay"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5691488"
+      },
+      "place_id": "51aa398abd613416c059a38298982e104940f00103f90110e1be01000000009203074865616d6f6f72"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.5511541,
+        50.126421999423904
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Holywell",
+      "postcode": "TR8 5PB",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.1394866,
+      "lat": 50.3867564,
+      "state_code": "ENG",
+      "formatted": "Holywell, TR8 5PB, United Kingdom",
+      "address_line1": "Holywell",
+      "address_line2": "TR8 5PB, United Kingdom",
+      "name": "Holywell",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Holywell",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29289147,
+          "name:kw": "Tregew",
+          "osm_type": "n",
+          "wikidata": "Q9293418",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Tregew"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q9293418"
+      },
+      "place_id": "51c2eb4493d58e14c059b966d33b81314940f00103f901bbeabe0100000000920308486f6c7977656c6c"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.1394866,
+        50.38675639936759
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "ref": "ST. COLUMB MINOR",
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Newquay",
+      "village": "St. Columb Minor",
+      "postcode": "TR7 3EZ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0428584,
+      "lat": 50.4212397,
+      "state_code": "ENG",
+      "formatted": "St. Columb Minor, Newquay, TR7 3EZ, United Kingdom",
+      "address_line1": "St. Columb Minor",
+      "address_line2": "Newquay, TR7 3EZ, United Kingdom",
+      "name": "St. Columb Minor",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "ref": "ST. COLUMB MINOR",
+          "name": "St. Columb Minor",
+          "place": "village",
+          "osm_id": 29289212,
+          "name:kw": "Sen Kolom Woles",
+          "osm_type": "n",
+          "wikidata": "Q3997404",
+          "is_in:county": "Cornwall",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Sen Kolom Woles"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3997404"
+      },
+      "place_id": "51806f8912e32b14c059cb43b62eeb354940f00103f901fceabe010000000092031053742e20436f6c756d62204d696e6f72"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.0428584,
+        50.42123969936036
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Newquay",
+      "village": "Porth",
+      "postcode": "TR7 3FG",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0560832,
+      "lat": 50.4236994,
+      "state_code": "ENG",
+      "formatted": "Porth, Newquay, TR7 3FG, United Kingdom",
+      "address_line1": "Porth",
+      "address_line2": "Newquay, TR7 3FG, United Kingdom",
+      "name": "Porth",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Porth",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29289232,
+          "name:kw": "Porth",
+          "osm_type": "n",
+          "wikidata": "Q7231733",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Porth"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7231733"
+      },
+      "place_id": "518c6bd7df6d3914c059efca2bc83b364940f00103f90110ebbe0100000000920305506f727468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.0560832,
+        50.423699399359855
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Trevarrian",
+      "postcode": "TR8 4AH",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0291428,
+      "lat": 50.4568018,
+      "state_code": "ENG",
+      "formatted": "Trevarrian, TR8 4AH, United Kingdom",
+      "address_line1": "Trevarrian",
+      "address_line2": "TR8 4AH, United Kingdom",
+      "name": "Trevarrian",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Trevarrian",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29289240,
+          "name:kw": "Treveryan",
+          "osm_type": "n",
+          "wikidata": "Q7838930",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Treveryan"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7838930"
+      },
+      "place_id": "51cda7339cd71d14c059cd7c3a7b783a4940f00103f90118ebbe010000000092030a5472657661727269616e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.0291428,
+        50.45680179935298
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Trenance",
+      "postcode": "TR8 4BS",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -5.0276448,
+      "lat": 50.4722994,
+      "state_code": "ENG",
+      "formatted": "Trenance, TR8 4BS, United Kingdom",
+      "address_line1": "Trenance",
+      "address_line2": "TR8 4BS, United Kingdom",
+      "name": "Trenance",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Trenance",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29289299,
+          "name:kw": "Trenans",
+          "osm_type": "n",
+          "wikidata": "Q7838213",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Trenans"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7838213"
+      },
+      "place_id": "512a9e1feb4e1c14c0595c10854e743c4940f00103f90153ebbe01000000009203085472656e616e6365"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -5.027644799999999,
+        50.472299399349794
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "St. Columb Major",
+      "village": "Gluvian",
+      "postcode": "TR9 6DA",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -4.9352824,
+      "lat": 50.4430039,
+      "state_code": "ENG",
+      "formatted": "Gluvian, St. Columb Major, TR9 6DA, United Kingdom",
+      "address_line1": "Gluvian",
+      "address_line2": "St. Columb Major, TR9 6DA, United Kingdom",
+      "name": "Gluvian",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Gluvian",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29289383,
+          "osm_type": "n",
+          "wikidata": "Q5572506",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5572506"
+      },
+      "place_id": "51fa1862abbabd13c059eedd0d5ab4384940f00103f901a7ebbe0100000000920307476c757669616e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.9352824,
+        50.443003899355844
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "Padstow",
+      "postcode": "PL28 8",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -4.9369874,
+      "lat": 50.5403819,
+      "state_code": "ENG",
+      "formatted": "Padstow, PL28 8, United Kingdom",
+      "address_line1": "Padstow",
+      "address_line2": "PL28 8, United Kingdom",
+      "name": "Padstow",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Padstow",
+          "is_in": "Cornwall, England, UK",
+          "place": "town",
+          "osm_id": 29289583,
+          "name:br": "Lannwedhenek",
+          "name:kw": "Lannwedhenek",
+          "osm_type": "n",
+          "wikidata": "Q943931",
+          "wikipedia": "en:Padstow",
+          "postal_code": "PL28 8",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "br": "Lannwedhenek",
+        "kw": "Lannwedhenek"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q943931",
+        "wikipedia": "en:Padstow"
+      },
+      "place_id": "51680eff9f79bf13c059c17fec3b2b454940f00103f9016fecbe010000000092030750616473746f77"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.9369874,
+        50.540381899335905
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Cornwall",
+      "city": "New Polzeath",
+      "postcode": "PL27 6UF",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-CON",
+      "lon": -4.9154201,
+      "lat": 50.578567,
+      "state_code": "ENG",
+      "formatted": "New Polzeath, PL27 6UF, United Kingdom",
+      "address_line1": "New Polzeath",
+      "address_line2": "PL27 6UF, United Kingdom",
+      "name": "New Polzeath",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "New Polzeath",
+          "is_in": "Cornwall, England, UK",
+          "place": "village",
+          "osm_id": 29289665,
+          "name:kw": "Trebenntir",
+          "osm_type": "n",
+          "wikidata": "Q7011039",
+          "is_in:county": "Cornwall",
+          "is_in:country": "England",
+          "is_in:country_code": "GB"
+        }
+      },
+      "name_international": {
+        "kw": "Trebenntir"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7011039"
+      },
+      "place_id": "517a67fee263a913c0596e54c27b0e4a4940f00103f901c1ecbe010000000092030c4e657720506f6c7a65617468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.9154201,
+        50.57856699932823
+      ]
+    }
+  }
+]
