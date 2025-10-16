@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: web_service
     name: hiking-backend
     env: python
     plan: starter
@@ -14,15 +14,12 @@ services:
       - key: GEOAPIFY_API_KEY
         sync: false
       - key: REDIS_URL
-        fromService:
-          name: hiking-redis
-          type: redis
-          property: connectionString
+        value: ""
       - key: CACHE_ROOT
         value: /var/tmp/hiking-cache
       - key: FRONTEND_URL
         value: https://hiking-frontend.onrender.com
-  - type: worker
+  - type: background_worker
     name: hiking-worker
     env: python
     plan: starter
@@ -36,16 +33,10 @@ services:
       - key: GEOAPIFY_API_KEY
         sync: false
       - key: REDIS_URL
-        fromService:
-          name: hiking-redis
-          type: redis
-          property: connectionString
+        value: ""
       - key: CACHE_ROOT
         value: /var/tmp/hiking-cache
-  - type: redis
-    name: hiking-redis
-    ipAllowList: []
-  - type: static
+  - type: static_site
     name: hiking-frontend
     buildCommand: cd frontend && npm ci && npm run build
     staticPublishPath: frontend/build
@@ -53,5 +44,5 @@ services:
       - key: REACT_APP_API_URL
         fromService:
           name: hiking-backend
-          type: web
+          type: web_service
           property: host
