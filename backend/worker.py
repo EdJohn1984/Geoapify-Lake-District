@@ -20,8 +20,8 @@ conn = redis.from_url(REDIS_URL)
 # Define the queues
 route_queue = Queue('route_generation', connection=conn)
 
-# Create worker instance
-worker = Worker([route_queue])
+# Create worker instance with an explicit connection to avoid None-type issues
+worker = Worker([route_queue], connection=conn)
 
 if __name__ == '__main__':
     with Connection(conn):
