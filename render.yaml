@@ -1,8 +1,7 @@
 services:
-  - type: web_service
+  - type: web
     name: hiking-backend
     env: python
-    plan: starter
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     healthCheckPath: /api/health
@@ -18,11 +17,10 @@ services:
       - key: CACHE_ROOT
         value: /var/tmp/hiking-cache
       - key: FRONTEND_URL
-        value: https://hiking-frontend.onrender.com
-  - type: background_worker
+        value: ""
+  - type: worker
     name: hiking-worker
     env: python
-    plan: starter
     buildCommand: pip install -r requirements.txt
     startCommand: python worker.py
     envVars:
@@ -36,13 +34,10 @@ services:
         value: ""
       - key: CACHE_ROOT
         value: /var/tmp/hiking-cache
-  - type: static_site
+  - type: static
     name: hiking-frontend
     buildCommand: cd frontend && npm ci && npm run build
-    staticPublishPath: frontend/build
+    publishPath: frontend/build
     envVars:
       - key: REACT_APP_API_URL
-        fromService:
-          name: hiking-backend
-          type: web_service
-          property: host
+        value: ""
