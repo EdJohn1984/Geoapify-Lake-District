@@ -34,10 +34,3 @@ services:
         value: ""
       - key: CACHE_ROOT
         value: /var/tmp/hiking-cache
-  - type: static
-    name: hiking-frontend
-    buildCommand: cd frontend && npm ci && npm run build
-    publishPath: frontend/build
-    envVars:
-      - key: REACT_APP_API_URL
-        value: ""
