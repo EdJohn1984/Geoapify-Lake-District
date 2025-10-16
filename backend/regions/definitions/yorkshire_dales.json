@@ -1,0 +1,29 @@
+{
+  "id": "yorkshire_dales",
+  "name": "Yorkshire Dales",
+  "description": "Rolling hills and limestone landscapes in the Yorkshire Dales National Park",
+  "bbox": {
+    "west": -2.5,
+    "south": 54.0,
+    "east": -1.8,
+    "north": 54.5
+  },
+  "route_params": {
+    "min_distance_km": 12,
+    "max_distance_km": 18,
+    "default_days": 3,
+    "mode": "hike"
+  },
+  "terrain_defaults": {
+    "mountain": 30,
+    "forest": 15,
+    "coastal": 0,
+    "valley": 55
+  },
+  "scenic_categories": [
+    "natural.mountain.peak",
+    "tourism.attraction.viewpoint"
+  ],
+  "waypoints_file": "yorkshire_dales.json",
+  "cache_prefix": "yorkshire_dales"
+}

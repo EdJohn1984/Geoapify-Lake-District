@@ -1,0 +1,1376 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Beddgelert",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.1027056,
+      "lat": 53.0116458,
+      "state_code": "WLS",
+      "formatted": "Beddgelert, Gwynedd, Wales, United Kingdom",
+      "address_line1": "Beddgelert",
+      "address_line2": "Gwynedd, Wales, United Kingdom",
+      "name": "Beddgelert",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Beddgelert",
+          "place": "village",
+          "osm_id": 25580892,
+          "name:cy": "Beddgelert",
+          "name:en": "Beddgelert",
+          "osm_type": "n",
+          "wikidata": "Q791811",
+          "wikipedia": "en:Beddgelert"
+        }
+      },
+      "name_international": {
+        "cy": "Beddgelert",
+        "en": "Beddgelert"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q791811",
+        "wikipedia": "en:Beddgelert"
+      },
+      "place_id": "51d87624a82b6910c0591f1c0b9c7d814a40f00103f9015c5586010000000092030a4265646467656c657274"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.1027056,
+        53.01164579908822
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Harlech",
+      "postcode": "LL46 2YE",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.10745,
+      "lat": 52.8587665,
+      "state_code": "WLS",
+      "formatted": "Harlech, LL46 2YE, United Kingdom",
+      "address_line1": "Harlech",
+      "address_line2": "LL46 2YE, United Kingdom",
+      "name": "Harlech",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Harlech",
+          "is_in": "Gwynedd,Wales,UK",
+          "place": "town",
+          "osm_id": 29217836,
+          "name:br": "Harlech",
+          "name:cy": "Harlech",
+          "osm_type": "n",
+          "wikidata": "Q1024935",
+          "population": 1447
+        }
+      },
+      "name_international": {
+        "br": "Harlech",
+        "cy": "Harlech"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1024935"
+      },
+      "place_id": "5120d26f5f076e10c059203c860fec6d4a40f00103f9012cd4bd01000000009203074861726c656368"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.10745,
+        52.85876649908482
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Capel Curig",
+      "postcode": "LL24 0EN",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.9123543,
+      "lat": 53.1050487,
+      "state_code": "WLS",
+      "formatted": "Capel Curig, LL24 0EN, United Kingdom",
+      "address_line1": "Capel Curig",
+      "address_line2": "LL24 0EN, United Kingdom",
+      "name": "Capel Curig",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Capel Curig",
+          "place": "village",
+          "osm_id": 29548239,
+          "osm_type": "n",
+          "wikidata": "Q3400769",
+          "wikipedia": "en:Capel Curig",
+          "source_ref:name": "local knowledge"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3400769",
+        "wikipedia": "en:Capel Curig"
+      },
+      "place_id": "5177eb4669804c0fc059158b5b3c728d4a40f00103f901cfdec2010000000092030b436170656c204375726967"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.9123543,
+        53.10504869909179
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Nant Peris",
+      "postcode": "LL55 4UG",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0808549,
+      "lat": 53.1045446,
+      "state_code": "WLS",
+      "formatted": "Nant Peris, LL55 4UG, United Kingdom",
+      "address_line1": "Nant Peris",
+      "address_line2": "LL55 4UG, United Kingdom",
+      "name": "Nant Peris",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Nant Peris",
+          "is_in": "Gwynedd, Cymru,Wales,UK",
+          "place": "village",
+          "osm_id": 29581131,
+          "osm_type": "n",
+          "wikidata": "Q13130349",
+          "source_ref:name": "local knowledge"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q13130349"
+      },
+      "place_id": "51aae27ca0cb5210c0594909a9b7618d4a40f00103f9014b5fc3010000000092030a4e616e74205065726973"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.0808549,
+        53.10454459909176
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Bala",
+      "postcode": "LL23 7UT",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -3.59947,
+      "lat": 52.9112205,
+      "state_code": "WLS",
+      "formatted": "Y Bala, Bala, LL23 7UT, United Kingdom",
+      "address_line1": "Y Bala",
+      "address_line2": "Bala, LL23 7UT, United Kingdom",
+      "name": "Y Bala",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Y Bala",
+          "is_in": "Gwynedd",
+          "place": "town",
+          "osm_id": 29761584,
+          "name:cy": "Y Bala",
+          "name:en": "Bala",
+          "osm_type": "n",
+          "wikidata": "Q171923",
+          "wikipedia": "en:Bala, Gwynedd",
+          "population": 1974
+        }
+      },
+      "name_international": {
+        "cy": "Y Bala",
+        "en": "Bala"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q171923",
+        "wikipedia": "en:Bala, Gwynedd"
+      },
+      "place_id": "51067767edb6cb0cc059408291dfa2744a40f00103f9013020c60100000000920306592042616c61"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.5994699999999993,
+        52.91122049908563
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Llanuwchllyn",
+      "postcode": "LL23 7UB",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -3.6739107,
+      "lat": 52.8587405,
+      "state_code": "WLS",
+      "formatted": "Llanuwchllyn, LL23 7UB, United Kingdom",
+      "address_line1": "Llanuwchllyn",
+      "address_line2": "LL23 7UB, United Kingdom",
+      "name": "Llanuwchllyn",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanuwchllyn",
+          "is_in": "Gwynedd",
+          "place": "village",
+          "osm_id": 29761660,
+          "osm_type": "n",
+          "wikidata": "Q3402425"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3402425"
+      },
+      "place_id": "515065074b2b640dc059f4a86b35eb6d4a40f00103f9017c20c6010000000092030c4c6c616e757763686c6c796e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.6739107000000004,
+        52.8587404990848
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Llanrwst",
+      "postcode": "LL26 0BG",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.7939311,
+      "lat": 53.1415318,
+      "state_code": "WLS",
+      "formatted": "Llanrwst, LL26 0BG, United Kingdom",
+      "address_line1": "Llanrwst",
+      "address_line2": "LL26 0BG, United Kingdom",
+      "name": "Llanrwst",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanrwst",
+          "place": "town",
+          "osm_id": 30394358,
+          "name:cy": "Llanrwst",
+          "name:ur": "\u0644\u06be\u0627\u0646\u0631\u0633\u0679",
+          "osm_type": "n",
+          "wikidata": "Q2233618"
+        }
+      },
+      "name_international": {
+        "cy": "Llanrwst",
+        "ur": "\u0644\u06be\u0627\u0646\u0631\u0633\u0679"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q2233618"
+      },
+      "place_id": "51eb376e8cf8590ec059ab39c8b61d924a40f00103f901f6c7cf01000000009203084c6c616e72777374"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.7939310999999996,
+        53.14153179909348
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Bethesda",
+      "postcode": "LL57 3AS",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0614444,
+      "lat": 53.1809093,
+      "state_code": "WLS",
+      "formatted": "Bethesda, LL57 3AS, United Kingdom",
+      "address_line1": "Bethesda",
+      "address_line2": "LL57 3AS, United Kingdom",
+      "name": "Bethesda",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Bethesda",
+          "place": "town",
+          "osm_id": 249755671,
+          "name:cy": "Bethesda",
+          "name:ur": "\u0628\u062a\u06be\u06cc\u0633\u0688\u0627",
+          "osm_type": "n",
+          "wikidata": "Q1883524"
+        }
+      },
+      "name_international": {
+        "cy": "Bethesda",
+        "ur": "\u0628\u062a\u06be\u06cc\u0633\u0688\u0627"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1883524"
+      },
+      "place_id": "51e016e247eb3e10c0592994310928974a40f00103f90117f8e20e000000009203084265746865736461"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.061444399999999,
+        53.18090929909551
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Llanberis",
+      "postcode": "LL55 4BF",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.1277481,
+      "lat": 53.1212762,
+      "state_code": "WLS",
+      "formatted": "Llanberis, LL55 4BF, United Kingdom",
+      "address_line1": "Llanberis",
+      "address_line2": "LL55 4BF, United Kingdom",
+      "name": "Llanberis",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanberis",
+          "is_in": "Gwynedd",
+          "place": "town",
+          "osm_id": 335172463,
+          "name:cy": "Llanberis",
+          "name:ru": "\u041b\u043b\u0430\u043d\u0431\u0435\u0440\u0438\u0441",
+          "name:ur": "\u0644\u06be\u0627\u0646 \u0628\u06cc\u0631\u0633",
+          "osm_type": "n",
+          "wikidata": "Q1638504",
+          "alt_name:ur": "\u0644\u06be\u0627\u0646\u0628\u06cc\u0631\u0633"
+        }
+      },
+      "name_international": {
+        "cy": "Llanberis",
+        "ru": "\u041b\u043b\u0430\u043d\u0431\u0435\u0440\u0438\u0441",
+        "ur": "\u0644\u06be\u0627\u0646 \u0628\u06cc\u0631\u0633"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1638504"
+      },
+      "place_id": "512a81de65d08210c05958717efa858f4a40f00103f9016f53fa13000000009203094c6c616e6265726973"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.1277481,
+        53.121276199092506
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Tregarth",
+      "postcode": "LL57 4PL",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0904847,
+      "lat": 53.1902945,
+      "state_code": "WLS",
+      "formatted": "Tregarth, LL57 4PL, United Kingdom",
+      "address_line1": "Tregarth",
+      "address_line2": "LL57 4PL, United Kingdom",
+      "name": "Tregarth",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Tregarth",
+          "place": "village",
+          "osm_id": 343343826,
+          "osm_type": "n",
+          "wikidata": "Q3398942",
+          "wikipedia": "en:Tregarth"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3398942",
+        "wikipedia": "en:Tregarth"
+      },
+      "place_id": "514a276d05a85c10c059f11cf5915b984a40f00103f901d2027714000000009203085472656761727468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.090484699999999,
+        53.19029449909602
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Llanfor",
+      "postcode": "LL23 7DT",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -3.5822627,
+      "lat": 52.9166323,
+      "state_code": "WLS",
+      "formatted": "Llanfor, LL23 7DT, United Kingdom",
+      "address_line1": "Llanfor",
+      "address_line2": "LL23 7DT, United Kingdom",
+      "name": "Llanfor",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanfor",
+          "is_in": "Gwynedd",
+          "place": "village",
+          "osm_id": 412275274,
+          "osm_type": "n",
+          "wikidata": "Q10990404"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q10990404"
+      },
+      "place_id": "51fe71b15879a80cc059eb83093554754a40f00103f9014ad29218000000009203074c6c616e666f72"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.5822627000000002,
+        52.916632299085755
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Rhiwlas",
+      "postcode": "LL57 4HG",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.1274181,
+      "lat": 53.1697919,
+      "state_code": "WLS",
+      "formatted": "Rhiwlas, LL57 4HG, United Kingdom",
+      "address_line1": "Rhiwlas",
+      "address_line2": "LL57 4HG, United Kingdom",
+      "name": "Rhiwlas",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Rhiwlas",
+          "place": "village",
+          "osm_id": 521574508,
+          "osm_type": "n",
+          "wikidata": "Q13131036"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q13131036"
+      },
+      "place_id": "517facf1e3798210c05983deaebdbb954a40f00103f9016c98161f00000000920307526869776c6173"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.127418099999999,
+        53.16979189909491
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Pentre Gwynfryn",
+      "postcode": "LL45 2LU",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.083613,
+      "lat": 52.82386,
+      "state_code": "WLS",
+      "formatted": "Pentre Gwynfryn, LL45 2LU, United Kingdom",
+      "address_line1": "Pentre Gwynfryn",
+      "address_line2": "LL45 2LU, United Kingdom",
+      "name": "Pentre Gwynfryn",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Pentre Gwynfryn",
+          "place": "village",
+          "osm_id": 2933118615,
+          "osm_type": "n",
+          "wikidata": "Q7165289"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q7165289"
+      },
+      "place_id": "51f01472a59e5510c0596e46943e74694a40f00103f90197d6d3ae0000000092030f50656e747265204777796e6672796e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.083613,
+        52.82385999908443
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Cwm-y-glo",
+      "postcode": "LL55 4DR",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.1660432,
+      "lat": 53.1408596,
+      "state_code": "WLS",
+      "formatted": "Cwm-y-glo, LL55 4DR, United Kingdom",
+      "address_line1": "Cwm-y-glo",
+      "address_line2": "LL55 4DR, United Kingdom",
+      "name": "Cwm-y-glo",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Cwm-y-glo",
+          "place": "village",
+          "osm_id": 3394632564,
+          "name:cy": "Cwm-y-glo",
+          "osm_type": "n",
+          "wikidata": "Q3402521"
+        }
+      },
+      "name_international": {
+        "cy": "Cwm-y-glo"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3402521"
+      },
+      "place_id": "518be4863a07aa10c05990b7f5af07924a40f00103f90174fb55ca0000000092030943776d2d792d676c6f"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.1660432,
+        53.14085959909346
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Penrhyndeudraeth",
+      "postcode": "LL48 6AD",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0668694,
+      "lat": 52.9300385,
+      "state_code": "WLS",
+      "formatted": "Penrhyndeudraeth, LL48 6AD, United Kingdom",
+      "address_line1": "Penrhyndeudraeth",
+      "address_line2": "LL48 6AD, United Kingdom",
+      "name": "Penrhyndeudraeth",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Penrhyndeudraeth",
+          "is_in": "Gwynedd,Wales,UK",
+          "place": "village",
+          "osm_id": 29217183,
+          "name:cy": "Penrhyndeudraeth",
+          "name:en": "Penrhyndeudraeth",
+          "name:ru": "\u041f\u0435\u043d\u0440\u0438\u043d\u0434\u0435\u0439\u0434\u0440\u0430\u0439\u0442",
+          "osm_type": "n"
+        }
+      },
+      "name_international": {
+        "cy": "Penrhyndeudraeth",
+        "en": "Penrhyndeudraeth",
+        "ru": "\u041f\u0435\u043d\u0440\u0438\u043d\u0434\u0435\u0439\u0434\u0440\u0430\u0439\u0442"
+      },
+      "place_id": "519e697869794410c05938cc64800b774a40f00103f9019fd1bd010000000092031050656e7268796e646575647261657468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.0668694,
+        52.93003849908604
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Maentwrog",
+      "postcode": "LL41 4HS",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -3.9873158,
+      "lat": 52.9457718,
+      "state_code": "WLS",
+      "formatted": "Maentwrog, LL41 4HS, United Kingdom",
+      "address_line1": "Maentwrog",
+      "address_line2": "LL41 4HS, United Kingdom",
+      "name": "Maentwrog",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Maentwrog",
+          "is_in": "Gwynedd,Wales,UK",
+          "place": "village",
+          "osm_id": 29217420,
+          "name:cy": "Maentwrog",
+          "name:en": "Maentwrog",
+          "osm_type": "n"
+        }
+      },
+      "name_international": {
+        "cy": "Maentwrog",
+        "en": "Maentwrog"
+      },
+      "place_id": "51b6977ed305e60fc0590f47e10c0f794a40f00103f9018cd2bd01000000009203094d61656e7477726f67"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.9873158,
+        52.945771799086394
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Llanbedr",
+      "postcode": "LL45 2AA",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0998962,
+      "lat": 52.820377,
+      "state_code": "WLS",
+      "formatted": "Llanbedr, LL45 2AA, United Kingdom",
+      "address_line1": "Llanbedr",
+      "address_line2": "LL45 2AA, United Kingdom",
+      "name": "Llanbedr",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanbedr",
+          "is_in": "Gwynedd,Wales,UK",
+          "place": "village",
+          "osm_id": 29218338,
+          "name:cy": "Llanbedr",
+          "name:en": "Llanbedr",
+          "osm_type": "n"
+        }
+      },
+      "name_international": {
+        "cy": "Llanbedr",
+        "en": "Llanbedr"
+      },
+      "place_id": "518bfa7f304b6610c059a4ba0e1d02694a40f00103f90122d6bd01000000009203084c6c616e62656472"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.099896199999999,
+        52.8203769990844
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Llanrug",
+      "postcode": "LL55 4PN",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.1918597,
+      "lat": 53.1467267,
+      "state_code": "WLS",
+      "formatted": "Llanrug, LL55 4PN, United Kingdom",
+      "address_line1": "Llanrug",
+      "address_line2": "LL55 4PN, United Kingdom",
+      "name": "Llanrug",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanrug",
+          "place": "village",
+          "osm_id": 29265901,
+          "name:cy": "Llanrug",
+          "name:en": "Llanrug",
+          "osm_type": "n"
+        }
+      },
+      "name_international": {
+        "cy": "Llanrug",
+        "en": "Llanrug"
+      },
+      "place_id": "5176ae83de76c410c0596207c3f0c7924a40f00103f901ed8fbe01000000009203074c6c616e727567"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.1918597,
+        53.14672669909375
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Betws-y-coed",
+      "postcode": "LL24 0AD",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.8027985,
+      "lat": 53.0914469,
+      "state_code": "WLS",
+      "formatted": "Betws-y-coed, LL24 0AD, United Kingdom",
+      "address_line1": "Betws-y-coed",
+      "address_line2": "LL24 0AD, United Kingdom",
+      "name": "Betws-y-coed",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Betws-y-coed",
+          "is_in": "Conwy, Cymru,Wales,UK",
+          "place": "village",
+          "osm_id": 29580536,
+          "name:cy": "Betws-y-coed",
+          "name:ur": "\u0628\u064e\u06cc\u0679\u064e\u0633\u06c1 \u06a9\u0648\u0626\u06cc\u0688",
+          "osm_type": "n",
+          "source_ref:name": "npe"
+        }
+      },
+      "name_international": {
+        "cy": "Betws-y-coed",
+        "ur": "\u0628\u064e\u06cc\u0679\u064e\u0633\u06c1 \u06a9\u0648\u0626\u06cc\u0688"
+      },
+      "place_id": "510c39b69e216c0ec0596b753088b48b4a40f00103f901f85cc3010000000092030c42657477732d792d636f6564"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.8027984999999997,
+        53.0914468990912
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Dolwyddelan",
+      "postcode": "LL25 0NZ",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.8888824,
+      "lat": 53.0539119,
+      "state_code": "WLS",
+      "formatted": "Dolwyddelan, LL25 0NZ, United Kingdom",
+      "address_line1": "Dolwyddelan",
+      "address_line2": "LL25 0NZ, United Kingdom",
+      "name": "Dolwyddelan",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Dolwyddelan",
+          "place": "village",
+          "osm_id": 36162359,
+          "name:cy": "Dolwyddelan",
+          "osm_type": "n"
+        }
+      },
+      "name_international": {
+        "cy": "Dolwyddelan"
+      },
+      "place_id": "5181eb2f606e1c0fc0594ebac995e6864a40f00103f90137cb27020000000092030b446f6c77796464656c616e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.8888824000000004,
+        53.0539118990897
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Rhydlydan",
+      "postcode": "LL24 0LL",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.6536472,
+      "lat": 53.043393,
+      "state_code": "WLS",
+      "formatted": "Rhydlydan, LL24 0LL, United Kingdom",
+      "address_line1": "Rhydlydan",
+      "address_line2": "LL24 0LL, United Kingdom",
+      "name": "Rhydlydan",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Rhydlydan",
+          "place": "village",
+          "osm_id": 298283604,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "51cbf91862ab3a0dc05962fbdbe68d854a40f00103f9015472c71100000000920309526879646c7964616e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.6536471999999995,
+        53.043392999089306
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Pentir",
+      "postcode": "LL57 4EA",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.1359393,
+      "lat": 53.1807357,
+      "state_code": "WLS",
+      "formatted": "Pentir, LL57 4EA, United Kingdom",
+      "address_line1": "Pentir",
+      "address_line2": "LL57 4EA, United Kingdom",
+      "name": "Pentir",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Pentir",
+          "place": "village",
+          "osm_id": 521574708,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "51ecf6feab338b10c059db6aee5822974a40f00103f9013499161f0000000092030650656e746972"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.1359393,
+        53.180735699095486
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Llanllechid",
+      "postcode": "LL57 3LB",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0624667,
+      "lat": 53.1969103,
+      "state_code": "WLS",
+      "formatted": "Llanllechid, LL57 3LB, United Kingdom",
+      "address_line1": "Llanllechid",
+      "address_line2": "LL57 3LB, United Kingdom",
+      "name": "Llanllechid",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Llanllechid",
+          "place": "village",
+          "osm_id": 603763313,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "512d5b4645f73f10c059aa6e4f5b34994a40f00103f90171b2fc230000000092030b4c6c616e6c6c6563686964"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.062466699999999,
+        53.19691029909639
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Trefriw",
+      "postcode": "LL27 0TJ",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.8274994,
+      "lat": 53.1513887,
+      "state_code": "WLS",
+      "formatted": "Trefriw, LL27 0TJ, United Kingdom",
+      "address_line1": "Trefriw",
+      "address_line2": "LL27 0TJ, United Kingdom",
+      "name": "Trefriw",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Trefriw",
+          "place": "village",
+          "osm_id": 1291420145,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "514ead6301b89e0ec059d8cb73b460934a40f00103f901f181f94c0000000092030754726566726977"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.8274993999999998,
+        53.15138869909396
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Conwy",
+      "city": "Pont Cyfyng",
+      "postcode": "LL24 0DY",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-CWY",
+      "lon": -3.8918229,
+      "lat": 53.0958798,
+      "state_code": "WLS",
+      "formatted": "Pont Cyfyng, LL24 0DY, United Kingdom",
+      "address_line1": "Pont Cyfyng",
+      "address_line2": "LL24 0DY, United Kingdom",
+      "name": "Pont Cyfyng",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Pont Cyfyng",
+          "place": "village",
+          "osm_id": 1599078161,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "514f976a0b74220fc059e7b80cca458c4a40f00103f90111ff4f5f0000000092030b506f6e7420437966796e67"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.8918229000000006,
+        53.095879799091385
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "Wales",
+      "county": "Gwynedd",
+      "city": "Braichmelyn",
+      "postcode": "LL57 3PY",
+      "iso3166_2": "GB-WLS",
+      "iso3166_2_sublevel": "GB-GWN",
+      "lon": -4.0547555,
+      "lat": 53.1728498,
+      "state_code": "WLS",
+      "formatted": "Braichmelyn, LL57 3PY, United Kingdom",
+      "address_line1": "Braichmelyn",
+      "address_line2": "LL57 3PY, United Kingdom",
+      "name": "Braichmelyn",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Braichmelyn",
+          "place": "village",
+          "osm_id": 4068750801,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "51c11a67d3113810c059e41d35f11f964a40f00103f901d13584f20000000092030b4272616963686d656c796e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.0547555,
+        53.172849799095076
+      ]
+    }
+  }
+]

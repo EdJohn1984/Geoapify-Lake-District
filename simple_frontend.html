@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiking Trip Organizer</title>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .region-card {
+            transition: all 0.2s ease;
+        }
+        .region-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .loading {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-12 h-12 text-blue-600">🏔️</div>
+                <h1 class="text-4xl font-bold text-gray-900">Hiking Trip Organizer</h1>
+            </div>
+            <p class="text-gray-600 text-lg">
+                Plan your perfect multi-day hiking adventure with scenic routes
+            </p>
+        </div>
+
+        <!-- Region Selection -->
+        <div id="region-selection" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Select Your Region</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button onclick="selectRegion('lake_district')" class="region-card p-6 rounded-lg border-2 border-gray-200 bg-white hover:border-blue-300 hover:shadow-md text-left">
+                    <div class="flex items-start gap-4">
+                        <div class="text-gray-400">🏔️</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Lake District</h3>
+                            <p class="text-gray-600 text-sm">Mountain hiking routes in the Lake District National Park</p>
+                        </div>
+                    </div>
+                </button>
+                <button onclick="selectRegion('cornwall')" class="region-card p-6 rounded-lg border-2 border-gray-200 bg-white hover:border-blue-300 hover:shadow-md text-left">
+                    <div class="flex items-start gap-4">
+                        <div class="text-gray-400">🌊</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Cornwall</h3>
+                            <p class="text-gray-600 text-sm">Coastal and inland hiking routes in Cornwall</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Generate Button -->
+        <div id="generate-section" class="text-center mb-8" style="display: none;">
+            <button id="generate-btn" onclick="generateRoute()" class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
+                Generate Hiking Route
+            </button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="text-center py-12" style="display: none;">
+            <div class="loading w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p class="text-gray-600 text-lg">Generating your hiking route...</p>
+            <p class="text-gray-400 text-sm mt-2">This may take a few moments</p>
+        </div>
+
+        <!-- Results -->
+        <div id="results" style="display: none;">
+            <!-- Route Summary -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Your Route</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-600 mb-1">Total Distance</p>
+                        <p id="total-distance" class="text-2xl font-bold text-blue-700">0 km</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-600 mb-1">Total Duration</p>
+                        <p id="total-duration" class="text-2xl font-bold text-blue-700">0 hours</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-600 mb-1">Days</p>
+                        <p id="total-days" class="text-2xl font-bold text-blue-700">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Map -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Route Map</h2>
+                <div id="map" class="rounded-lg overflow-hidden shadow-lg h-96 w-full"></div>
+            </div>
+
+            <!-- Day Details -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Daily Itinerary</h2>
+                <div id="day-details" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Day details will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8" style="display: none;">
+            <p id="error-message" class="text-red-700">An error occurred</p>
+        </div>
+    </div>
+
+    <script>
+        let selectedRegion = null;
+        let map = null;
+        let currentJobId = null;
+
+        async function selectRegion(regionId) {
+            selectedRegion = regionId;
+            document.getElementById('region-selection').style.display = 'none';
+            document.getElementById('generate-section').style.display = 'block';
+            
+            // Update button text
+            const regionName = regionId === 'lake_district' ? 'Lake District' : 'Cornwall';
+            document.getElementById('generate-btn').textContent = `Generate ${regionName} Route`;
+        }
+
+        async function generateRoute() {
+            if (!selectedRegion) return;
+
+            // Show loading state
+            document.getElementById('generate-section').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+
+            try {
+                // Generate route
+                const endpoint = selectedRegion === 'lake_district' 
+                    ? '/api/generate-interactive-route'
+                    : '/api/cornwall/generate-interactive-route';
+                
+                const response = await fetch(`http://localhost:5000${endpoint}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to start route generation');
+                }
+
+                const data = await response.json();
+                currentJobId = data.job_id;
+
+                // Poll for completion
+                pollRouteStatus();
+            } catch (error) {
+                showError('Failed to start route generation: ' + error.message);
+            }
+        }
+
+        async function pollRouteStatus() {
+            try {
+                const endpoint = selectedRegion === 'lake_district'
+                    ? `/api/route-status/${currentJobId}`
+                    : `/api/cornwall/route-status/${currentJobId}`;
+
+                const response = await fetch(`http://localhost:5000${endpoint}`);
+                const data = await response.json();
+
+                if (data.status === 'completed') {
+                    displayResults(data.result);
+                } else if (data.status === 'failed') {
+                    showError('Route generation failed. Please try again.');
+                } else {
+                    // Still in progress, poll again in 2 seconds
+                    setTimeout(pollRouteStatus, 2000);
+                }
+            } catch (error) {
+                showError('Error checking route status: ' + error.message);
+            }
+        }
+
+        function displayResults(routeData) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+
+            // Update summary
+            document.getElementById('total-distance').textContent = routeData.route_summary.total_distance_km.toFixed(1) + ' km';
+            document.getElementById('total-duration').textContent = (routeData.route_summary.total_duration_min / 60).toFixed(1) + ' hours';
+            document.getElementById('total-days').textContent = routeData.route_summary.waypoints.length - 1;
+
+            // Initialize map
+            initMap(routeData.geojson);
+
+            // Display day details
+            displayDayDetails(routeData);
+        }
+
+        function initMap(geojson) {
+            if (map) {
+                map.remove();
+            }
+
+            map = L.map('map').setView([54.4, -3.0], 10);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add GeoJSON to map
+            L.geoJSON(geojson, {
+                pointToLayer: function (feature, latlng) {
+                    const icon = feature.properties.marker_type === 'scenic' 
+                        ? L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png', iconSize: [25, 41]})
+                        : L.icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png', iconSize: [25, 41]});
+                    return L.marker(latlng, {icon});
+                },
+                onEachFeature: function (feature, layer) {
+                    if (feature.properties && feature.properties.name) {
+                        layer.bindPopup(`
+                            <div class="font-sans">
+                                <h3 class="font-bold text-lg">${feature.properties.name}</h3>
+                                <p class="text-sm text-gray-600">${feature.properties.description || ''}</p>
+                                ${feature.properties.day ? `<p class="text-xs text-gray-500 mt-1">Day ${feature.properties.day}</p>` : ''}
+                            </div>
+                        `);
+                    }
+                },
+                style: function (feature) {
+                    if (feature.geometry.type === 'LineString') {
+                        return {
+                            color: '#0ea5e9',
+                            weight: 4,
+                            opacity: 0.7,
+                        };
+                    }
+                    return {};
+                }
+            }).addTo(map);
+
+            // Fit map to bounds
+            const group = new L.featureGroup();
+            L.geoJSON(geojson).addTo(group);
+            map.fitBounds(group.getBounds().pad(0.1));
+        }
+
+        function displayDayDetails(routeData) {
+            const dayDetailsContainer = document.getElementById('day-details');
+            dayDetailsContainer.innerHTML = '';
+
+            const waypoints = routeData.route_summary.waypoints;
+            const scenicPoints = routeData.route_summary.scenic_points;
+
+            // Extract route legs from GeoJSON
+            const routeLegs = routeData.geojson.features.filter(f => f.geometry.type === 'LineString');
+
+            routeLegs.forEach((leg, index) => {
+                const distance = leg.properties.distance_km || 0;
+                const durationMin = leg.properties.duration_min || 0;
+
+                const dayCard = document.createElement('div');
+                dayCard.className = 'bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200';
+                dayCard.innerHTML = `
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Day ${index + 1}</h3>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <span>⏱️</span>
+                            <span>${(durationMin / 60).toFixed(1)} hours</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3 mb-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-green-600">📍</span>
+                            <div>
+                                <p class="text-sm text-gray-500">Start Point</p>
+                                <p class="font-semibold text-gray-900">${waypoints[index] || `Point ${index + 1}`}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-600">📍</span>
+                            <div>
+                                <p class="text-sm text-gray-500">End Point</p>
+                                <p class="font-semibold text-gray-900">${waypoints[index + 1] || `Point ${index + 2}`}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-blue-600">🏔️</span>
+                            <div>
+                                <p class="text-sm text-gray-500">Distance</p>
+                                <p class="font-semibold text-gray-900">${distance.toFixed(1)} km</p>
+                            </div>
+                        </div>
+                        ${scenicPoints[index] ? `
+                        <div class="flex items-start gap-3">
+                            <span class="text-orange-600">🏔️</span>
+                            <div>
+                                <p class="text-sm text-gray-500">Scenic Highlight</p>
+                                <p class="font-semibold text-gray-900">${scenicPoints[index]}</p>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
+                dayDetailsContainer.appendChild(dayCard);
+            });
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error-message').textContent = message;
+        }
+    </script>
+</body>
+</html>

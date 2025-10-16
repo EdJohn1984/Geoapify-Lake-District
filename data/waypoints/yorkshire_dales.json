@@ -1,0 +1,1213 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Skyreholme",
+      "postcode": "BD23 6DF",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.9009715,
+      "lat": 54.0395376,
+      "state_code": "ENG",
+      "formatted": "Skyreholme, BD23 6DF, United Kingdom",
+      "address_line1": "Skyreholme",
+      "address_line2": "BD23 6DF, United Kingdom",
+      "name": "Skyreholme",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Skyreholme",
+          "is_in": "UK, England, North Yorkshire, Wharfedale, Yorkshire Dales",
+          "place": "village",
+          "osm_id": 33390287,
+          "website": "https://skyreholme.org/",
+          "osm_type": "n",
+          "wikidata": "Q55908973",
+          "wikipedia": "en:Skyreholme",
+          "is_in:county": "North Yorkshire",
+          "is_in:municipality": "Craven",
+          "is_in:historic_county": "Yorkshire"
+        }
+      },
+      "website": "https://skyreholme.org/",
+      "wiki_and_media": {
+        "wikidata": "Q55908973",
+        "wikipedia": "en:Skyreholme"
+      },
+      "place_id": "518c0c7217616afebf59c9be6b910f054b40f00103f901cf7efd010000000092030a536b797265686f6c6d65"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.9009714999999998,
+        54.039537599191654
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Malham",
+      "postcode": "BD23",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.1529001,
+      "lat": 54.0612719,
+      "state_code": "ENG",
+      "formatted": "Malham, BD23, United Kingdom",
+      "address_line1": "Malham",
+      "address_line2": "BD23, United Kingdom",
+      "name": "Malham",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Malham",
+          "is_in": "UK, Yorkshire, North Yorkshire, Airedale",
+          "place": "village",
+          "osm_id": 5230839509,
+          "website": "https://www.malhamdale.com/",
+          "osm_type": "n",
+          "wikidata": "Q1247558",
+          "wikipedia": "en:Malham",
+          "postal_code": "BD23",
+          "is_in:county": "North Yorkshire",
+          "is_in:country_code": "GB",
+          "is_in:municipality": "Craven",
+          "is_in:national_park": "Yorkshire Dales National Park"
+        }
+      },
+      "website": "https://www.malhamdale.com/",
+      "wiki_and_media": {
+        "wikidata": "Q1247558",
+        "wikipedia": "en:Malham"
+      },
+      "place_id": "51e87008b0233901c059a59af1c1d7074b40f00103f901d546c837010000009203064d616c68616d"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.1529001,
+        54.061271899195425
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Westmorland and Furness",
+      "city": "Gawthrop",
+      "postcode": "LA10 5TA",
+      "iso3166_2": "GB-ENG",
+      "lon": -2.4731219,
+      "lat": 54.2808349,
+      "state_code": "ENG",
+      "formatted": "Gawthrop, LA10 5TA, United Kingdom",
+      "address_line1": "Gawthrop",
+      "address_line2": "LA10 5TA, United Kingdom",
+      "name": "Gawthrop",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Gawthrop",
+          "place": "village",
+          "osm_id": 12865114,
+          "osm_type": "n",
+          "wikidata": "Q5528500"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q5528500"
+      },
+      "place_id": "51cb2b7c22f4c803c0593ce6e165f2234b40f00103f9015a4ec400000000009203084761777468726f70"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.4731219,
+        54.28083489923708
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Kettlewell",
+      "postcode": "BD23 5QZ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.0492297,
+      "lat": 54.1466579,
+      "state_code": "ENG",
+      "formatted": "Kettlewell, BD23 5QZ, United Kingdom",
+      "address_line1": "Kettlewell",
+      "address_line2": "BD23 5QZ, United Kingdom",
+      "name": "Kettlewell",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Kettlewell",
+          "is_in": "UK, England, West Yorkshire, Wharfedale",
+          "place": "village",
+          "osm_id": 20941164,
+          "osm_type": "n",
+          "wikidata": "Q3695947"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3695947"
+      },
+      "place_id": "5164ef7b8ad26400c059bf67a0afc5124b40f00103f9016c893f010000000092030a4b6574746c6577656c6c"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.0492296999999997,
+        54.146657899210815
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Hawes",
+      "village": "Appersett",
+      "postcode": "DL8 3LN",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.2189608,
+      "lat": 54.312013,
+      "state_code": "ENG",
+      "formatted": "Appersett, Hawes, DL8 3LN, United Kingdom",
+      "address_line1": "Appersett",
+      "address_line2": "Hawes, DL8 3LN, United Kingdom",
+      "name": "Appersett",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Appersett",
+          "place": "village",
+          "osm_id": 23202283,
+          "osm_type": "n",
+          "wikidata": "Q4781040",
+          "is_in:county": "North Yorkshire"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q4781040"
+      },
+      "place_id": "5114d918856ec001c059c4d6bd0af0274b40f00103f901eb09620100000000920309417070657273657474"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.2189607999999996,
+        54.312012999243535
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Bainbridge",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.1029831,
+      "lat": 54.3075892,
+      "state_code": "ENG",
+      "formatted": "Bainbridge, North Yorkshire, England, United Kingdom",
+      "address_line1": "Bainbridge",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Bainbridge",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Bainbridge",
+          "place": "village",
+          "osm_id": 23202287,
+          "osm_type": "n",
+          "wikidata": "Q2331884",
+          "wikipedia": "en:Bainbridge, North Yorkshire"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q2331884",
+        "wikipedia": "en:Bainbridge, North Yorkshire"
+      },
+      "place_id": "515a53b4cde8d200c059caac37155f274b40f00103f901ef0962010000000092030a4261696e627269646765"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.1029831000000003,
+        54.30758919924263
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Leyburn",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.8295708,
+      "lat": 54.3098083,
+      "state_code": "ENG",
+      "formatted": "Leyburn, North Yorkshire, England, United Kingdom",
+      "address_line1": "Leyburn",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Leyburn",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Leyburn",
+          "place": "town",
+          "osm_id": 23202502,
+          "osm_type": "n",
+          "wikidata": "Q2095799",
+          "wikipedia": "en:Leyburn",
+          "name:pronunciation": "'le\u026ab\u025c\u02d0n"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q2095799",
+        "wikipedia": "en:Leyburn"
+      },
+      "place_id": "510277fb07ec45fdbf59a3a360cca7274b40f00103f901c60a6201000000009203074c65796275726e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.8295707999999995,
+        54.30980829924308
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Westmorland and Furness",
+      "city": "Ravenstonedale",
+      "iso3166_2": "GB-ENG",
+      "lon": -2.42982,
+      "lat": 54.432451,
+      "state_code": "ENG",
+      "formatted": "Ravenstonedale, Westmorland and Furness, England, United Kingdom",
+      "address_line1": "Ravenstonedale",
+      "address_line2": "Westmorland and Furness, England, United Kingdom",
+      "name": "Ravenstonedale",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Ravenstonedale",
+          "place": "village",
+          "osm_id": 26261127,
+          "osm_type": "n",
+          "wikidata": "Q1992930",
+          "wikipedia": "en:Ravenstonedale",
+          "is_in:county": "Cumbria"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1992930",
+        "wikipedia": "en:Ravenstonedale"
+      },
+      "place_id": "517155d977457003c0593b7ee98d5a374b40f00103f90187b690010000000092030e526176656e73746f6e6564616c65"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.42982,
+        54.43245099926977
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Buckden",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.0902259,
+      "lat": 54.1900062,
+      "state_code": "ENG",
+      "formatted": "Buckden, North Yorkshire, England, United Kingdom",
+      "address_line1": "Buckden",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Buckden",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Buckden",
+          "is_in": "UK, England, Yorkshire, North Yorkshire, Wharfedale, Yorkshire Dales",
+          "place": "village",
+          "osm_id": 26454357,
+          "osm_type": "n",
+          "wikidata": "Q2793978",
+          "wikipedia": "en:Buckden, North Yorkshire",
+          "is_in:county": "North Yorkshire",
+          "is_in:valley": "Wharfedale",
+          "is_in:municipality": "Craven",
+          "is_in:historic_county": "West Yorkshire;Yorkshire"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q2793978",
+        "wikipedia": "en:Buckden, North Yorkshire"
+      },
+      "place_id": "516f044e5bc8b800c0596cd7851f52184b40f00103f90155a99301000000009203074275636b64656e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.0902258999999996,
+        54.19000619921903
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Appletreewick",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.9201632,
+      "lat": 54.0364783,
+      "state_code": "ENG",
+      "formatted": "Appletreewick, North Yorkshire, England, United Kingdom",
+      "address_line1": "Appletreewick",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Appletreewick",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details",
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Appletreewick",
+          "place": "village",
+          "osm_id": 27366436,
+          "loc_name": "Aptrick",
+          "osm_type": "n",
+          "wikidata": "Q2796599",
+          "wikipedia": "en:Appletreewick",
+          "population": 218,
+          "is_in:county": "North Yorkshire",
+          "name:pronunciation": "\u00e6pl\u0329t\u0279i\u02c8w\u026ak",
+          "loc_name:pronunciation": "\u02c8\u00e6pt\u0279\u026ak"
+        }
+      },
+      "name_other": {
+        "loc_name": "Aptrick"
+      },
+      "wiki_and_media": {
+        "wikidata": "Q2796599",
+        "wikipedia": "en:Appletreewick"
+      },
+      "place_id": "512bb92f0cfdb8febf5914052752ab044b40f00103f9012494a1010000000092030d4170706c65747265657769636b"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.9201632,
+        54.036478299191145
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Lofthouse",
+      "postcode": "HG3 5SA",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.8455167,
+      "lat": 54.1571476,
+      "state_code": "ENG",
+      "formatted": "Lofthouse, HG3 5SA, United Kingdom",
+      "address_line1": "Lofthouse",
+      "address_line2": "HG3 5SA, United Kingdom",
+      "name": "Lofthouse",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Lofthouse",
+          "is_in": "UK,Yorkshire,North Yorkshire,Nidderdale",
+          "place": "village",
+          "osm_id": 29077196,
+          "osm_type": "n",
+          "wikidata": "Q637891",
+          "wikipedia": "en:Lofthouse, North Yorkshire",
+          "is_in:county": "North Yorkshire",
+          "is_in:country_code": "GB",
+          "is_in:municipality": "Harrogate",
+          "is_in:historic_county": "Yorkshire"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q637891",
+        "wikipedia": "en:Lofthouse, North Yorkshire"
+      },
+      "place_id": "51aa8ceb843c87fdbf59c4a19b691d144b40f00103f901ccaebb01000000009203094c6f6674686f757365"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.8455166999999997,
+        54.15714759921278
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Westmorland and Furness",
+      "city": "Kirkby Stephen",
+      "iso3166_2": "GB-ENG",
+      "lon": -2.3485894,
+      "lat": 54.4734508,
+      "state_code": "ENG",
+      "formatted": "Kirkby Stephen, Westmorland and Furness, England, United Kingdom",
+      "address_line1": "Kirkby Stephen",
+      "address_line2": "Westmorland and Furness, England, United Kingdom",
+      "name": "Kirkby Stephen",
+      "categories": [
+        "populated_place",
+        "populated_place.town"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Kirkby Stephen",
+          "place": "town",
+          "osm_id": 29536111,
+          "osm_type": "n",
+          "wikidata": "Q1838138",
+          "wikipedia": "en:Kirkby Stephen"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q1838138",
+        "wikipedia": "en:Kirkby Stephen"
+      },
+      "place_id": "51acdb453de9c902c059a69529099a3c4b40f00103f9016fafc2010000000092030e4b69726b6279205374657068656e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.3485894,
+        54.47345079927918
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Ingleton",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.4679284,
+      "lat": 54.1539026,
+      "state_code": "ENG",
+      "formatted": "Ingleton, North Yorkshire, England, United Kingdom",
+      "address_line1": "Ingleton",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Ingleton",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Ingleton",
+          "place": "village",
+          "osm_id": 29915135,
+          "osm_type": "n",
+          "wikidata": "Q985313",
+          "wikipedia": "en:Ingleton, North Yorkshire",
+          "name:pronunciation": "'\u026a\u014bg\u0259lt\u0259n"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q985313",
+        "wikipedia": "en:Ingleton, North Yorkshire"
+      },
+      "place_id": "51f4f4b63e51be03c0595b319314b3134b40f00103f901ff77c80100000000920308496e676c65746f6e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.4679284,
+        54.15390259921215
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Horton in Ribblesdale",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.2928539,
+      "lat": 54.1455978,
+      "state_code": "ENG",
+      "formatted": "Horton in Ribblesdale, North Yorkshire, England, United Kingdom",
+      "address_line1": "Horton in Ribblesdale",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Horton in Ribblesdale",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Horton in Ribblesdale",
+          "is_in": "Ribblesdale, Craven, North Yorkshire, Yorkshire, England, UK",
+          "place": "village",
+          "osm_id": 31574132,
+          "osm_type": "n",
+          "wikidata": "Q748761",
+          "wikipedia": "en:Horton in Ribblesdale"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q748761",
+        "wikipedia": "en:Horton in Ribblesdale"
+      },
+      "place_id": "51660c18c9c35702c05957fddcf2a2124b40f00103f90174c8e10100000000920315486f72746f6e20696e20526962626c657364616c65"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.2928539,
+        54.14559779921063
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Reeth",
+      "postcode": "DL11 6SE",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.942143,
+      "lat": 54.3892681,
+      "state_code": "ENG",
+      "formatted": "Reeth, DL11 6SE, United Kingdom",
+      "address_line1": "Reeth",
+      "address_line2": "DL11 6SE, United Kingdom",
+      "name": "Reeth",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Reeth",
+          "place": "village",
+          "osm_id": 33807460,
+          "osm_type": "n",
+          "wikidata": "Q738844"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q738844"
+      },
+      "place_id": "51377cd2890413ffbf5968d97d89d3314b40f00103f90164dc0302000000009203055265657468"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.9421429999999995,
+        54.389268099260164
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Askrigg",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.0811403,
+      "lat": 54.3149081,
+      "state_code": "ENG",
+      "formatted": "Askrigg, North Yorkshire, England, United Kingdom",
+      "address_line1": "Askrigg",
+      "address_line2": "North Yorkshire, England, United Kingdom",
+      "name": "Askrigg",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details.wiki_and_media"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Askrigg",
+          "place": "village",
+          "osm_id": 243352182,
+          "osm_type": "n",
+          "wikidata": "Q3695978",
+          "wikipedia": "en:Askrigg"
+        }
+      },
+      "wiki_and_media": {
+        "wikidata": "Q3695978",
+        "wikipedia": "en:Askrigg"
+      },
+      "place_id": "51dc19b7e22ca600c059e3bf99e84e284b40f00103f9017642810e0000000092030741736b72696767"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.0811402999999995,
+        54.31490809924414
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Hellifield",
+      "postcode": "BD23 4LH",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.221293,
+      "lat": 54.0058317,
+      "state_code": "ENG",
+      "formatted": "Hellifield, BD23 4LH, United Kingdom",
+      "address_line1": "Hellifield",
+      "address_line2": "BD23 4LH, United Kingdom",
+      "name": "Hellifield",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Hellifield",
+          "is_in": "UK, Yorkshire, North Yorkshire, Craven, Ribblesdale",
+          "place": "village",
+          "osm_id": 28888390,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "517aabae4335c501c05956a4d617bf004b40f00103f90146cdb8010000000092030a48656c6c696669656c64"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.221293,
+        54.005831699185975
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Westmorland and Furness",
+      "city": "Nateby",
+      "postcode": "CA17 4JP",
+      "iso3166_2": "GB-ENG",
+      "lon": -2.34913,
+      "lat": 54.4556728,
+      "state_code": "ENG",
+      "formatted": "Nateby, CA17 4JP, United Kingdom",
+      "address_line1": "Nateby",
+      "address_line2": "CA17 4JP, United Kingdom",
+      "name": "Nateby",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Nateby",
+          "place": "village",
+          "osm_id": 30749859,
+          "osm_type": "n",
+          "is_in:county": "Cumbria",
+          "is_in:district": "Eden",
+          "is_in:country_code": "GB"
+        }
+      },
+      "place_id": "517a6b60ab04cb02c05918487d7c533a4b40f00103f901a334d501000000009203064e6174656279"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.3491299999999997,
+        54.45567279927508
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Thornton in Lonsdale",
+      "postcode": "LA6 3PB",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -2.4836899,
+      "lat": 54.1580046,
+      "state_code": "ENG",
+      "formatted": "Thornton in Lonsdale, LA6 3PB, United Kingdom",
+      "address_line1": "Thornton in Lonsdale",
+      "address_line2": "LA6 3PB, United Kingdom",
+      "name": "Thornton in Lonsdale",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Thornton in Lonsdale",
+          "place": "village",
+          "osm_id": 31361420,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "517c3e6fcf98de03c0595b1ea57e39144b40f00103f9018c89de010000000092031454686f726e746f6e20696e204c6f6e7364616c65"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.4836899,
+        54.15800459921294
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "Westmorland and Furness",
+      "city": "Dent",
+      "postcode": "LA10 5QW",
+      "iso3166_2": "GB-ENG",
+      "lon": -2.4536373,
+      "lat": 54.2774741,
+      "state_code": "ENG",
+      "formatted": "Dent, LA10 5QW, United Kingdom",
+      "address_line1": "Dent",
+      "address_line2": "LA10 5QW, United Kingdom",
+      "name": "Dent",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [
+        "details"
+      ],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Dent",
+          "place": "village",
+          "osm_id": 243092648,
+          "alt_name": "Dent Town",
+          "osm_type": "n"
+        }
+      },
+      "name_other": {
+        "alt_name": "Dent Town"
+      },
+      "place_id": "5147f7bd970ca103c05987da724584234b40f00103f901a84c7d0e0000000092030444656e74"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.4536373,
+        54.277474099236365
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Redmire",
+      "postcode": "DL8 4ED",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.9308316,
+      "lat": 54.316494,
+      "state_code": "ENG",
+      "formatted": "Redmire, DL8 4ED, United Kingdom",
+      "address_line1": "Redmire",
+      "address_line2": "DL8 4ED, United Kingdom",
+      "name": "Redmire",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Redmire",
+          "place": "village",
+          "osm_id": 243352154,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "516b5501adafe4febf59511118e082284b40f00103f9015a42810e000000009203075265646d697265"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.9308316,
+        54.31649399924448
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Bellerby",
+      "postcode": "DL8 5QJ",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.8235194,
+      "lat": 54.3308834,
+      "state_code": "ENG",
+      "formatted": "Bellerby, DL8 5QJ, United Kingdom",
+      "address_line1": "Bellerby",
+      "address_line2": "DL8 5QJ, United Kingdom",
+      "name": "Bellerby",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Bellerby",
+          "place": "village",
+          "osm_id": 433983642,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "51d6f1a9ad222dfdbf595a4721635a2a4b40f00103f9019a10de190000000092030842656c6c65726279"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.8235194,
+        54.330883399247526
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "country": "United Kingdom",
+      "country_code": "gb",
+      "state": "England",
+      "county": "North Yorkshire",
+      "state_district": "York and North Yorkshire",
+      "city": "Grinton",
+      "postcode": "DL11 6HH",
+      "iso3166_2": "GB-ENG",
+      "iso3166_2_sublevel": "GB-NYK",
+      "lon": -1.929499,
+      "lat": 54.3813198,
+      "state_code": "ENG",
+      "formatted": "Grinton, DL11 6HH, United Kingdom",
+      "address_line1": "Grinton",
+      "address_line2": "DL11 6HH, United Kingdom",
+      "name": "Grinton",
+      "categories": [
+        "populated_place",
+        "populated_place.village"
+      ],
+      "details": [],
+      "datasource": {
+        "sourcename": "openstreetmap",
+        "attribution": "\u00a9 OpenStreetMap contributors",
+        "license": "Open Database License",
+        "url": "https://www.openstreetmap.org/copyright",
+        "raw": {
+          "name": "Grinton",
+          "place": "village",
+          "osm_id": 3470962993,
+          "osm_type": "n"
+        }
+      },
+      "place_id": "51a0a2ea573adffebf59ea905116cf304b40f00103f90131b1e2ce000000009203074772696e746f6e"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -1.9294989999999999,
+        54.38131979925841
+      ]
+    }
+  }
+]

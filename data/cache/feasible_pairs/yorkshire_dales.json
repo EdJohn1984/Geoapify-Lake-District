@@ -1,0 +1,342 @@
+[
+  {
+    "from": "Skyreholme:54.03954,-1.90097",
+    "to": "Malham:54.06127,-2.1529",
+    "distance": 16.676835303565383
+  },
+  {
+    "from": "Skyreholme:54.03954,-1.90097",
+    "to": "Kettlewell:54.14666,-2.04923",
+    "distance": 15.37079355637846
+  },
+  {
+    "from": "Skyreholme:54.03954,-1.90097",
+    "to": "Lofthouse:54.15715,-1.84552",
+    "distance": 13.584207611421864
+  },
+  {
+    "from": "Malham:54.06127,-2.1529",
+    "to": "Skyreholme:54.03954,-1.90097",
+    "distance": 16.676835303565383
+  },
+  {
+    "from": "Malham:54.06127,-2.1529",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 14.903421724084682
+  },
+  {
+    "from": "Malham:54.06127,-2.1529",
+    "to": "Appletreewick:54.03648,-1.92016",
+    "distance": 15.491794432781548
+  },
+  {
+    "from": "Malham:54.06127,-2.1529",
+    "to": "Horton in Ribblesdale:54.1456,-2.29285",
+    "distance": 13.111389317626612
+  },
+  {
+    "from": "Gawthrop:54.28083,-2.47312",
+    "to": "Appersett:54.31201,-2.21896",
+    "distance": 16.908162380214158
+  },
+  {
+    "from": "Gawthrop:54.28083,-2.47312",
+    "to": "Ravenstonedale:54.43245,-2.42982",
+    "distance": 17.10983126112028
+  },
+  {
+    "from": "Gawthrop:54.28083,-2.47312",
+    "to": "Ingleton:54.1539,-2.46793",
+    "distance": 14.132774854057804
+  },
+  {
+    "from": "Gawthrop:54.28083,-2.47312",
+    "to": "Thornton in Lonsdale:54.158,-2.48369",
+    "distance": 13.689496233974888
+  },
+  {
+    "from": "Kettlewell:54.14666,-2.04923",
+    "to": "Skyreholme:54.03954,-1.90097",
+    "distance": 15.37079355637846
+  },
+  {
+    "from": "Kettlewell:54.14666,-2.04923",
+    "to": "Appletreewick:54.03648,-1.92016",
+    "distance": 14.890189761162203
+  },
+  {
+    "from": "Kettlewell:54.14666,-2.04923",
+    "to": "Lofthouse:54.15715,-1.84552",
+    "distance": 13.3610659065329
+  },
+  {
+    "from": "Kettlewell:54.14666,-2.04923",
+    "to": "Horton in Ribblesdale:54.1456,-2.29285",
+    "distance": 15.920271978935263
+  },
+  {
+    "from": "Appersett:54.31201,-2.21896",
+    "to": "Gawthrop:54.28083,-2.47312",
+    "distance": 16.908162380214158
+  },
+  {
+    "from": "Appersett:54.31201,-2.21896",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 15.963710987860306
+  },
+  {
+    "from": "Appersett:54.31201,-2.21896",
+    "to": "Dent:54.27747,-2.45364",
+    "distance": 15.756399139303166
+  },
+  {
+    "from": "Bainbridge:54.30759,-2.10298",
+    "to": "Leyburn:54.30981,-1.82957",
+    "distance": 17.79801512653163
+  },
+  {
+    "from": "Bainbridge:54.30759,-2.10298",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 13.114511084798478
+  },
+  {
+    "from": "Bainbridge:54.30759,-2.10298",
+    "to": "Reeth:54.38927,-1.94214",
+    "distance": 13.858214088242663
+  },
+  {
+    "from": "Bainbridge:54.30759,-2.10298",
+    "to": "Grinton:54.38132,-1.9295",
+    "distance": 13.95149901068769
+  },
+  {
+    "from": "Leyburn:54.30981,-1.82957",
+    "to": "Bainbridge:54.30759,-2.10298",
+    "distance": 17.79801512653163
+  },
+  {
+    "from": "Leyburn:54.30981,-1.82957",
+    "to": "Lofthouse:54.15715,-1.84552",
+    "distance": 17.024346838481097
+  },
+  {
+    "from": "Leyburn:54.30981,-1.82957",
+    "to": "Askrigg:54.31491,-2.08114",
+    "distance": 16.382948114291832
+  },
+  {
+    "from": "Ravenstonedale:54.43245,-2.42982",
+    "to": "Gawthrop:54.28083,-2.47312",
+    "distance": 17.10983126112028
+  },
+  {
+    "from": "Ravenstonedale:54.43245,-2.42982",
+    "to": "Dent:54.27747,-2.45364",
+    "distance": 17.320089486497483
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Malham:54.06127,-2.1529",
+    "distance": 14.903421724084682
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Appersett:54.31201,-2.21896",
+    "distance": 15.963710987860306
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Bainbridge:54.30759,-2.10298",
+    "distance": 13.114511084798478
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Lofthouse:54.15715,-1.84552",
+    "distance": 16.39335752179477
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Horton in Ribblesdale:54.1456,-2.29285",
+    "distance": 14.126988092636267
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Askrigg:54.31491,-2.08114",
+    "distance": 13.91539928425463
+  },
+  {
+    "from": "Buckden:54.19001,-2.09023",
+    "to": "Redmire:54.31649,-1.93083",
+    "distance": 17.497295596190504
+  },
+  {
+    "from": "Appletreewick:54.03648,-1.92016",
+    "to": "Malham:54.06127,-2.1529",
+    "distance": 15.491794432781548
+  },
+  {
+    "from": "Appletreewick:54.03648,-1.92016",
+    "to": "Kettlewell:54.14666,-2.04923",
+    "distance": 14.890189761162203
+  },
+  {
+    "from": "Appletreewick:54.03648,-1.92016",
+    "to": "Lofthouse:54.15715,-1.84552",
+    "distance": 14.291607884939262
+  },
+  {
+    "from": "Lofthouse:54.15715,-1.84552",
+    "to": "Skyreholme:54.03954,-1.90097",
+    "distance": 13.584207611421864
+  },
+  {
+    "from": "Lofthouse:54.15715,-1.84552",
+    "to": "Kettlewell:54.14666,-2.04923",
+    "distance": 13.3610659065329
+  },
+  {
+    "from": "Lofthouse:54.15715,-1.84552",
+    "to": "Leyburn:54.30981,-1.82957",
+    "distance": 17.024346838481097
+  },
+  {
+    "from": "Lofthouse:54.15715,-1.84552",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 16.39335752179477
+  },
+  {
+    "from": "Lofthouse:54.15715,-1.84552",
+    "to": "Appletreewick:54.03648,-1.92016",
+    "distance": 14.291607884939262
+  },
+  {
+    "from": "Ingleton:54.1539,-2.46793",
+    "to": "Gawthrop:54.28083,-2.47312",
+    "distance": 14.132774854057804
+  },
+  {
+    "from": "Ingleton:54.1539,-2.46793",
+    "to": "Dent:54.27747,-2.45364",
+    "distance": 13.78618189400207
+  },
+  {
+    "from": "Horton in Ribblesdale:54.1456,-2.29285",
+    "to": "Malham:54.06127,-2.1529",
+    "distance": 13.111389317626612
+  },
+  {
+    "from": "Horton in Ribblesdale:54.1456,-2.29285",
+    "to": "Kettlewell:54.14666,-2.04923",
+    "distance": 15.920271978935263
+  },
+  {
+    "from": "Horton in Ribblesdale:54.1456,-2.29285",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 14.126988092636267
+  },
+  {
+    "from": "Horton in Ribblesdale:54.1456,-2.29285",
+    "to": "Hellifield:54.00583,-2.22129",
+    "distance": 16.246756735664228
+  },
+  {
+    "from": "Horton in Ribblesdale:54.1456,-2.29285",
+    "to": "Thornton in Lonsdale:54.158,-2.48369",
+    "distance": 12.544883685860626
+  },
+  {
+    "from": "Reeth:54.38927,-1.94214",
+    "to": "Bainbridge:54.30759,-2.10298",
+    "distance": 13.858214088242663
+  },
+  {
+    "from": "Reeth:54.38927,-1.94214",
+    "to": "Askrigg:54.31491,-2.08114",
+    "distance": 12.255283325535753
+  },
+  {
+    "from": "Askrigg:54.31491,-2.08114",
+    "to": "Leyburn:54.30981,-1.82957",
+    "distance": 16.382948114291832
+  },
+  {
+    "from": "Askrigg:54.31491,-2.08114",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 13.91539928425463
+  },
+  {
+    "from": "Askrigg:54.31491,-2.08114",
+    "to": "Reeth:54.38927,-1.94214",
+    "distance": 12.255283325535753
+  },
+  {
+    "from": "Askrigg:54.31491,-2.08114",
+    "to": "Bellerby:54.33088,-1.82352",
+    "distance": 16.856729811120818
+  },
+  {
+    "from": "Askrigg:54.31491,-2.08114",
+    "to": "Grinton:54.38132,-1.9295",
+    "distance": 12.324103794732215
+  },
+  {
+    "from": "Hellifield:54.00583,-2.22129",
+    "to": "Horton in Ribblesdale:54.1456,-2.29285",
+    "distance": 16.246756735664228
+  },
+  {
+    "from": "Thornton in Lonsdale:54.158,-2.48369",
+    "to": "Gawthrop:54.28083,-2.47312",
+    "distance": 13.689496233974888
+  },
+  {
+    "from": "Thornton in Lonsdale:54.158,-2.48369",
+    "to": "Horton in Ribblesdale:54.1456,-2.29285",
+    "distance": 12.544883685860626
+  },
+  {
+    "from": "Thornton in Lonsdale:54.158,-2.48369",
+    "to": "Dent:54.27747,-2.45364",
+    "distance": 13.441764977875733
+  },
+  {
+    "from": "Dent:54.27747,-2.45364",
+    "to": "Appersett:54.31201,-2.21896",
+    "distance": 15.756399139303166
+  },
+  {
+    "from": "Dent:54.27747,-2.45364",
+    "to": "Ravenstonedale:54.43245,-2.42982",
+    "distance": 17.320089486497483
+  },
+  {
+    "from": "Dent:54.27747,-2.45364",
+    "to": "Ingleton:54.1539,-2.46793",
+    "distance": 13.78618189400207
+  },
+  {
+    "from": "Dent:54.27747,-2.45364",
+    "to": "Thornton in Lonsdale:54.158,-2.48369",
+    "distance": 13.441764977875733
+  },
+  {
+    "from": "Redmire:54.31649,-1.93083",
+    "to": "Buckden:54.19001,-2.09023",
+    "distance": 17.497295596190504
+  },
+  {
+    "from": "Bellerby:54.33088,-1.82352",
+    "to": "Askrigg:54.31491,-2.08114",
+    "distance": 16.856729811120818
+  },
+  {
+    "from": "Grinton:54.38132,-1.9295",
+    "to": "Bainbridge:54.30759,-2.10298",
+    "distance": 13.95149901068769
+  },
+  {
+    "from": "Grinton:54.38132,-1.9295",
+    "to": "Askrigg:54.31491,-2.08114",
+    "distance": 12.324103794732215
+  }
+]

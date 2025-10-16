@@ -1,0 +1,57 @@
+services:
+  - type: web
+    name: hiking-backend
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: GEOAPIFY_API_KEY
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          name: hiking-redis
+          type: redis
+          property: connectionString
+      - key: CACHE_ROOT
+        value: /var/tmp/hiking-cache
+      - key: FRONTEND_URL
+        value: https://hiking-frontend.onrender.com
+  - type: worker
+    name: hiking-worker
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python worker.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: GEOAPIFY_API_KEY
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          name: hiking-redis
+          type: redis
+          property: connectionString
+      - key: CACHE_ROOT
+        value: /var/tmp/hiking-cache
+  - type: redis
+    name: hiking-redis
+    ipAllowList: []
+  - type: static_site
+    name: hiking-frontend
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: hiking-backend
+          type: web
+          property: host

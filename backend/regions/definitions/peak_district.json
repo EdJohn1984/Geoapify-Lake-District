@@ -1,0 +1,29 @@
+{
+  "id": "peak_district",
+  "name": "Peak District",
+  "description": "Moorland and limestone dales in the Peak District National Park",
+  "bbox": {
+    "west": -2.0,
+    "south": 53.0,
+    "east": -1.3,
+    "north": 53.5
+  },
+  "route_params": {
+    "min_distance_km": 10,
+    "max_distance_km": 16,
+    "default_days": 3,
+    "mode": "hike"
+  },
+  "terrain_defaults": {
+    "mountain": 20,
+    "forest": 30,
+    "coastal": 0,
+    "valley": 50
+  },
+  "scenic_categories": [
+    "natural.mountain.peak",
+    "tourism.attraction.viewpoint"
+  ],
+  "waypoints_file": "peak_district.json",
+  "cache_prefix": "peak_district"
+}

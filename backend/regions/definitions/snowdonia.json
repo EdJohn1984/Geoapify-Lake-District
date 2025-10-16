@@ -1,0 +1,29 @@
+{
+  "id": "snowdonia",
+  "name": "Snowdonia",
+  "description": "Dramatic mountains and valleys in Snowdonia National Park, Wales",
+  "bbox": {
+    "west": -4.2,
+    "south": 52.8,
+    "east": -3.5,
+    "north": 53.2
+  },
+  "route_params": {
+    "min_distance_km": 8,
+    "max_distance_km": 16,
+    "default_days": 3,
+    "mode": "hike"
+  },
+  "terrain_defaults": {
+    "mountain": 60,
+    "forest": 10,
+    "coastal": 0,
+    "valley": 30
+  },
+  "scenic_categories": [
+    "natural.mountain.peak",
+    "tourism.attraction.viewpoint"
+  ],
+  "waypoints_file": "snowdonia.json",
+  "cache_prefix": "snowdonia"
+}

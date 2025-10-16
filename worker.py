@@ -1,19 +1,16 @@
-import os
-import redis
-from rq import Worker, Queue, Connection
-from dotenv import load_dotenv
+"""
+Main worker entry point.
+"""
+import sys
+from pathlib import Path
 
-# Load environment variables
-load_dotenv()
+# Add backend to Python path
+backend_path = Path(__file__).parent / "backend"
+sys.path.insert(0, str(backend_path))
 
-# Configure Redis connection without SSL
-redis_url = os.getenv('REDIS_URL', 'redis://localhost:6379')
-conn = redis.from_url(redis_url, ssl_cert_reqs=None)
-
-# Define the queues
-route_queue = Queue('route_generation', connection=conn)
+# Import and run the worker
+from backend.worker import worker, route_queue
 
 if __name__ == '__main__':
-    with Connection(conn):
-        worker = Worker([route_queue])
-        worker.work() 
+    with route_queue.connection:
+        worker.work(with_scheduler=False)

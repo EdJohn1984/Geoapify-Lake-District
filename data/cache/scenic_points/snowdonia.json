@@ -1,0 +1,802 @@
+[
+  {
+    "name": "Tryfan",
+    "type": "Peak",
+    "coords": [
+      -3.9975779999999994,
+      53.1149310990922
+    ]
+  },
+  {
+    "name": "Trum Y Ddysgl",
+    "type": "Peak",
+    "coords": [
+      -4.171977299999999,
+      53.042159999089264
+    ]
+  },
+  {
+    "name": "Y Foel Goch",
+    "type": "Peak",
+    "coords": [
+      -3.976365299999999,
+      53.10472589909177
+    ]
+  },
+  {
+    "name": "Gallt yr Ogof",
+    "type": "Peak",
+    "coords": [
+      -3.965661999999999,
+      53.10794879909189
+    ]
+  },
+  {
+    "name": "Cnicht North Top",
+    "type": "Peak",
+    "coords": [
+      -4.016175099999999,
+      53.00202159908793
+    ]
+  },
+  {
+    "name": "Clogwynygarreg",
+    "type": "Peak",
+    "coords": [
+      -4.1539837,
+      53.06114669908999
+    ]
+  },
+  {
+    "name": "Mynydd Drws-Y-Coed",
+    "type": "Peak",
+    "coords": [
+      -4.1659675,
+      53.043901099089325
+    ]
+  },
+  {
+    "name": "Yr Arddu",
+    "type": "Peak",
+    "coords": [
+      -4.0458088,
+      52.99578409908774
+    ]
+  },
+  {
+    "name": "Moelwyn Bach",
+    "type": "Peak",
+    "coords": [
+      -3.9965737,
+      52.97421789908712
+    ]
+  },
+  {
+    "name": "Moel Goedog",
+    "type": "Peak",
+    "coords": [
+      -4.0616284,
+      52.87219759908498
+    ]
+  },
+  {
+    "name": "Moel Y Gerddi",
+    "type": "Peak",
+    "coords": [
+      -4.052190899999999,
+      52.86392689908488
+    ]
+  },
+  {
+    "name": "Glyder Fawr",
+    "type": "Peak",
+    "coords": [
+      -4.0291226,
+      53.101487099091635
+    ]
+  },
+  {
+    "name": "Glyder Fach",
+    "type": "Peak",
+    "coords": [
+      -4.0083794,
+      53.10482989909174
+    ]
+  },
+  {
+    "name": "Rhwng y Ddwynant",
+    "type": "Peak",
+    "coords": [
+      -3.5179677999999996,
+      52.81071219908433
+    ]
+  },
+  {
+    "name": "Garreg Wen",
+    "type": "Peak",
+    "coords": [
+      -3.5197658,
+      52.82015359908442
+    ]
+  },
+  {
+    "name": "Stac Rhos",
+    "type": "Peak",
+    "coords": [
+      -3.531686,
+      52.83832699908457
+    ]
+  },
+  {
+    "name": "Foel Tyn-y-fron (Moel y Pawl)",
+    "type": "Peak",
+    "coords": [
+      -3.6061526,
+      52.81822449908441
+    ]
+  },
+  {
+    "name": "Foel Rhudd",
+    "type": "Peak",
+    "coords": [
+      -3.6384363,
+      52.80219509908429
+    ]
+  },
+  {
+    "name": "Aran Benllyn",
+    "type": "Peak",
+    "coords": [
+      -3.6818188,
+      52.804465199084305
+    ]
+  },
+  {
+    "name": "Foel Ddu",
+    "type": "Peak",
+    "coords": [
+      -3.754150699999999,
+      52.80528769908431
+    ]
+  },
+  {
+    "name": "Dduallt",
+    "type": "Peak",
+    "coords": [
+      -3.7670037,
+      52.830694199084505
+    ]
+  },
+  {
+    "name": "Craig Aberserw",
+    "type": "Peak",
+    "coords": [
+      -3.9370650999999994,
+      52.82144879908443
+    ]
+  },
+  {
+    "name": "Moelfre",
+    "type": "Peak",
+    "coords": [
+      -4.0394231,
+      52.801310099084276
+    ]
+  },
+  {
+    "name": "Y Llethr",
+    "type": "Peak",
+    "coords": [
+      -3.9876944,
+      52.81287059908436
+    ]
+  },
+  {
+    "name": "Rhobell Fawr",
+    "type": "Peak",
+    "coords": [
+      -3.8015890999999997,
+      52.814843599084384
+    ]
+  },
+  {
+    "name": "Foel Figenau",
+    "type": "Peak",
+    "coords": [
+      -3.6104850999999996,
+      52.842529499084606
+    ]
+  },
+  {
+    "name": "Mynydd Bryn-llech",
+    "type": "Peak",
+    "coords": [
+      -3.7750456999999997,
+      52.86686649908492
+    ]
+  },
+  {
+    "name": "Moel Ddu",
+    "type": "Peak",
+    "coords": [
+      -3.8892285,
+      52.87697199908506
+    ]
+  },
+  {
+    "name": "Moel Gwyn-Fynydd",
+    "type": "Peak",
+    "coords": [
+      -3.8769339,
+      52.84278669908461
+    ]
+  },
+  {
+    "name": "Craig Y Penmaen",
+    "type": "Peak",
+    "coords": [
+      -3.8952963,
+      52.851147499084725
+    ]
+  },
+  {
+    "name": "Rhinog Fawr",
+    "type": "Peak",
+    "coords": [
+      -3.995566,
+      52.841888199084586
+    ]
+  },
+  {
+    "name": "Foel Ddu",
+    "type": "Peak",
+    "coords": [
+      -4.029840599999999,
+      52.83622849908455
+    ]
+  },
+  {
+    "name": "Moel Ysgyfarnogod",
+    "type": "Peak",
+    "coords": [
+      -3.9956166000000004,
+      52.89200669908529
+    ]
+  },
+  {
+    "name": "Moel y Geifr",
+    "type": "Peak",
+    "coords": [
+      -4.025739599999999,
+      52.89494029908535
+    ]
+  },
+  {
+    "name": "Craig Ddrwg",
+    "type": "Peak",
+    "coords": [
+      -4.0030942,
+      52.87577349908504
+    ]
+  },
+  {
+    "name": "Moel Y Gyrafolen",
+    "type": "Peak",
+    "coords": [
+      -3.9755393999999997,
+      52.8985526990854
+    ]
+  },
+  {
+    "name": "Moel Oernant",
+    "type": "Peak",
+    "coords": [
+      -3.8695579,
+      52.88951069908525
+    ]
+  },
+  {
+    "name": "Gallt-Y-Daren",
+    "type": "Peak",
+    "coords": [
+      -3.8171109,
+      52.893785699085335
+    ]
+  },
+  {
+    "name": "Moel Llyfnant",
+    "type": "Peak",
+    "coords": [
+      -3.7732076,
+      52.90088109908546
+    ]
+  },
+  {
+    "name": "Moel Ymenyn",
+    "type": "Peak",
+    "coords": [
+      -3.7262987,
+      52.89635479908535
+    ]
+  },
+  {
+    "name": "Y Graig",
+    "type": "Peak",
+    "coords": [
+      -3.54142,
+      52.89134649908528
+    ]
+  },
+  {
+    "name": "Garw Fynydd",
+    "type": "Peak",
+    "coords": [
+      -3.5712042,
+      52.94871339908645
+    ]
+  },
+  {
+    "name": "Mynydd Nodol",
+    "type": "Peak",
+    "coords": [
+      -3.690187199999999,
+      52.939429999086244
+    ]
+  },
+  {
+    "name": "Moel Ystradau",
+    "type": "Peak",
+    "coords": [
+      -3.9601229000000004,
+      52.97582849908715
+    ]
+  },
+  {
+    "name": "Manod Bach",
+    "type": "Peak",
+    "coords": [
+      -3.916954099999999,
+      52.984719499087404
+    ]
+  },
+  {
+    "name": "Bryn Mawr",
+    "type": "Peak",
+    "coords": [
+      -3.7851136,
+      52.98211539908732
+    ]
+  },
+  {
+    "name": "Moel Trwyn-Swch",
+    "type": "Peak",
+    "coords": [
+      -3.7750349000000005,
+      52.98643279908745
+    ]
+  },
+  {
+    "name": "Carnedd y Filiast",
+    "type": "Peak",
+    "coords": [
+      -3.6830060000000002,
+      52.98680399908747
+    ]
+  },
+  {
+    "name": "Graig Ddu",
+    "type": "Peak",
+    "coords": [
+      -3.656607,
+      52.971767999087035
+    ]
+  },
+  {
+    "name": "Foel Goch",
+    "type": "Peak",
+    "coords": [
+      -3.5592336999999996,
+      52.96772089908694
+    ]
+  },
+  {
+    "name": "Garnedd Fawr",
+    "type": "Peak",
+    "coords": [
+      -3.5829726000000006,
+      52.96754939908693
+    ]
+  },
+  {
+    "name": "Moel-yr-hydd",
+    "type": "Peak",
+    "coords": [
+      -3.9796815,
+      52.98966989908755
+    ]
+  },
+  {
+    "name": "Yr Elen",
+    "type": "Peak",
+    "coords": [
+      -3.9852042999999995,
+      53.166572399094754
+    ]
+  },
+  {
+    "name": "Carnedd Gwenllian",
+    "type": "Peak",
+    "coords": [
+      -3.966349899999999,
+      53.182956999095616
+    ]
+  },
+  {
+    "name": "Foel Fras",
+    "type": "Peak",
+    "coords": [
+      -3.9525693,
+      53.19465369909625
+    ]
+  },
+  {
+    "name": "Mynydd Tal-y-Mignedd",
+    "type": "Peak",
+    "coords": [
+      -4.1860227,
+      53.03974979908918
+    ]
+  },
+  {
+    "name": "Gyrn",
+    "type": "Peak",
+    "coords": [
+      -4.0263196,
+      53.1989563990965
+    ]
+  },
+  {
+    "name": "Gyrn Wigau",
+    "type": "Peak",
+    "coords": [
+      -4.0154728,
+      53.18750409909586
+    ]
+  },
+  {
+    "name": "Moel Eilio",
+    "type": "Peak",
+    "coords": [
+      -3.8751502999999996,
+      53.17528179909522
+    ]
+  },
+  {
+    "name": "Craig Y Ganllwyd",
+    "type": "Peak",
+    "coords": [
+      -3.9180619,
+      52.81446089908436
+    ]
+  },
+  {
+    "name": "Moel Eilio",
+    "type": "Peak",
+    "coords": [
+      -4.1584402,
+      53.09706479909143
+    ]
+  },
+  {
+    "name": "Yr Aran",
+    "type": "Peak",
+    "coords": [
+      -4.0831685,
+      53.04276019908928
+    ]
+  },
+  {
+    "name": "Moel Siabod",
+    "type": "Peak",
+    "coords": [
+      -3.9339949999999995,
+      53.07319949909044
+    ]
+  },
+  {
+    "name": "Rhinog Fach",
+    "type": "Peak",
+    "coords": [
+      -3.9829519000000007,
+      52.82415339908446
+    ]
+  },
+  {
+    "name": "Carnedd Dafydd",
+    "type": "Peak",
+    "coords": [
+      -4.0008363,
+      53.14772819909377
+    ]
+  },
+  {
+    "name": "Pen Yr Ole Wen",
+    "type": "Peak",
+    "coords": [
+      -4.010609,
+      53.13760039909328
+    ]
+  },
+  {
+    "name": "Y Garn",
+    "type": "Peak",
+    "coords": [
+      -4.047080599999999,
+      53.11570629909225
+    ]
+  },
+  {
+    "name": "Bera Mawr",
+    "type": "Peak",
+    "coords": [
+      -3.9851824,
+      53.195366999096294
+    ]
+  },
+  {
+    "name": "Foel Goch",
+    "type": "Peak",
+    "coords": [
+      -4.051099899999999,
+      53.130350799092966
+    ]
+  },
+  {
+    "name": "Elidir Fawr",
+    "type": "Peak",
+    "coords": [
+      -4.0761083,
+      53.13075789909295
+    ]
+  },
+  {
+    "name": "Foel Goch",
+    "type": "Peak",
+    "coords": [
+      -4.1350621,
+      53.08512569909091
+    ]
+  },
+  {
+    "name": "Foel Gron",
+    "type": "Peak",
+    "coords": [
+      -4.151535699999999,
+      53.08915169909109
+    ]
+  },
+  {
+    "name": "Moel Cynghorion",
+    "type": "Peak",
+    "coords": [
+      -4.1133411,
+      53.08544009909095
+    ]
+  },
+  {
+    "name": "Y Lliwedd (West Peak)",
+    "type": "Peak",
+    "coords": [
+      -4.0571477,
+      53.05939759908988
+    ]
+  },
+  {
+    "name": "Moel Lefn",
+    "type": "Peak",
+    "coords": [
+      -4.158488,
+      53.014394599088305
+    ]
+  },
+  {
+    "name": "Moel Yr Ogof",
+    "type": "Peak",
+    "coords": [
+      -4.153166499999999,
+      53.008404299088134
+    ]
+  },
+  {
+    "name": "Y Garn",
+    "type": "Peak",
+    "coords": [
+      -4.1625202,
+      53.051414099089605
+    ]
+  },
+  {
+    "name": "Carnedd Y Filiast",
+    "type": "Peak",
+    "coords": [
+      -4.0640912,
+      53.143914099093614
+    ]
+  },
+  {
+    "name": "Mynydd Mawr",
+    "type": "Peak",
+    "coords": [
+      -4.1811294,
+      53.0695575990903
+    ]
+  },
+  {
+    "name": "Garnedd Ugain",
+    "type": "Peak",
+    "coords": [
+      -4.075205199999999,
+      53.07554829909055
+    ]
+  },
+  {
+    "name": "Pen yr Helgi Du",
+    "type": "Peak",
+    "coords": [
+      -3.9475185999999995,
+      53.147557499093764
+    ]
+  },
+  {
+    "name": "Pen Llithrig y Wrach",
+    "type": "Peak",
+    "coords": [
+      -3.9207771000000005,
+      53.1422509990935
+    ]
+  },
+  {
+    "name": "Creigau Gleision",
+    "type": "Peak",
+    "coords": [
+      -3.9013076,
+      53.135832799093215
+    ]
+  },
+  {
+    "name": "Creigiau Gleision North Top",
+    "type": "Peak",
+    "coords": [
+      -3.894677,
+      53.1423289990935
+    ]
+  },
+  {
+    "name": "Craig Wen",
+    "type": "Peak",
+    "coords": [
+      -3.9008026,
+      53.124320499092654
+    ]
+  },
+  {
+    "name": "Arenig Fach",
+    "type": "Peak",
+    "coords": [
+      -3.7576796,
+      52.95872609908672
+    ]
+  },
+  {
+    "name": "Moel Dyrnogydd",
+    "type": "Peak",
+    "coords": [
+      -3.9460237000000005,
+      53.023908999088626
+    ]
+  },
+  {
+    "name": "Moel Marchyria",
+    "type": "Peak",
+    "coords": [
+      -3.8504373,
+      53.00221719908792
+    ]
+  },
+  {
+    "name": "Bera Bach",
+    "type": "Peak",
+    "coords": [
+      -3.9882506,
+      53.190224199096015
+    ]
+  },
+  {
+    "name": "Carnedd Llewelyn",
+    "type": "Peak",
+    "coords": [
+      -3.9703022999999993,
+      53.16010409909441
+    ]
+  },
+  {
+    "name": "Cnicht",
+    "type": "Peak",
+    "coords": [
+      -4.0198827,
+      52.99969829908786
+    ]
+  },
+  {
+    "name": "Castell Y Gwynt",
+    "type": "Peak",
+    "coords": [
+      -4.012063200000001,
+      53.103739199091734
+    ]
+  },
+  {
+    "name": "Crimpiau",
+    "type": "Peak",
+    "coords": [
+      -3.8945588,
+      53.11825879909237
+    ]
+  },
+  {
+    "name": "Craiglwyn",
+    "type": "Peak",
+    "coords": [
+      -3.8990829,
+      53.13010999909292
+    ]
+  },
+  {
+    "name": "Craig Cwmbychan",
+    "type": "Peak",
+    "coords": [
+      -4.1759908,
+      53.07609969909054
+    ]
+  },
+  {
+    "name": "Moelwyn Mawr",
+    "type": "Peak",
+    "coords": [
+      -4.000190599999999,
+      52.98420859908741
+    ]
+  },
+  {
+    "name": "Llechog",
+    "type": "Peak",
+    "coords": [
+      -4.0827557,
+      53.08986309909114
+    ]
+  },
+  {
+    "name": "Moel y Cerrig Duon",
+    "type": "Peak",
+    "coords": [
+      -3.598294,
+      52.804112999084296
+    ]
+  },
+  {
+    "name": "Arenig Fawr",
+    "type": "Peak",
+    "coords": [
+      -3.745965599999999,
+      52.91710689908578
+    ]
+  },
+  {
+    "name": "Y Ro Wen",
+    "type": "Peak",
+    "coords": [
+      -3.8717118,
+      53.03259659908894
+    ]
+  }
+]

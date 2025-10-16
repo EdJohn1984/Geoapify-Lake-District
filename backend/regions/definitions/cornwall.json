@@ -1,0 +1,29 @@
+{
+  "id": "cornwall",
+  "name": "Cornwall",
+  "description": "Coastal and inland hiking routes in Cornwall",
+  "bbox": {
+    "west": -5.7,
+    "south": 49.8,
+    "east": -4.0,
+    "north": 50.9
+  },
+  "route_params": {
+    "min_distance_km": 8,
+    "max_distance_km": 18,
+    "default_days": 3,
+    "mode": "hike"
+  },
+  "terrain_defaults": {
+    "mountain": 20,
+    "forest": 25,
+    "coastal": 35,
+    "valley": 20
+  },
+  "scenic_categories": [
+    "natural.mountain.peak",
+    "tourism.attraction.viewpoint"
+  ],
+  "waypoints_file": "cornwall.json",
+  "cache_prefix": "cornwall"
+}

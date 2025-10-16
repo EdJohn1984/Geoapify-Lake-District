@@ -1,0 +1,29 @@
+{
+  "id": "lake_district",
+  "name": "Lake District",
+  "description": "Mountain hiking routes in the Lake District National Park",
+  "bbox": {
+    "west": -3.3,
+    "south": 54.2,
+    "east": -2.7,
+    "north": 54.6
+  },
+  "route_params": {
+    "min_distance_km": 10,
+    "max_distance_km": 15,
+    "default_days": 3,
+    "mode": "hike"
+  },
+  "terrain_defaults": {
+    "mountain": 40,
+    "forest": 30,
+    "coastal": 5,
+    "valley": 25
+  },
+  "scenic_categories": [
+    "natural.mountain.peak",
+    "tourism.attraction.viewpoint"
+  ],
+  "waypoints_file": "lake_district.json",
+  "cache_prefix": "lake_district"
+}
