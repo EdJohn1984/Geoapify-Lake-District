@@ -45,7 +45,7 @@ services:
   - type: redis
     name: hiking-redis
     ipAllowList: []
-  - type: static_site
+  - type: static
     name: hiking-frontend
     buildCommand: cd frontend && npm ci && npm run build
     staticPublishPath: frontend/build
